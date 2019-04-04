@@ -6,6 +6,6 @@
     <string name="description_main">Bem vindo ao Meau!\nAqui você pode adotar, doar e ajudar\ncães e gatos com facilidade.\nQual o seu interesse?</string>
     <string name="adopt">Adotar</string>
     <string name="help">Ajudar</string>
-    <string name="register_animal">Cadastras Animal</string>
+    <string name="register_animal">Cadastrar Animal</string>
     <string name="login">Login</string>
 </resources>
