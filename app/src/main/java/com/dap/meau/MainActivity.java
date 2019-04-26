@@ -40,8 +40,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         // TODO Remover isso aqui
-
-
+        mBtAdopt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ConfirmationActivity.class);
+                intent.putExtra(ConfirmationActivity.TITLE, "Teste");
+                intent.putExtra(ConfirmationActivity.DESCRIPTION, "Descrição de teste");
+                intent.putExtra(ConfirmationActivity.TITLE_BUTTON, "Teste");
+                startActivity(intent);
+            }
+        });
+        // TODO Acaba aqui
     }
 }
