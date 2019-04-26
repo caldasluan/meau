@@ -53,12 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 b.putString(ConfirmationActivity.DESCRIPTION, "Descrição de teste");
                 b.putString(ConfirmationActivity.TITLE_BUTTON, "Teste");
                 b.putString(ConfirmationActivity.TITLE_ACTION_BAR, "Teste");
-                b.putSerializable(ConfirmationActivity.ACTION, new MethodUtil() {
-                    @Override
-                    public void start() {
-                        finish();
-                    }
-                });
+                b.putSerializable(ConfirmationActivity.ACTION, null);
                 intent.putExtras(b);
                 startActivity(intent);
             }
