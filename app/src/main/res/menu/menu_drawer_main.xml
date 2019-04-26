@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:title="@string/my_profile" />
+    <item android:title="@string/my_pets" />
+    <item android:title="@string/favorites" />
+    <item android:title="@string/chat" />
+    <item
+        android:icon="@drawable/ic_pets_black"
+        android:title="@string/shortcuts">
+        <menu>
+            <item android:title="@string/register_pet" />
+            <item android:title="@string/adopter_pet" />
+            <item android:title="@string/help_pet" />
+            <item android:title="@string/patronize_pet" />
+        </menu>
+    </item>
+    <item android:title="@string/info" >
+        <menu >
+            <item android:title="@string/tips" />
+            <item android:title="@string/events" />
+            <item android:title="@string/legislation" />
+            <item android:title="@string/term_adoption" />
+            <item android:title="@string/adoption_stories" />
+        </menu>
+    </item>
+    <item android:title="@string/setup" >
+        <menu >
+            <item android:title="@string/privacity" />
+        </menu>
+    </item>
 </menu>

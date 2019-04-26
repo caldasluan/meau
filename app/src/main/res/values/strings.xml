@@ -11,4 +11,21 @@
     <string name="logomarca_do_aplicativo_meau">drw_meau_marca_contdesc</string>
     <string name="user_name">Nome de Usuário</string>
     <string name="password">Senha</string>
+    <string name="my_profile">Meu Perfil</string>
+    <string name="my_pets">Meus pets</string>
+    <string name="favorites">Favoritos</string>
+    <string name="chat">Chat</string>
+    <string name="shortcuts">Atalhos</string>
+    <string name="register_pet">Cadastrar um pet</string>
+    <string name="adopter_pet">Adotar um pet</string>
+    <string name="help_pet">Ajudar um pet</string>
+    <string name="patronize_pet">Apadrinhar um pet</string>
+    <string name="info">Informações</string>
+    <string name="tips">Dicas</string>
+    <string name="events">Eventos</string>
+    <string name="legislation">Legislação</string>
+    <string name="term_adoption">Termo de Adoção</string>
+    <string name="adoption_stories">Histórias de Adoção</string>
+    <string name="setup">Configurações</string>
+    <string name="privacity">Privacidade</string>
 </resources>
