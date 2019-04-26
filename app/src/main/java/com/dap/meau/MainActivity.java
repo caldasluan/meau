@@ -10,7 +10,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    DrawerLayout mDrawerLayout;
     Button mBtLogin;
 
     @Override
@@ -40,15 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // TODO Remover isso aqui
 
-    }
 
-    @Override
-    public void onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            mDrawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 }
