@@ -6,9 +6,7 @@
     <item android:title="@string/my_pets" />
     <item android:title="@string/favorites" />
     <item android:title="@string/chat" />
-    <item
-        android:icon="@drawable/ic_pets_black"
-        android:title="@string/shortcuts">
+    <item android:title="@string/shortcuts">
         <menu>
             <item android:title="@string/register_pet" />
             <item android:title="@string/adopter_pet" />
