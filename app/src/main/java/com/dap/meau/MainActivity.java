@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button mBtLogin;
+    Button mBtLogin, mBtAdopt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Referência de Views
         mBtLogin = findViewById(R.id.bt_main_login);
+        mBtAdopt = findViewById(R.id.bt_main_adopt);
 
         // Eventos de Click
         mBtLogin.setOnClickListener(new View.OnClickListener() {

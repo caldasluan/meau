@@ -52,7 +52,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/bt_main_adopt"
                 style="@style/AppTheme.ButtonMain"
                 android:layout_marginTop="48dp"
                 android:text="@string/adopt"
@@ -68,7 +68,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button" />
+                app:layout_constraintTop_toBottomOf="@+id/bt_main_adopt" />
 
             <Button
                 android:id="@+id/button3"
