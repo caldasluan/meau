@@ -11,4 +11,6 @@
     <string name="logomarca_do_aplicativo_meau">drw_meau_marca_contdesc</string>
     <string name="user_name">Nome de Usuário</string>
     <string name="password">Senha</string>
+    <string name="afh_username">username</string>
+    <string name="afh_password">password</string>
 </resources>
