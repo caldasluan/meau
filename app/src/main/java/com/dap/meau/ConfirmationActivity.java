@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.dap.meau.Util.MethodUtil;
+
 public class ConfirmationActivity extends AppCompatActivity {
 
     public static String TITLE_ACTION_BAR = "confirmatio_title_action_bar";
@@ -18,7 +20,7 @@ public class ConfirmationActivity extends AppCompatActivity {
     String mTitle, mDescription, mTitleButton, mTitleActionBar;
     TextView mTxtTitle, mTxtDescription;
     Button mBtButton;
-    View.OnClickListener mClickListener;
+    MethodUtil mMethodUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class ConfirmationActivity extends AppCompatActivity {
             mDescription = bundle.getString(DESCRIPTION);
             mTitleButton  = bundle.getString(TITLE_BUTTON);
             mTitleActionBar  = bundle.getString(TITLE_ACTION_BAR);
-            mClickListener = (View.OnClickListener) bundle.get(ACTION);
+            mMethodUtil = (MethodUtil) bundle.getSerializable(ACTION);
         }
         else {
             finish();
@@ -52,6 +54,11 @@ public class ConfirmationActivity extends AppCompatActivity {
         mTxtTitle.setText(mTitle);
         mTxtDescription.setText(mDescription);
         mBtButton.setText(mTitleButton);
-        mBtButton.setOnClickListener(mClickListener);
+        mBtButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMethodUtil.start();
+            }
+        });
     }
 }

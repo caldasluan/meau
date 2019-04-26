@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.dap.meau.Util.MethodUtil;
+
 public class MainActivity extends AppCompatActivity {
 
     Button mBtLogin, mBtAdopt;
@@ -46,9 +48,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ConfirmationActivity.class);
-                intent.putExtra(ConfirmationActivity.TITLE, "Teste");
-                intent.putExtra(ConfirmationActivity.DESCRIPTION, "Descrição de teste");
-                intent.putExtra(ConfirmationActivity.TITLE_BUTTON, "Teste");
+                Bundle b = new Bundle();
+                b.putString(ConfirmationActivity.TITLE, "Teste");
+                b.putString(ConfirmationActivity.DESCRIPTION, "Descrição de teste");
+                b.putString(ConfirmationActivity.TITLE_BUTTON, "Teste");
+                b.putString(ConfirmationActivity.TITLE_ACTION_BAR, "Teste");
+                b.putSerializable(ConfirmationActivity.ACTION, new MethodUtil() {
+                    @Override
+                    public void start() {
+                        finish();
+                    }
+                });
+                intent.putExtras(b);
                 startActivity(intent);
             }
         });
