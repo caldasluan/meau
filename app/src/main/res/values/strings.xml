@@ -9,4 +9,6 @@
     <string name="register_animal">Cadastrar Animal</string>
     <string name="login">Entrar</string>
     <string name="logomarca_do_aplicativo_meau">drw_meau_marca_contdesc</string>
+    <string name="user_name">Nome de Usuário</string>
+    <string name="password">Senha</string>
 </resources>
