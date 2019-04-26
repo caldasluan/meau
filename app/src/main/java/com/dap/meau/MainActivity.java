@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
         // Suporte para ActionBar e criação do Drawer
         Toolbar mToolbar = findViewById(R.id.toolbar);
         mToolbar.setTitle("");
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer, R.string.close_drawer);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        */
 
         // Referência de Views
         mBtLogin = findViewById(R.id.bt_main_login);
