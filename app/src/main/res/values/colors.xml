@@ -5,4 +5,8 @@
     <color name="colorPrimaryLght">#fde399</color>
     <color name="colorAccent">#569C9B</color>
     <color name="colorAccentLight">#85c9bf</color>
+
+    <color name="colorSecondary">#cfe9e5</color>
+    <color name="colorSecondaryDark">#88c9bf</color>
+
 </resources>

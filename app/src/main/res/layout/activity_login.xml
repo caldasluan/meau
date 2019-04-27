@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/loginParentConstraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="#FAFAFA">
 
     <include
         android:id="@+id/loginToolbar"
@@ -20,18 +21,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/user_name"
         android:textColorHint="#BDBDBD"
         app:boxBackgroundColor="@android:color/transparent"
         app:boxStrokeColor="#E6E7E8"
+        app:hintTextAppearance="@style/TextAppearance.Design.Hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginToolbar">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/loginEditUsername"
+            style="@style/AppTheme.InputText.Main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -49,12 +52,14 @@
         android:textColorHint="#BDBDBD"
         app:boxBackgroundColor="@android:color/transparent"
         app:boxStrokeColor="#E6E7E8"
+        app:hintTextAppearance="@style/TextAppearance.Design.Hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginInputUsername">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/loginEditPassword"
+            style="@style/AppTheme.InputText.Main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
@@ -62,15 +67,10 @@
 
     <Button
         android:id="@+id/loginEntrar"
-        style="@android:style/Widget.Material.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/AppThemeBlue.ButtonMain"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
-        android:width="232dp"
-        android:height="40dp"
-        android:backgroundTint="#88C9BF"
         android:hapticFeedbackEnabled="true"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"

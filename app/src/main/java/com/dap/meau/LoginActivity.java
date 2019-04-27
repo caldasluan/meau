@@ -18,7 +18,7 @@ public class LoginActivity extends AppCompatActivity {
         // Suporte para ActionBar
         Toolbar mToolbar = findViewById(R.id.loginToolbar);
         mToolbar.setTitle(getString(R.string.login));
-        mToolbar.setBackgroundColor(Color.parseColor("#cfe9e5"));
+        // mToolbar.setBackgroundColor(Color.parseColor("#cfe9e5"));
         setSupportActionBar(mToolbar);
     }
 }
