@@ -24,7 +24,7 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeBlue"></activity>
+            android:theme="@style/AppTheme.Blue"></activity>
         <activity
             android:name=".ConfirmationActivity"
             android:screenOrientation="portrait" />
