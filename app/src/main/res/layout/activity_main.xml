@@ -100,7 +100,7 @@
         android:layout_height="44dp"
         android:background="@drawable/meau_marca"
         android:backgroundTint="@color/colorAccent"
-        android:contentDescription="@string/logomarca_do_aplicativo_meau"
+        android:contentDescription="@string/drw_meau_marca_contdesc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

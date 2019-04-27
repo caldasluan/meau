@@ -1,47 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loginParentConstraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".LoginActivity">
+    android:layout_height="match_parent">
 
-    <include layout="@layout/template_toolbar" />
+    <include
+        android:id="@+id/loginToolbar"
+        layout="@layout/template_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editText"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/loginInputUsername"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:autofillHints="@string/afh_username"
-        android:ems="10"
+        android:layout_marginEnd="16dp"
         android:hint="@string/user_name"
-        android:inputType="textPersonName" />
+        app:boxBackgroundColor="@android:color/transparent"
+        app:boxStrokeColor="#E6E7E8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginToolbar">
 
-    <EditText
-        android:id="@+id/editText2"
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/loginEditUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/loginInputPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:autofillHints="@string/afh_password"
-        android:ems="10"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:hint="@string/password"
-        android:inputType="textPassword" />
+        app:boxBackgroundColor="@android:color/transparent"
+        app:boxStrokeColor="#E6E7E8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginInputUsername">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/loginEditPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/button4"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:id="@+id/loginEntrar"
+        style="@style/AppTheme.ButtonMain"
+        android:layout_width="232dp"
+        android:layout_height="40dp"
         android:layout_marginTop="52dp"
-        android:layout_marginEnd="64dp"
-        android:text="@string/login" />
+        android:backgroundTint="#88C9BF"
+        android:text="@string/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginInputPassword" />
 
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
