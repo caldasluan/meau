@@ -1,5 +1,6 @@
 package com.dap.meau;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,8 +16,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Suporte para ActionBar
-        Toolbar mToolbar = findViewById(R.id.toolbar);
+        Toolbar mToolbar = findViewById(R.id.loginToolbar);
         mToolbar.setTitle(getString(R.string.login));
+        mToolbar.setBackgroundColor(Color.parseColor("#cfe9e5"));
         setSupportActionBar(mToolbar);
     }
 }
