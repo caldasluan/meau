@@ -2,6 +2,7 @@
 <resources>
 
     <style name="AppTheme.InputText.Main" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">#bdbdbd</item>
     </style>
 </resources>
