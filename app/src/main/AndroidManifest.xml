@@ -13,6 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CadastroAnimalActivity"></activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".PerfilAnimal"></activity>
+        <activity android:name=".Util.AnimalProfile" />
         <activity
             android:name=".InitActivity"
             android:screenOrientation="portrait"
