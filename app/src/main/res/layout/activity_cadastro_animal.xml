@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cad_animal_parent_CL"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroAnimalActivity">
+
+    <include
+        android:id="@+id/cad_animal_Toolbar"
+        layout="@layout/template_toolbar"></include>
+
+
+    <ScrollView
+        android:id="@+id/cad_animal_parent_SV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cad_animal_child_CL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/cad_animal_parent_LL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_adocao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Adoção:"
+                    android:textColor="@color/colorTitle"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_nomedoanimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="NOME DO ANIMAL"
+                    android:textColor="@color/colorOrangeSubtitle"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/cad_animal_edit_nomedoanimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:hint="Nome do Animal"
+                    android:textColorHint="@color/colorHintText"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_fotosdoanimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="FOTOS DO ANIMAL"
+                    android:textColor="@color/colorOrangeSubtitle"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/cad_animal_btn_fotosanimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="128dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="#F1F2F2"
+                    android:drawableTop="@android:drawable/ic_menu_add"
+                    android:drawableTint="@color/colorGrayBtnText"
+                    android:fontFamily="@font/roboto"
+                    android:paddingTop="20dp"
+                    android:text="adicionar fotos"
+                    android:textColor="@color/colorGrayBtnText" />
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_especie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="ESPÉCIE"
+                    android:textColor="@color/colorOrangeSubtitle"
+                    android:textSize="12sp" />
+
+                <RadioGroup
+                    android:id="@+id/cad_animal_RG_especie"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/cad_animal_RB_especie_cachorro"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/roboto"
+                        android:text="Cachorro"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                    <RadioButton
+                        android:id="@+id/cad_animal_RB_especie_gato"
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/roboto"
+                        android:text="Gato"
+                        android:textColor="@color/colorGrayBtnText" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_sexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:text="SEXO"
+                    android:textColor="@color/colorOrangeSubtitle"
+                    android:textSize="12sp" />
+
+                <RadioGroup
+                    android:id="@+id/cad_animal_RG_sexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/cad_animal_RB_sexo_macho"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/roboto"
+                        android:text="Macho"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                    <RadioButton
+                        android:id="@+id/cad_animal_RB_sexo_femea"
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/roboto"
+                        android:text="Fêmea"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_sexo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:text="PORTE"
+                    android:textColor="@color/colorOrangeSubtitle"
+                    android:textSize="12sp" />
+
+                <RadioGroup
+                    android:id="@+id/cad_animal_RG_porte"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/cad_animal_RB_porte_pequeno"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/roboto"
+                        android:text="Pequeno"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                    <RadioButton
+                        android:id="@+id/cad_animal_RB_porte_medio"
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/roboto"
+                        android:text="Médio"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                    <RadioButton
+                        android:id="@+id/cad_animal_RB_porte_grande"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/roboto"
+                        android:text="Grande"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_idade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:text="IDADE"
+                    android:textColor="@color/colorOrangeSubtitle"
+                    android:textSize="12sp" />
+
+                <RadioGroup
+                    android:id="@+id/cad_animal_RG_idade"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/cad_animal_RB_idade_filhote"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/roboto"
+                        android:text="Filhote"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                    <RadioButton
+                        android:id="@+id/cad_animal_RB_idade_adulto"
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/roboto"
+                        android:text="Adulto"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                    <RadioButton
+                        android:id="@+id/cad_animal_RB_idade_idoso"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/roboto"
+                        android:text="Idoso"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_temperamento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:text="TEMPERAMENTO"
+                    android:textColor="@color/colorOrangeSubtitle"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:id="@+id/cad_animal_LL_temperamento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cad_animal_CHKB_temperamento_brincalhao"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="Brincalhão"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                    <CheckBox
+                        android:id="@+id/cad_animal_CHKB_temperamento_timido"
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="Tímido"
+                        android:textColor="@color/colorGrayBtnText"/>
+
+                    <CheckBox
+                        android:id="@+id/cad_animal_CHKB_temperamento_calmo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="Calmo"
+                        android:textColor="@color/colorGrayBtnText"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cad_animal_LL_temperamento2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cad_animal_CHKB_temperamento_guarda"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="Guarda"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                    <CheckBox
+                        android:id="@+id/cad_animal_CHKB_temperamento_amoroso"
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="Amoroso"
+                        android:textColor="@color/colorGrayBtnText"/>
+
+                    <CheckBox
+                        android:id="@+id/cad_animal_CHKB_temperamento_preguicoso"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="Preguiçoso"
+                        android:textColor="@color/colorGrayBtnText"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
