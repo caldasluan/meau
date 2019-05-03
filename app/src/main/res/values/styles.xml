@@ -19,4 +19,9 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <!-- Splash Screen -->
+    <style name="AppTheme.SplashScreen" parent="AppTheme.FullScreen">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
 </resources>
