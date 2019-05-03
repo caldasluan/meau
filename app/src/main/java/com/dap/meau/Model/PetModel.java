@@ -3,6 +3,15 @@ package com.dap.meau.Model;
 public class PetModel {
     private String name, gender, age, postage, city, imageUrl;
 
+    public PetModel(String name, String gender, String age, String postage, String city, String imageUrl) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.postage = postage;
+        this.city = city;
+        this.imageUrl = imageUrl;
+    }
+
     public String getName() {
         return name;
     }

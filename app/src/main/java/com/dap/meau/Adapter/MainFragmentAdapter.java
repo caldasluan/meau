@@ -1,8 +1,11 @@
 package com.dap.meau.Adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +18,12 @@ import com.dap.meau.ViewHolder.DefaultPetViewHolder;
 import java.util.ArrayList;
 
 public class MainFragmentAdapter extends RecyclerView.Adapter<DefaultPetViewHolder> {
-    ArrayList<PetModel> mList;
-    Activity mActivity;
+    private ArrayList<PetModel> mList;
+    private Context mContext;
 
-    public MainFragmentAdapter(Activity activity) {
+    public MainFragmentAdapter(Context context) {
         super();
-        mActivity = activity;
+        mContext = context;
     }
 
     @NonNull
@@ -39,7 +42,8 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<DefaultPetViewHold
         defaultPetViewHolder.gender.setText(petModel.getGender());
         defaultPetViewHolder.age.setText(petModel.getAge());
         defaultPetViewHolder.postage.setText(petModel.getPostage());
-        Glide.with(mActivity).load(petModel.getImageUrl()).into(defaultPetViewHolder.image);
+        defaultPetViewHolder.city.setText(petModel.getCity());
+        Glide.with(mContext).load(petModel.getImageUrl()).into(defaultPetViewHolder.image);
     }
 
     @Override

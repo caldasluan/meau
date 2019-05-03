@@ -31,4 +31,14 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
     }
+
+    // Atualiza o nome do título da Toolbar
+    public void setTitleToolbar(String s) {
+        mToolbar.setTitle(s);
+    }
+
+    // Atualiza o nome do título da Toolbar
+    public void setTitleToolbar(int s) {
+        mToolbar.setTitle(s);
+    }
 }

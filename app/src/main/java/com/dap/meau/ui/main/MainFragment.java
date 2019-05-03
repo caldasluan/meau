@@ -12,13 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dap.meau.Adapter.MainFragmentAdapter;
+import com.dap.meau.MainActivity;
 import com.dap.meau.R;
+import com.dap.meau.Stub.PetStub;
 
 public class MainFragment extends Fragment {
 
     private MainViewModel mViewModel;
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private MainFragmentAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     public static MainFragment newInstance() {
@@ -37,12 +39,18 @@ public class MainFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
+        ((MainActivity)getActivity()).setTitleToolbar(R.string.adopt);
+
         // Cria o RecyclerView
+        recyclerView = getView().findViewById(R.id.main_fragment_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new MainFragmentAdapter(getActivity());
+        mAdapter = new MainFragmentAdapter(getContext());
         recyclerView.setAdapter(mAdapter);
+
+        // TODO: Teste
+        mAdapter.setList(PetStub.getListPet());
     }
 
 }

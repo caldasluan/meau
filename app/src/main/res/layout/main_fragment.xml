@@ -8,6 +8,7 @@
     tools:context=".ui.main.MainFragment">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_fragment_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/view_holder_default_pet" />
