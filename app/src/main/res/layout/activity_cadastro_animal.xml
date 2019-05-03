@@ -65,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
-                    android:hint="@string/nome_do_animal"
+                    android:hint="@string/nome_do_animal_lc"
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:textColorHint="@color/colorHintText"
@@ -402,6 +402,7 @@
                     android:id="@+id/cad_animal_edit_doencas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/roboto"
                     android:hint="@string/doen_as_do_animal"
                     android:importantForAutofill="no"
@@ -463,22 +464,41 @@
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto"
+                    android:maxLines="5"
+                    android:minLines="1"
                     android:text="@string/sobre_o_animal"
                     android:textColor="@color/colorOrangeSubtitle"
                     android:textSize="12sp" />
 
-                <Button
-                    android:id="@+id/cad_animal_btn_colocarAdocao"
-                    android:layout_width="232dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
-                    android:backgroundTint="@color/colorPrimary"
+                <EditText
+                    android:id="@+id/cad_animal_edit_sobre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/roboto"
-                    android:text="@string/colocar_para_ado_o"
-                    android:textColor="@color/colorTitle" />
+                    android:hint="@string/sobre_o_animal_lc"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"
+                    android:textColorHint="@color/colorHintText"
+                    android:textSize="14sp"
+                    tools:targetApi="o" />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/cad_animal_btn_colocarAdocao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:fontFamily="@font/roboto"
+                android:text="@string/colocar_para_ado_o"
+                android:textColor="@color/colorTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cad_animal_parent_LL"
+                style="@style/AppTheme.ButtonMain"/>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
