@@ -16,11 +16,11 @@ public class ConfirmationActivity extends AppCompatActivity {
     public static String DESCRIPTION = "confirmation_description";
     public static String TITLE_BUTTON = "confimation_title_button";
     public static String ACTION = "confirmation_button";
+    public static String ACTION_OK_REGISTER_PET = "action_ok_register_pet";
 
-    String mTitle, mDescription, mTitleButton, mTitleActionBar;
+    String mTitle, mDescription, mTitleButton, mTitleActionBar, mConfimationClicked;
     TextView mTxtTitle, mTxtDescription;
     Button mBtButton;
-    MethodUtil mMethodUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class ConfirmationActivity extends AppCompatActivity {
             mDescription = bundle.getString(DESCRIPTION);
             mTitleButton  = bundle.getString(TITLE_BUTTON);
             mTitleActionBar  = bundle.getString(TITLE_ACTION_BAR);
-            mMethodUtil = (MethodUtil) bundle.getSerializable(ACTION);
+            mConfimationClicked = bundle.getString(ACTION);
         }
         else {
             finish();
@@ -57,8 +57,14 @@ public class ConfirmationActivity extends AppCompatActivity {
         mBtButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mMethodUtil.start();
+                onConfirmationClicked(mConfimationClicked);
             }
         });
+    }
+
+    private void onConfirmationClicked(String s) {
+        if (s.equals(ACTION_OK_REGISTER_PET)) {
+            finish();
+        }
     }
 }
