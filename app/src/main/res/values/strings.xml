@@ -32,6 +32,7 @@
     <string name="privacity">Privacidade</string>
     <string name="ado_o">Adoção</string>
     <string name="nome_do_animal">NOME DO ANIMAL</string>
+    <string name="nome_do_animal_lc">Nome do animal</string>
     <string name="fotos_do_animal">FOTOS DO ANIMAL</string>
     <string name="adicionar_fotos">adicionar fotos</string>
     <string name="esp_cie">ESPÉCIE</string>
@@ -67,6 +68,7 @@
     <string name="visita_pr_via">Visita Prévia</string>
     <string name="acompanhamento_p_s_ado_o">Acompanhamento pós Adoção</string>
     <string name="sobre_o_animal">SOBRE O ANIMAL</string>
+    <string name="sobre_o_animal_lc">Sobre o animal</string>
     <string name="colocar_para_ado_o">COLOCAR PARA ADOÇÃO</string>
 
     
