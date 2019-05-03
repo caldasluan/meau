@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".CadastroAnimalActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".InitActivity"
             android:screenOrientation="portrait"
@@ -29,6 +30,10 @@
         <activity
             android:name=".ConfirmationActivity"
             android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
