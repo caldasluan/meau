@@ -8,7 +8,7 @@
     tools:context=".PerfilAnimal">
 
     <include
-        android:id="@+id/include"
+        android:id="@+id/toolbar"
         layout="@layout/template_toolbar"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,7 +31,7 @@
             android:backgroundTint="@color/colorAppBackground">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/profile_pet_image"
                 android:layout_width="0dp"
                 android:layout_height="184dp"
                 android:contentDescription="@string/CD_dog"
@@ -39,7 +39,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/cachorro1" />
+                tools:srcCompat="@drawable/cachorro1" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -52,18 +52,18 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView26" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_name" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/profile_pet_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/macho"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:text="@string/macho" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -76,18 +76,18 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_gender" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/profile_pet_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/samambaia_sul_distrito_federal"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                tools:text="@string/samambaia_sul_distrito_federal" />
 
             <View
                 android:id="@+id/divider"
@@ -97,7 +97,7 @@
                 android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_city" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -113,15 +113,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/divider" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/profile_pet_castrated"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/Noo"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                tools:text="@string/Noo" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -134,18 +134,18 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_castrated" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/profile_pet_vaccinated"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/Noo"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                tools:text="@string/Noo" />
 
             <View
                 android:id="@+id/divider2"
@@ -155,7 +155,7 @@
                 android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_vaccinated" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -171,15 +171,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/profile_pet_temperament"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/calm"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                tools:text="@string/calmo" />
 
             <View
                 android:id="@+id/divider3"
@@ -189,7 +189,7 @@
                 android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_temperament" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -205,15 +205,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/profile_pet_requirements"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/termos"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                tools:text="@string/termos" />
 
             <View
                 android:id="@+id/divider4"
@@ -223,7 +223,7 @@
                 android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_requirements" />
 
             <TextView
                 android:id="@+id/textView16"
@@ -239,18 +239,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/profile_pet_about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/Bidu_da"
                 android:textColor="@color/colorTitle"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                tools:text="@string/Bidu_da" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/profile_pet_button"
                 android:layout_width="232dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="8dp"
@@ -264,7 +264,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_about" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -277,18 +277,18 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView26" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_name" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/profile_pet_postage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/medio"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                app:layout_constraintTop_toBottomOf="@+id/textView18"
+                tools:text="@string/medio" />
 
             <TextView
                 android:id="@+id/textView20"
@@ -301,18 +301,18 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/textView26" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_name" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/profile_pet_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/adulto"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toEndOf="@+id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                app:layout_constraintTop_toBottomOf="@+id/textView20"
+                tools:text="@string/adulto" />
 
             <TextView
                 android:id="@+id/textView22"
@@ -328,15 +328,15 @@
                 app:layout_constraintTop_toTopOf="@+id/divider" />
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/profile_pet_dewormed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/yess"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                app:layout_constraintTop_toBottomOf="@+id/textView22"
+                tools:text="@string/yess" />
 
             <TextView
                 android:id="@+id/textView24"
@@ -349,21 +349,21 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_dewormed" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/profile_pet_disease"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/nenhuma"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                app:layout_constraintTop_toBottomOf="@+id/textView24"
+                tools:text="@string/nenhuma" />
 
             <TextView
-                android:id="@+id/textView26"
+                android:id="@+id/profile_pet_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -373,7 +373,7 @@
                 android:textColor="#434343"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_pet_image" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

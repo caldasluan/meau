@@ -18,7 +18,8 @@
     <ScrollView
         android:id="@+id/cad_animal_parent_SV"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cad_animal_Toolbar">
@@ -65,10 +66,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:hint="@string/nome_do_animal"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
                     android:textColorHint="@color/colorHintText"
                     android:textSize="14sp"
-                    android:importantForAutofill="no"
-                    android:inputType="text" tools:targetApi="o" />
+                    tools:targetApi="o" />
 
                 <TextView
                     android:id="@+id/cad_animal_txt_fotosdoanimal"
@@ -402,10 +404,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:hint="@string/doen_as_do_animal"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
                     android:textColorHint="@color/colorHintText"
                     android:textSize="14sp"
-                    android:inputType="text"
-                    android:importantForAutofill="no" tools:targetApi="o" />
+                    tools:targetApi="o" />
 
                 <TextView
                     android:id="@+id/cad_animal_txt_exigencias"

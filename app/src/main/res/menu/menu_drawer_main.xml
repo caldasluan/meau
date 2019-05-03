@@ -7,7 +7,9 @@
     <item android:title="@string/chat" />
     <item android:title="@string/shortcuts">
         <menu>
-            <item android:title="@string/register_pet" />
+            <item
+                android:id="@+id/menu_drawer_item_register_pet"
+                android:title="@string/register_pet" />
             <item android:title="@string/adopter_pet" />
             <item android:title="@string/help_pet" />
             <item android:title="@string/patronize_pet" />
