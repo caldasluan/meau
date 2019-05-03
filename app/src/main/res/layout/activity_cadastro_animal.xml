@@ -9,13 +9,19 @@
 
     <include
         android:id="@+id/cad_animal_Toolbar"
-        layout="@layout/template_toolbar"></include>
+        layout="@layout/template_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></include>
 
 
     <ScrollView
         android:id="@+id/cad_animal_parent_SV"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cad_animal_Toolbar">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/cad_animal_child_CL"
@@ -27,7 +33,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="56dp"
                 android:layout_marginEnd="24dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Adoção:"
+                    android:text="@string/ado_o"
                     android:textColor="@color/colorTitle"
                     android:textSize="16sp" />
 
@@ -50,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/roboto"
-                    android:text="NOME DO ANIMAL"
+                    android:text="@string/nome_do_animal"
                     android:textColor="@color/colorOrangeSubtitle"
                     android:textSize="12sp" />
 
@@ -59,9 +64,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
-                    android:hint="Nome do Animal"
+                    android:hint="@string/nome_do_animal"
                     android:textColorHint="@color/colorHintText"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:importantForAutofill="no"
+                    android:inputType="text" tools:targetApi="o" />
 
                 <TextView
                     android:id="@+id/cad_animal_txt_fotosdoanimal"
@@ -69,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/roboto"
-                    android:text="FOTOS DO ANIMAL"
+                    android:text="@string/fotos_do_animal"
                     android:textColor="@color/colorOrangeSubtitle"
                     android:textSize="12sp" />
 
@@ -83,7 +90,7 @@
                     android:drawableTint="@color/colorGrayBtnText"
                     android:fontFamily="@font/roboto"
                     android:paddingTop="20dp"
-                    android:text="adicionar fotos"
+                    android:text="@string/adicionar_fotos"
                     android:textColor="@color/colorGrayBtnText" />
 
                 <TextView
@@ -92,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/roboto"
-                    android:text="ESPÉCIE"
+                    android:text="@string/esp_cie"
                     android:textColor="@color/colorOrangeSubtitle"
                     android:textSize="12sp" />
 
@@ -109,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:fontFamily="@font/roboto"
-                        android:text="Cachorro"
+                        android:text="@string/cachorro"
                         android:textColor="@color/colorGrayBtnText" />
 
                     <RadioButton
@@ -119,7 +126,7 @@
                         android:layout_marginStart="0dp"
                         android:layout_weight="0"
                         android:fontFamily="@font/roboto"
-                        android:text="Gato"
+                        android:text="@string/gato"
                         android:textColor="@color/colorGrayBtnText" />
                 </RadioGroup>
 
@@ -130,7 +137,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto"
-                    android:text="SEXO"
+                    android:text="@string/sexo"
                     android:textColor="@color/colorOrangeSubtitle"
                     android:textSize="12sp" />
 
@@ -147,7 +154,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:fontFamily="@font/roboto"
-                        android:text="Macho"
+                        android:text="@string/macho"
                         android:textColor="@color/colorGrayBtnText" />
 
                     <RadioButton
@@ -156,7 +163,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:fontFamily="@font/roboto"
-                        android:text="Fêmea"
+                        android:text="@string/f_mea"
                         android:textColor="@color/colorGrayBtnText" />
 
                 </RadioGroup>
@@ -168,7 +175,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto"
-                    android:text="PORTE"
+                    android:text="@string/porte"
                     android:textColor="@color/colorOrangeSubtitle"
                     android:textSize="12sp" />
 
@@ -185,7 +192,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:fontFamily="@font/roboto"
-                        android:text="Pequeno"
+                        android:text="@string/pequeno"
                         android:textColor="@color/colorGrayBtnText" />
 
                     <RadioButton
@@ -194,7 +201,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:fontFamily="@font/roboto"
-                        android:text="Médio"
+                        android:text="@string/m_dio"
                         android:textColor="@color/colorGrayBtnText" />
 
                     <RadioButton
@@ -203,7 +210,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:fontFamily="@font/roboto"
-                        android:text="Grande"
+                        android:text="@string/grande"
                         android:textColor="@color/colorGrayBtnText" />
 
                 </RadioGroup>
@@ -215,7 +222,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto"
-                    android:text="IDADE"
+                    android:text="@string/idade"
                     android:textColor="@color/colorOrangeSubtitle"
                     android:textSize="12sp" />
 
@@ -232,7 +239,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:fontFamily="@font/roboto"
-                        android:text="Filhote"
+                        android:text="@string/filhote"
                         android:textColor="@color/colorGrayBtnText" />
 
                     <RadioButton
@@ -241,7 +248,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:fontFamily="@font/roboto"
-                        android:text="Adulto"
+                        android:text="@string/adulto"
                         android:textColor="@color/colorGrayBtnText" />
 
                     <RadioButton
@@ -250,7 +257,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:fontFamily="@font/roboto"
-                        android:text="Idoso"
+                        android:text="@string/idoso"
                         android:textColor="@color/colorGrayBtnText" />
 
                 </RadioGroup>
@@ -262,7 +269,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto"
-                    android:text="TEMPERAMENTO"
+                    android:text="@string/temperamento"
                     android:textColor="@color/colorOrangeSubtitle"
                     android:textSize="12sp" />
 
@@ -278,7 +285,7 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
-                        android:text="Brincalhão"
+                        android:text="@string/brincalh_o"
                         android:textColor="@color/colorGrayBtnText" />
 
                     <CheckBox
@@ -286,16 +293,16 @@
                         android:layout_width="96dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
-                        android:text="Tímido"
-                        android:textColor="@color/colorGrayBtnText"/>
+                        android:text="@string/t_mido"
+                        android:textColor="@color/colorGrayBtnText" />
 
                     <CheckBox
                         android:id="@+id/cad_animal_CHKB_temperamento_calmo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
-                        android:text="Calmo"
-                        android:textColor="@color/colorGrayBtnText"/>
+                        android:text="@string/calmo"
+                        android:textColor="@color/colorGrayBtnText" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -310,7 +317,7 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
-                        android:text="Guarda"
+                        android:text="@string/guarda"
                         android:textColor="@color/colorGrayBtnText" />
 
                     <CheckBox
@@ -318,17 +325,155 @@
                         android:layout_width="96dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
-                        android:text="Amoroso"
-                        android:textColor="@color/colorGrayBtnText"/>
+                        android:text="@string/amoroso"
+                        android:textColor="@color/colorGrayBtnText" />
 
                     <CheckBox
                         android:id="@+id/cad_animal_CHKB_temperamento_preguicoso"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
-                        android:text="Preguiçoso"
-                        android:textColor="@color/colorGrayBtnText"/>
+                        android:text="@string/pregui_oso"
+                        android:textColor="@color/colorGrayBtnText" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_saude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/saude"
+                    android:textColor="@color/colorOrangeSubtitle"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:id="@+id/cad_animal_LL_saude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cad_animal_CHKB_saude_vacinado"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/vacinado"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                    <CheckBox
+                        android:id="@+id/cad_animal_CHKB_saude_vermifugado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/vermifugado"
+                        android:textColor="@color/colorGrayBtnText" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cad_animal_LL_saude2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cad_animal_CHKB_saude_castrado"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/castrado"
+                        android:textColor="@color/colorGrayBtnText" />
+
+                    <CheckBox
+                        android:id="@+id/cad_animal_CHKB_saude_doente"
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/doente"
+                        android:textColor="@color/colorGrayBtnText" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/cad_animal_edit_doencas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:hint="@string/doen_as_do_animal"
+                    android:textColorHint="@color/colorHintText"
+                    android:textSize="14sp"
+                    android:inputType="text"
+                    android:importantForAutofill="no" tools:targetApi="o" />
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_exigencias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/exig_ncias_para_ado_o"
+                    android:textColor="@color/colorOrangeSubtitle"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/cad_animal_CHKB_termoadocao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="0"
+                    android:text="@string/termo_de_ado_o"
+                    android:textColor="@color/colorGrayBtnText" />
+
+                <CheckBox
+                    android:id="@+id/cad_animal_CHKB_fotoscasa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_weight="0"
+                    android:text="@string/fotos_da_casa"
+                    android:textColor="@color/colorGrayBtnText" />
+
+                <CheckBox
+                    android:id="@+id/cad_animal_CHKB_visita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_weight="0"
+                    android:text="@string/visita_pr_via"
+                    android:textColor="@color/colorGrayBtnText" />
+
+                <CheckBox
+                    android:id="@+id/cad_animal_CHKB_acompanhamento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_weight="0"
+                    android:text="@string/acompanhamento_p_s_ado_o"
+                    android:textColor="@color/colorGrayBtnText" />
+
+                <TextView
+                    android:id="@+id/cad_animal_txt_sobre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/sobre_o_animal"
+                    android:textColor="@color/colorOrangeSubtitle"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/cad_animal_btn_colocarAdocao"
+                    android:layout_width="232dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/colocar_para_ado_o"
+                    android:textColor="@color/colorTitle" />
 
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
