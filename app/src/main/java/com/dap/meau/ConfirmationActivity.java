@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.dap.meau.Util.MethodUtil;
-
 public class ConfirmationActivity extends AppCompatActivity {
 
     public static String TITLE_ACTION_BAR = "confirmatio_title_action_bar";
