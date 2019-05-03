@@ -11,4 +11,10 @@
 
     <color name="colorTitle">#434343</color>
 
+    <color name="colorYellowTitleFont">#f7a800</color>
+    <color name="colorTextFont">#757575</color>
+    <color name="colorYellowButton">#fdcf58</color>
+    <color name="colorHorizontalDivider">#e0e0e0</color>
+    <color name="colorAppBackground">#fafafa</color>
+
 </resources>

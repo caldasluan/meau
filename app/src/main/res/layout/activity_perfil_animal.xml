@@ -26,12 +26,15 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/colorAppBackground"
+            android:backgroundTint="@color/colorAppBackground">
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="0dp"
                 android:layout_height="184dp"
+                android:contentDescription="@string/CD_dog"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +47,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="SEXO"
+                android:fontFamily="@font/roboto"
+                android:text="@string/sexo"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
@@ -54,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Macho"
+                android:text="@string/macho"
+                android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -64,7 +71,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="LOCALIZAÇÃO"
+                android:fontFamily="@font/roboto"
+                android:text="@string/local"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -74,7 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Samambaia Sul - Distrito Federal"
+                android:text="@string/samambaia_sul_distrito_federal"
+                android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -83,7 +94,7 @@
                 android:layout_width="395dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
-                android:background="?android:attr/listDivider"
+                android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -94,7 +105,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="CASTRADO"
+                android:fontFamily="@font/roboto"
+                android:text="@string/castrado"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider" />
 
@@ -104,7 +118,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Não"
+                android:text="@string/Noo"
+                android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -114,7 +129,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="VACINADO"
+                android:fontFamily="@font/roboto"
+                android:text="@string/vacinado"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -124,7 +142,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Não"
+                android:text="@string/Noo"
+                android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -133,7 +152,7 @@
                 android:layout_width="395dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
-                android:background="?android:attr/listDivider"
+                android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -144,7 +163,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="TEMPERAMENTO"
+                android:fontFamily="@font/roboto"
+                android:text="@string/temperamento"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
@@ -154,7 +176,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Calmo e dócil"
+                android:text="@string/calm"
+                android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -163,7 +186,7 @@
                 android:layout_width="395dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
-                android:background="?android:attr/listDivider"
+                android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -174,7 +197,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="EXIGÊNCIAS DO DOADOR"
+                android:fontFamily="@font/roboto"
+                android:text="@string/exigencias"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
@@ -184,7 +210,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Termo de adoção, fotos da casa, visita prévia e acompanhamento durante três semanas  "
+                android:text="@string/termos"
+                android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -193,7 +220,7 @@
                 android:layout_width="395dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
-                android:background="?android:attr/listDivider"
+                android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -204,7 +231,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="MAIS SOBRE BIDU"
+                android:fontFamily="@font/roboto"
+                android:text="@string/mais_sobre_bidu"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
@@ -214,7 +244,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Bidu é um cachorro muito dócil e de fácil convivência. Adora caminhadas e se dá muito bem com crianças."
+                android:text="@string/Bidu_da"
+                android:textColor="@color/colorTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -226,7 +257,10 @@
                 android:layout_marginTop="28dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="28dp"
-                android:text="Button"
+                android:background="@color/colorYellowButton"
+                android:text="@string/pretendo_adotar"
+                android:textColor="@color/colorTitle"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -238,7 +272,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="16dp"
-                android:text="PORTE"
+                android:fontFamily="@font/roboto"
+                android:text="@string/porte"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
@@ -248,7 +285,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="8dp"
-                android:text="Médio"
+                android:text="@string/medio"
+                android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
@@ -258,7 +296,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="16dp"
-                android:text="IDADE"
+                android:fontFamily="@font/roboto"
+                android:text="@string/idade"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/textView18"
                 app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
@@ -268,7 +309,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="8dp"
-                android:text="Adulto"
+                android:text="@string/adulto"
+                android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toEndOf="@+id/textView18"
                 app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
@@ -278,7 +320,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="16dp"
-                android:text="VERMIFUGADO"
+                android:fontFamily="@font/roboto"
+                android:text="@string/vermifugado"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toTopOf="@+id/divider" />
 
@@ -288,7 +333,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="8dp"
-                android:text="Sim"
+                android:text="@string/yess"
+                android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
@@ -298,7 +344,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="16dp"
-                android:text="DOENÇAS"
+                android:fontFamily="@font/roboto"
+                android:text="@string/doencas"
+                android:textColor="@color/colorYellowTitleFont"
+                android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
@@ -308,7 +357,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="8dp"
-                android:text="Nenhuma"
+                android:text="@string/nenhuma"
+                android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
@@ -318,7 +368,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Bidu"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/bidu"
+                android:textColor="#434343"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
         </android.support.constraint.ConstraintLayout>
