@@ -79,7 +79,7 @@
     <string name="calm">Calmo e dócil</string>
     <string name="exigencias">EXIGÊNCIAS DO DOADOR</string>
     <string name="termos">Termo de adoção, fotos da casa, visita prévia e acompanhamento durante três semanas</string>
-    <string name="mais_sobre_bidu">MAIS SOBRE BIDU</string>
+    <string name="mais_sobre_bidu">MAIS SOBRE %s</string>
     <string name="Bidu_da">Bidu é um cachorro muito dócil e de fácil convivência. Adora caminhadas e se dá muito bem com crianças.</string>
     <string name="pretendo_adotar">PRETENDO ADOTAR</string>
     <string name="medio">Médio</string>

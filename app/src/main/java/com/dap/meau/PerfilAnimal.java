@@ -18,7 +18,7 @@ public class PerfilAnimal extends AppCompatActivity {
 
     Toolbar mToolbar;
     ImageView mImgImage;
-    TextView mTxtName, mTxtGender, mTxtPostage, mTxtAge, mTxtCity, mTxtCastrated, mTxtDewormed, mTxtVaccinated, mTxtDisease, mTxtTemperament, mTxtRequiriments, mTxtAbout;
+    TextView mTxtName, mTxtGender, mTxtPostage, mTxtAge, mTxtCity, mTxtCastrated, mTxtDewormed, mTxtVaccinated, mTxtDisease, mTxtTemperament, mTxtRequiriments, mTxtAbout, mTxtAboutTitle;
     Button mButton;
     PetModel mPetModel;
 
@@ -57,6 +57,7 @@ public class PerfilAnimal extends AppCompatActivity {
         mTxtRequiriments = findViewById(R.id.profile_pet_requirements);
         mTxtAbout = findViewById(R.id.profile_pet_about);
         mButton = findViewById(R.id.profile_pet_button);
+        mTxtAboutTitle = findViewById(R.id.textView16);
 
         // Preenche os dados
         mToolbar.setTitle(mPetModel.getName());
@@ -73,6 +74,7 @@ public class PerfilAnimal extends AppCompatActivity {
         mTxtCastrated.setText(mPetModel.isCastrated() ? R.string.yess : R.string.Noo);
         mTxtDewormed.setText(mPetModel.isDewormed() ? R.string.yess : R.string.Noo);
         mTxtVaccinated.setText(mPetModel.isVaccinated() ? R.string.yess : R.string.Noo);
+        mTxtAboutTitle.setText("MAIS SOBRE JUNINHO");
 
         // TODO Implementar este botão
         mButton.setOnClickListener(new View.OnClickListener() {
