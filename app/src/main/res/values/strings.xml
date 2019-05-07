@@ -90,6 +90,7 @@
     <string name="doencas">DOENÇAS</string>
     <string name="nenhuma">Nenhuma</string>
     <string name="bidu">Bidu</string>
+
     <string name="andre_santos">André Santos</string>
     <string name="historias">Histórias</string>
     <string name="nome_completo">NOME COMPLETO</string>
@@ -107,4 +108,5 @@
     <string name="_61_99957_4219">(61) 99957-4219</string>
     <string name="andre_santos_user">andre_santos</string>
     <string name="nenhuma_adocao">Nenhuma adoção</string>
+    <string name="login_necessary">Login Necessário</string>
 </resources>
