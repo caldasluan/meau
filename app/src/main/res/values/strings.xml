@@ -71,7 +71,7 @@
     <string name="sobre_o_animal_lc">Sobre o animal</string>
     <string name="colocar_para_ado_o">COLOCAR PARA ADOÇÃO</string>
 
-    
+
     <string name="CD_dog">Dog</string>
     <string name="local">LOCALIZAÇÃO</string>
     <string name="samambaia_sul_distrito_federal">Samambaia Sul - Distrito Federal</string>
@@ -90,4 +90,18 @@
     <string name="doencas">DOENÇAS</string>
     <string name="nenhuma">Nenhuma</string>
     <string name="bidu">Bidu</string>
+
+    <string name="cad_pessoa_txt_info">As informações preenchidas serão divulgadas\n apenas para a pessoa com a qual você realizar\n o processo de adoção e/ou apadrinhamento,\n após a formalização do processo.</string>
+    <string name="cad_pessoa_txt_infopessoa">Informações Pessoais</string>
+    <string name="cad_pessoa_nomecompleto">Nome completo</string>
+    <string name="cad_pessoa_idade">Idade</string>
+    <string name="cad_pessoa_email">E-mail</string>
+    <string name="cad_pessoa_uf">Estado</string>
+    <string name="cad_pessoa_cidade">Cidade</string>
+    <string name="cad_pessoa_endereco">Endereço</string>
+    <string name="cad_pessoa_telefone">Telefone</string>
+    <string name="cad_pessoa_infoperfil">Informações de Perfil</string>
+    <string name="cad_pessoa_confsenha">Confirmar senha</string>
+    <string name="cad_pessoa_fotoperfil">Foto de Perfil</string>
+    <string name="cad_pessoa_fazercadastro">Fazer Cadastro</string>
 </resources>
