@@ -71,7 +71,7 @@
     <string name="sobre_o_animal_lc">Sobre o animal</string>
     <string name="colocar_para_ado_o">COLOCAR PARA ADOÇÃO</string>
 
-    
+
     <string name="CD_dog">Dog</string>
     <string name="local">LOCALIZAÇÃO</string>
     <string name="samambaia_sul_distrito_federal">Samambaia Sul - Distrito Federal</string>
@@ -90,4 +90,21 @@
     <string name="doencas">DOENÇAS</string>
     <string name="nenhuma">Nenhuma</string>
     <string name="bidu">Bidu</string>
+    <string name="andre_santos">André Santos</string>
+    <string name="historias">Histórias</string>
+    <string name="nome_completo">NOME COMPLETO</string>
+    <string name="idade">IDADE</string>
+    <string name="email">EMAIL</string>
+    <string name="endereco">ENDEREÇO</string>
+    <string name="telefone">TELEFONE</string>
+    <string name="nome_de_usu_rio">NOME DE USUÁRIO</string>
+    <string name="historico">HISTÓRICO</string>
+    <string name="andr_santos_de_oliverira">André Santos de Oliverira</string>
+    <string name="_11_anos">11 anos</string>
+    <string name="andre_souza_gmail_com">andre_souza@gmail.com</string>
+    <string name="noroeste_distrito_federal">Noroeste - Distrito Federal</string>
+    <string name="srpn_trecho_2">SRPN Trecho 2</string>
+    <string name="_61_99957_4219">(61) 99957-4219</string>
+    <string name="andre_santos_user">andre_santos</string>
+    <string name="nenhuma_adocao">Nenhuma adoção</string>
 </resources>
