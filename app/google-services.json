@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "244847673869",
+    "firebase_url": "https://meau-ba138.firebaseio.com",
+    "project_id": "meau-ba138",
+    "storage_bucket": "meau-ba138.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244847673869:android:d9f3068cf1e902fa",
+        "android_client_info": {
+          "package_name": "com.dap.meau"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244847673869-hbvjms27uifm53vhgg36b669k5gdamnp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dap.meau",
+            "certificate_hash": "7837c2f6a0d2b139e2cbd3d50453d9790ed5a18d"
+          }
+        },
+        {
+          "client_id": "244847673869-fi7dpn8m9fblhoi81ck48uq3dk1i7pk9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoR9RjEp0xoOjEJplLIRBZYqbx1lAhvMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244847673869-fi7dpn8m9fblhoi81ck48uq3dk1i7pk9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
