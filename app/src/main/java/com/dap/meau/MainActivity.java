@@ -13,12 +13,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.dap.meau.ui.main.MainFragment;
+import com.google.firebase.auth.FirebaseAuth;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout mDrawerLayout;
     Toolbar mToolbar;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer, R.string.close_drawer);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -55,11 +60,13 @@ public class MainActivity extends AppCompatActivity {
         TextView txtHeaderTitle = navigationView.getHeaderView(0).findViewById(R.id.nav_header_title);
         CircleImageView civHeaderImage = navigationView.getHeaderView(0).findViewById(R.id.nav_header_image);
 
-        // TODO: Stub
-        txtHeaderTitle.setText("Marcos Farias");
-        Glide.with(this)
-                .load("https://scontent.fbsb1-1.fna.fbcdn.net/v/t1.0-9/15727097_1208432639242024_2451923501748658196_n.jpg?_nc_cat=102&_nc_ht=scontent.fbsb1-1.fna&oh=e498f4c812df962f94d3a8417a5a659d&oe=5D6444F4")
-                .into(civHeaderImage);
+        if (mAuth.getCurrentUser() != null) {
+            // TODO: Stub
+            txtHeaderTitle.setText("Marcos Farias");
+            Glide.with(this)
+                    .load("https://scontent.fbsb1-1.fna.fbcdn.net/v/t1.0-9/15727097_1208432639242024_2451923501748658196_n.jpg?_nc_cat=102&_nc_ht=scontent.fbsb1-1.fna&oh=e498f4c812df962f94d3a8417a5a659d&oe=5D6444F4")
+                    .into(civHeaderImage);
+        }
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

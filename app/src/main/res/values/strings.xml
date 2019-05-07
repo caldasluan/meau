@@ -90,4 +90,5 @@
     <string name="doencas">DOENÇAS</string>
     <string name="nenhuma">Nenhuma</string>
     <string name="bidu">Bidu</string>
+    <string name="login_necessary">Login Necessário</string>
 </resources>
