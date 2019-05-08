@@ -43,21 +43,21 @@ public class PerfilAnimal extends AppCompatActivity {
         }
 
         // Referência das Views
-        mImgImage = findViewById(R.id.profile_pet_image);
-        mTxtName = findViewById(R.id.profile_pet_name);
-        mTxtGender = findViewById(R.id.profile_pet_gender);
-        mTxtPostage = findViewById(R.id.profile_pet_postage);
-        mTxtAge = findViewById(R.id.profile_pet_age);
-        mTxtCity = findViewById(R.id.profile_pet_city);
-        mTxtCastrated = findViewById(R.id.profile_pet_castrated);
-        mTxtDewormed = findViewById(R.id.profile_pet_dewormed);
-        mTxtVaccinated = findViewById(R.id.profile_pet_vaccinated);
-        mTxtDisease = findViewById(R.id.profile_pet_disease);
-        mTxtTemperament = findViewById(R.id.profile_pet_temperament);
-        mTxtRequiriments = findViewById(R.id.profile_pet_requirements);
-        mTxtAbout = findViewById(R.id.profile_pet_about);
-        mButton = findViewById(R.id.profile_pet_button);
-        mTxtAboutTitle = findViewById(R.id.textView16);
+        mImgImage = findViewById(R.id.perfil_animal_img_fotoanimal);
+        mTxtName = findViewById(R.id.perfil_animal_txt_nome);
+        mTxtGender = findViewById(R.id.perfil_animal_txt_sexo);
+        mTxtPostage = findViewById(R.id.perfil_animal_txt_porte);
+        mTxtAge = findViewById(R.id.perfil_animal_txt_idade);
+        mTxtCity = findViewById(R.id.perfil_animal_txt_local);
+        mTxtCastrated = findViewById(R.id.perfil_animal_txt_castrado);
+        mTxtDewormed = findViewById(R.id.perfil_animal_txt_vermifugado);
+        mTxtVaccinated = findViewById(R.id.perfil_animal_txt_vacinado);
+        mTxtDisease = findViewById(R.id.perfil_animal_txt_doencas);
+        mTxtTemperament = findViewById(R.id.perfil_animal_txt_temper);
+        mTxtRequiriments = findViewById(R.id.perfil_animal_txt_exigencias);
+        mTxtAbout = findViewById(R.id.perfil_animal_txt_about);
+        mButton = findViewById(R.id.perfil_animal_btn_adotar);
+        mTxtAboutTitle = findViewById(R.id.perfil_animal_txt_title_about);
 
         // Preenche os dados
         mToolbar.setTitle(mPetModel.getName());
