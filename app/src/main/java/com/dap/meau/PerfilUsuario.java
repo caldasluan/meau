@@ -15,8 +15,8 @@ public class PerfilUsuario extends AppCompatActivity {
 
 
         // Suporte para ActionBar
-        mToolbar = findViewById(R.id.perfil_usuario_toolbar);
-        mToolbar.setTitle("André Santos");
+        mToolbar = findViewById(R.id.toolbar);
+        mToolbar.setTitle(R.string.andre_santos);
         setSupportActionBar(mToolbar);
     }
 }
