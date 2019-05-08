@@ -21,7 +21,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class InitActivity extends AppCompatActivity {
 
-    Button mBtLogin, mBtAdopt;
+    Button mBtLogin, mBtAdopt, mBtRegisterPet;
     Toolbar mToolbar;
     DrawerLayout mDrawerLayout;
     private FirebaseAuth mAuth;
@@ -51,6 +51,7 @@ public class InitActivity extends AppCompatActivity {
         // Referência de Views
         mBtLogin = findViewById(R.id.bt_main_login);
         mBtAdopt = findViewById(R.id.bt_main_adopt);
+        mBtRegisterPet = findViewById(R.id.init_btn_cadastrar_animal);
 
         // Eventos de Click
         mBtLogin.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +66,14 @@ public class InitActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtRegisterPet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
                 startActivity(intent);
             }
         });
@@ -96,9 +105,14 @@ public class InitActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Intent intent;
                 switch (menuItem.getItemId()) {
                     case R.id.menu_drawer_item_register_pet:
-                        Intent intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+                        intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+                        startActivity(intent);
+                        return true;
+                    case R.id.menu_drawer_item_myprofile:
+                        intent = new Intent(getApplicationContext(), PerfilUsuario.class);
                         startActivity(intent);
                         return true;
                 }

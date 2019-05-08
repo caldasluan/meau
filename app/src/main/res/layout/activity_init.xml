@@ -61,7 +61,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/init_btn_cadastrar_animal"
                     style="@style/AppTheme.ButtonMain"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
@@ -109,7 +109,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button3" />
+                    app:layout_constraintTop_toBottomOf="@+id/init_btn_cadastrar_animal" />
             </android.support.constraint.ConstraintLayout>
 
             <ImageView
