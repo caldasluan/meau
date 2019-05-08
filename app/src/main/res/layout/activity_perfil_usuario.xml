@@ -8,7 +8,7 @@
     tools:context=".PerfilUsuario">
 
     <include
-        android:id="@+id/toolbarUsuario"
+        android:id="@+id/perfil_usuario_toolbar"
         layout="@layout/template_toolbar"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
             android:orientation="vertical" >
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_Foto_Usuario"
+                android:id="@+id/perfil_usuario_circle_img_fotousuario"
                 android:layout_width="112dp"
                 android:layout_height="112dp"
                 android:layout_gravity="center_horizontal"
@@ -34,7 +34,7 @@
                 tools:src="@drawable/foto_perfil" />
 
             <TextView
-                android:id="@+id/txt_Nome"
+                android:id="@+id/perfil_usuario_txt_nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -46,7 +46,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/txt_Title_Nome_Completo"
+                android:id="@+id/perfil_usuario_txt_title_nomecompleto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -57,7 +57,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/txt_Nome_Completo"
+                android:id="@+id/perfil_usuario_txt_nomecompleto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -67,7 +67,7 @@
                 android:textColor="@color/colorTextFont" />
 
             <TextView
-                android:id="@+id/txt_Title_Idade"
+                android:id="@+id/perfil_usuario_txt_title_idade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -78,7 +78,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/txt_Idade"
+                android:id="@+id/perfil_usuario_txt_idade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -88,7 +88,7 @@
                 android:textColor="@color/colorTextFont" />
 
             <TextView
-                android:id="@+id/txt_Title_Email"
+                android:id="@+id/perfil_usuario_txt_title_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -99,7 +99,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/txt_Email"
+                android:id="@+id/perfil_usuario_txt_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -109,7 +109,7 @@
                 android:textColor="@color/colorTextFont" />
 
             <TextView
-                android:id="@+id/txt_Title_Localizacao"
+                android:id="@+id/perfil_usuario_txt_title_local"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -120,7 +120,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/txt_Localizacao"
+                android:id="@+id/perfil_usuario_txt_local"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -130,7 +130,7 @@
                 android:textColor="@color/colorTextFont" />
 
             <TextView
-                android:id="@+id/txt_Title_Endereco"
+                android:id="@+id/perfil_usuario_txt_title_endereco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -141,7 +141,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/txt_Endereco"
+                android:id="@+id/perfil_usuario_txt_endereco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -151,7 +151,7 @@
                 android:textColor="@color/colorTextFont" />
 
             <TextView
-                android:id="@+id/txt_Title_Telefone"
+                android:id="@+id/perfil_usuario_txt_title_telefone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -162,7 +162,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/txt_Telefone"
+                android:id="@+id/perfil_usuario_txt_telefone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -172,7 +172,7 @@
                 android:textColor="@color/colorTextFont" />
 
             <TextView
-                android:id="@+id/txt_Title_Nome_Usuario"
+                android:id="@+id/perfil_usuario_txt_title_nomeusuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -183,7 +183,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/txt_Nome_Usuario"
+                android:id="@+id/perfil_usuario_txt_nomeusuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -193,7 +193,7 @@
                 android:textColor="@color/colorTextFont" />
 
             <TextView
-                android:id="@+id/txt_Title_Historico"
+                android:id="@+id/perfil_usuario_txt_title_historico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -204,7 +204,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/txt_Historico"
+                android:id="@+id/perfil_usuario_txt_historico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -220,7 +220,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_Chat"
+                    android:id="@+id/perfil_usuario_btn_chat"
                     android:layout_width="148dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="32dp"
@@ -235,7 +235,7 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/btn_Historias"
+                    android:id="@+id/perfil_usuario_btn_historias"
                     android:layout_width="148dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="32dp"
