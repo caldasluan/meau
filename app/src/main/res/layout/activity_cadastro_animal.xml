@@ -488,17 +488,19 @@
 
             <Button
                 android:id="@+id/cad_animal_btn_colocarAdocao"
+                style="@style/AppTheme.ButtonMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
                 android:backgroundTint="@color/colorPrimary"
                 android:fontFamily="@font/roboto"
                 android:text="@string/colocar_para_ado_o"
                 android:textColor="@color/colorTitle"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cad_animal_parent_LL"
-                style="@style/AppTheme.ButtonMain"/>
+                app:layout_constraintTop_toBottomOf="@+id/cad_animal_parent_LL" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
