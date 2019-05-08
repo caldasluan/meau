@@ -91,6 +91,7 @@
     <string name="nenhuma">Nenhuma</string>
     <string name="bidu">Bidu</string>
 
+
     <string name="cad_pessoa_txt_info">As informações preenchidas serão divulgadas\n apenas para a pessoa com a qual você realizar\n o processo de adoção e/ou apadrinhamento,\n após a formalização do processo.</string>
     <string name="cad_pessoa_txt_infopessoa">Informações Pessoais</string>
     <string name="cad_pessoa_nomecompleto">Nome completo</string>
@@ -104,4 +105,24 @@
     <string name="cad_pessoa_confsenha">Confirmar senha</string>
     <string name="cad_pessoa_fotoperfil">Foto de Perfil</string>
     <string name="cad_pessoa_fazercadastro">Fazer Cadastro</string>
+
+    <string name="andre_santos">André Santos</string>
+    <string name="historias">Histórias</string>
+    <string name="nome_completo">NOME COMPLETO</string>
+    <string name="idade">IDADE</string>
+    <string name="email">EMAIL</string>
+    <string name="endereco">ENDEREÇO</string>
+    <string name="telefone">TELEFONE</string>
+    <string name="nome_de_usu_rio">NOME DE USUÁRIO</string>
+    <string name="historico">HISTÓRICO</string>
+    <string name="andr_santos_de_oliverira">André Santos de Oliverira</string>
+    <string name="_11_anos">11 anos</string>
+    <string name="andre_souza_gmail_com">andre_souza@gmail.com</string>
+    <string name="noroeste_distrito_federal">Noroeste - Distrito Federal</string>
+    <string name="srpn_trecho_2">SRPN Trecho 2</string>
+    <string name="_61_99957_4219">(61) 99957-4219</string>
+    <string name="andre_santos_user">andre_santos</string>
+    <string name="nenhuma_adocao">Nenhuma adoção</string>
+    <string name="login_necessary">Login Necessário</string>
+
 </resources>

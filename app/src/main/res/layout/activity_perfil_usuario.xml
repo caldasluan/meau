@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PerfilUsuario">
+
+    <include
+        android:id="@+id/toolbarUsuario"
+        layout="@layout/template_toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_Foto_Usuario"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                tools:src="@drawable/foto_perfil" />
+
+            <TextView
+                android:id="@+id/txt_Nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center_horizontal"
+                android:text="@string/andre_santos"
+                android:textColor="@color/colorTitle"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txt_Title_Nome_Completo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/nome_completo"
+                android:textColor="@color/colorTitleTelaUsuario"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_Nome_Completo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/andr_santos_de_oliverira"
+                android:textColor="@color/colorTextFont" />
+
+            <TextView
+                android:id="@+id/txt_Title_Idade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/idade"
+                android:textColor="@color/colorTitleTelaUsuario"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_Idade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/_11_anos"
+                android:textColor="@color/colorTextFont" />
+
+            <TextView
+                android:id="@+id/txt_Title_Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/email"
+                android:textColor="@color/colorTitleTelaUsuario"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/andre_souza_gmail_com"
+                android:textColor="@color/colorTextFont" />
+
+            <TextView
+                android:id="@+id/txt_Title_Localizacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/local"
+                android:textColor="@color/colorTitleTelaUsuario"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_Localizacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/noroeste_distrito_federal"
+                android:textColor="@color/colorTextFont" />
+
+            <TextView
+                android:id="@+id/txt_Title_Endereco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/endereco"
+                android:textColor="@color/colorTitleTelaUsuario"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_Endereco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/srpn_trecho_2"
+                android:textColor="@color/colorTextFont" />
+
+            <TextView
+                android:id="@+id/txt_Title_Telefone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/telefone"
+                android:textColor="@color/colorTitleTelaUsuario"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_Telefone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/_61_99957_4219"
+                android:textColor="@color/colorTextFont" />
+
+            <TextView
+                android:id="@+id/txt_Title_Nome_Usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/nome_de_usu_rio"
+                android:textColor="@color/colorTitleTelaUsuario"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_Nome_Usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/andre_santos_user"
+                android:textColor="@color/colorTextFont" />
+
+            <TextView
+                android:id="@+id/txt_Title_Historico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/historico"
+                android:textColor="@color/colorTitleTelaUsuario"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_Historico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/nenhuma_adocao"
+                android:textColor="@color/colorTextFont" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_Chat"
+                    android:layout_width="148dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorBtnTelaUsuario"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/chat"
+                    android:textColor="@color/colorGrayBtnText"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_Historias"
+                    android:layout_width="148dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorBtnTelaUsuario"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/historias"
+                    android:textColor="@color/colorGrayBtnText"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

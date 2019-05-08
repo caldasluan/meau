@@ -15,6 +15,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Blue">
         </activity>
+        <activity android:name=".PerfilUsuario"></activity>
         <activity android:name=".CadastroAnimalActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".PerfilAnimal" />

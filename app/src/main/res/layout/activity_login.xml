@@ -80,6 +80,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/login_child_LL" />
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/login_bt_sign_in_google"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/login_btn_login"
+                app:layout_constraintStart_toStartOf="@+id/login_btn_login"
+                app:layout_constraintTop_toBottomOf="@+id/login_btn_login" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

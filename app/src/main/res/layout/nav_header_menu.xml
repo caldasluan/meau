@@ -22,10 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
+        android:text="@string/login_necessary"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/nav_header_image"
-        app:layout_constraintTop_toBottomOf="@+id/nav_header_image"
-        tools:text="Emille Catarine" />
+        app:layout_constraintTop_toBottomOf="@+id/nav_header_image" />
 
 </android.support.constraint.ConstraintLayout>
