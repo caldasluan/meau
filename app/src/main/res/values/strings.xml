@@ -91,6 +91,21 @@
     <string name="nenhuma">Nenhuma</string>
     <string name="bidu">Bidu</string>
 
+
+    <string name="cad_pessoa_txt_info">As informações preenchidas serão divulgadas\n apenas para a pessoa com a qual você realizar\n o processo de adoção e/ou apadrinhamento,\n após a formalização do processo.</string>
+    <string name="cad_pessoa_txt_infopessoa">Informações Pessoais</string>
+    <string name="cad_pessoa_nomecompleto">Nome completo</string>
+    <string name="cad_pessoa_idade">Idade</string>
+    <string name="cad_pessoa_email">E-mail</string>
+    <string name="cad_pessoa_uf">Estado</string>
+    <string name="cad_pessoa_cidade">Cidade</string>
+    <string name="cad_pessoa_endereco">Endereço</string>
+    <string name="cad_pessoa_telefone">Telefone</string>
+    <string name="cad_pessoa_infoperfil">Informações de Perfil</string>
+    <string name="cad_pessoa_confsenha">Confirmar senha</string>
+    <string name="cad_pessoa_fotoperfil">Foto de Perfil</string>
+    <string name="cad_pessoa_fazercadastro">Fazer Cadastro</string>
+
     <string name="andre_santos">André Santos</string>
     <string name="historias">Histórias</string>
     <string name="nome_completo">NOME COMPLETO</string>
@@ -109,4 +124,5 @@
     <string name="andre_santos_user">andre_santos</string>
     <string name="nenhuma_adocao">Nenhuma adoção</string>
     <string name="login_necessary">Login Necessário</string>
+
 </resources>
