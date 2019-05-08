@@ -63,7 +63,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto"
-                android:text="@string/andr_santos_de_oliverira"
+                android:text="@string/andr_santos_de_oliveira"
                 android:textColor="@color/colorTextFont" />
 
             <TextView
