@@ -23,7 +23,6 @@
         <activity android:name=".CadastroAnimalActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".PerfilAnimal" />
-        <activity android:name=".Util.AnimalProfile" />
         <activity
             android:name=".InitActivity"
             android:screenOrientation="portrait"

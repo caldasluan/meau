@@ -71,9 +71,14 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Intent intent;
                 switch (menuItem.getItemId()) {
                     case R.id.menu_drawer_item_register_pet:
-                        Intent intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+                        intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+                        startActivity(intent);
+                        return true;
+                    case R.id.menu_drawer_item_myprofile:
+                        intent = new Intent(getApplicationContext(), PerfilUsuario.class);
                         startActivity(intent);
                         return true;
                 }
