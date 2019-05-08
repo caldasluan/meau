@@ -74,7 +74,7 @@ public class PerfilAnimal extends AppCompatActivity {
         mTxtCastrated.setText(mPetModel.isCastrated() ? R.string.yess : R.string.Noo);
         mTxtDewormed.setText(mPetModel.isDewormed() ? R.string.yess : R.string.Noo);
         mTxtVaccinated.setText(mPetModel.isVaccinated() ? R.string.yess : R.string.Noo);
-        mTxtAboutTitle.setText("MAIS SOBRE JUNINHO");
+        mTxtAboutTitle.setText(String.format("MAIS SOBRE %s", mPetModel.getName()));
 
         // TODO Implementar este botão
         mButton.setOnClickListener(new View.OnClickListener() {
