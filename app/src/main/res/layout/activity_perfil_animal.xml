@@ -8,7 +8,7 @@
     tools:context=".PerfilAnimal">
 
     <include
-        android:id="@+id/toolbar"
+        android:id="@+id/perfil_animal_toolbar"
         layout="@layout/template_toolbar"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/perfil_animal_toolbar">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             android:backgroundTint="@color/colorAppBackground">
 
             <ImageView
-                android:id="@+id/profile_pet_image"
+                android:id="@+id/perfil_animal_img_fotoanimal"
                 android:layout_width="0dp"
                 android:layout_height="184dp"
                 android:contentDescription="@string/CD_dog"
@@ -44,7 +44,7 @@
                 tools:srcCompat="@drawable/cachorro1" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/perfil_animal_txt_title_sexo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -54,21 +54,21 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_name" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_nome" />
 
             <TextView
-                android:id="@+id/profile_pet_gender"
+                android:id="@+id/perfil_animal_txt_sexo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_sexo"
                 tools:text="@string/macho" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/perfil_animal_txt_title_local"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -78,31 +78,31 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_gender" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_sexo" />
 
             <TextView
-                android:id="@+id/profile_pet_city"
+                android:id="@+id/perfil_animal_txt_local"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_local"
                 tools:text="@string/samambaia_sul_distrito_federal" />
 
             <View
-                android:id="@+id/divider"
+                android:id="@+id/perfil_animal_divider_1"
                 android:layout_width="395dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_city" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_local" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/perfil_animal_txt_title_castrado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -112,21 +112,21 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_divider_1" />
 
             <TextView
-                android:id="@+id/profile_pet_castrated"
+                android:id="@+id/perfil_animal_txt_castrado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_castrado"
                 tools:text="@string/Noo" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/perfil_animal_txt_title_vacinado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -136,31 +136,31 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_castrated" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_castrado" />
 
             <TextView
-                android:id="@+id/profile_pet_vaccinated"
+                android:id="@+id/perfil_animal_txt_vacinado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_vacinado"
                 tools:text="@string/Noo" />
 
             <View
-                android:id="@+id/divider2"
+                android:id="@+id/perfil_animal_divider_2"
                 android:layout_width="395dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_vaccinated" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_vacinado" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/perfil_animal_txt_title_temper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -170,31 +170,31 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider2" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_divider_2" />
 
             <TextView
-                android:id="@+id/profile_pet_temperament"
+                android:id="@+id/perfil_animal_txt_temper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_temper"
                 tools:text="@string/calmo" />
 
             <View
-                android:id="@+id/divider3"
+                android:id="@+id/perfil_animal_divider_3"
                 android:layout_width="395dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_temperament" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_temper" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/perfil_animal_txt_title_exigencias"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -204,31 +204,31 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider3" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_divider_3" />
 
             <TextView
-                android:id="@+id/profile_pet_requirements"
+                android:id="@+id/perfil_animal_txt_exigencias"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTextFont"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_exigencias"
                 tools:text="@string/termos" />
 
             <View
-                android:id="@+id/divider4"
+                android:id="@+id/perfil_animal_divider_4"
                 android:layout_width="395dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorHorizontalDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_requirements" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_exigencias" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/perfil_animal_txt_title_about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -238,21 +238,21 @@
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider4" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_divider_4" />
 
             <TextView
-                android:id="@+id/profile_pet_about"
+                android:id="@+id/perfil_animal_txt_about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTitle"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_about"
                 tools:text="@string/Bidu_da" />
 
             <Button
-                android:id="@+id/profile_pet_button"
+                android:id="@+id/perfil_animal_btn_adotar"
                 android:layout_width="232dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="8dp"
@@ -266,10 +266,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_about" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_about" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/perfil_animal_txt_title_porte"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
@@ -278,22 +278,22 @@
                 android:text="@string/porte"
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_name" />
+                app:layout_constraintStart_toEndOf="@+id/perfil_animal_txt_title_sexo"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_nome" />
 
             <TextView
-                android:id="@+id/profile_pet_postage"
+                android:id="@+id/perfil_animal_txt_porte"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTextFont"
-                app:layout_constraintStart_toEndOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView18"
+                app:layout_constraintStart_toEndOf="@+id/perfil_animal_txt_title_sexo"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_porte"
                 tools:text="@string/medio" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/perfil_animal_txt_title_idade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
@@ -302,22 +302,22 @@
                 android:text="@string/idade"
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_name" />
+                app:layout_constraintStart_toEndOf="@+id/perfil_animal_txt_title_porte"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_nome" />
 
             <TextView
-                android:id="@+id/profile_pet_age"
+                android:id="@+id/perfil_animal_txt_idade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTextFont"
-                app:layout_constraintStart_toEndOf="@+id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/textView20"
+                app:layout_constraintStart_toEndOf="@+id/perfil_animal_txt_title_porte"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_idade"
                 tools:text="@string/adulto" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/perfil_animal_txt_title_vermifugado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
@@ -326,22 +326,22 @@
                 android:text="@string/vermifugado1"
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toTopOf="@+id/divider" />
+                app:layout_constraintStart_toEndOf="@+id/perfil_animal_txt_title_castrado"
+                app:layout_constraintTop_toTopOf="@+id/perfil_animal_divider_1" />
 
             <TextView
-                android:id="@+id/profile_pet_dewormed"
+                android:id="@+id/perfil_animal_txt_vermifugado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTextFont"
-                app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView22"
+                app:layout_constraintStart_toEndOf="@+id/perfil_animal_txt_title_castrado"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_vermifugado"
                 tools:text="@string/yess" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/perfil_animal_txt_title_doencas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
@@ -350,22 +350,22 @@
                 android:text="@string/doencas"
                 android:textColor="@color/colorYellowTitleFont"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_dewormed" />
+                app:layout_constraintStart_toEndOf="@+id/perfil_animal_txt_title_castrado"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_vermifugado" />
 
             <TextView
-                android:id="@+id/profile_pet_disease"
+                android:id="@+id/perfil_animal_txt_doencas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorTextFont"
-                app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView24"
+                app:layout_constraintStart_toEndOf="@+id/perfil_animal_txt_title_castrado"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_title_doencas"
                 tools:text="@string/nenhuma" />
 
             <TextView
-                android:id="@+id/profile_pet_name"
+                android:id="@+id/perfil_animal_txt_nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -375,7 +375,7 @@
                 android:textColor="#434343"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_pet_image" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_img_fotoanimal" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
