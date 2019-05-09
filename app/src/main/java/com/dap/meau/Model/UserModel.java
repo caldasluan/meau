@@ -1,5 +1,9 @@
 package com.dap.meau.Model;
 
+import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,6 +43,13 @@ public class UserModel implements Serializable {
         this.imageUrl = imageUrl;
         this.uid = hiid;
         this.age = age;
+    }
+
+    public UserModel(String uid, String fullName, String email, String imageUrl) {
+        this.fullName = fullName;
+        this.imageUrl = imageUrl;
+        this.uid = uid;
+        this.email = email;
     }
 
     public Map<String, Object> toMap() {
