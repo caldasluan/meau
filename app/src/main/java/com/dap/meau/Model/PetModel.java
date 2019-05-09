@@ -1,6 +1,8 @@
 package com.dap.meau.Model;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PetModel implements Serializable {
     private String userUid, name, gender, age, postage, city, imageUrl, disease, temperament, requiriments, about, uid;
@@ -52,6 +54,28 @@ public class PetModel implements Serializable {
         this.castrated = castrated;
         this.dewormed = dewormed;
         this.vaccinated = vaccinated;
+    }
+
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("uid", getUid());
+        map.put("name", getName());
+        map.put("gender", getGender());
+        map.put("age", getAge());
+        map.put("postage", getPostage());
+        map.put("city", getCity());
+        map.put("imageUrl", getImageUrl());
+        map.put("disease", getDisease());
+        map.put("temperament", getTemperament());
+        map.put("requiriments", getRequiriments());
+        map.put("about", getAbout());
+        map.put("castrated", isCastrated());
+        map.put("dewormed", isDewormed());
+        map.put("vaccinated", isVaccinated());
+        map.put("userUid", getUserUid());
+
+        return map;
     }
 
     public String getName() {
