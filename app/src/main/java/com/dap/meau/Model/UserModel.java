@@ -3,10 +3,14 @@ package com.dap.meau.Model;
 import java.io.Serializable;
 
 public class UserModel implements Serializable {
-    private String uid, shortName, fullName, email, state, city, address, username, password, phone, imageUrl, history;
+    private String shortName, fullName, email, state, city, address, username, password, phone, imageUrl, hhid;
     private int age;
 
-    public UserModel(String shortName, String fullName, String email, String state, String city, String address, String username, String phone, String imageUrl, String history, int age) {
+    public UserModel(){
+        // Construtor padrão necessário para usar objeto no Firebase
+    }
+
+    public UserModel(String shortName, String fullName, String email, String state, String city, String address, String username, String phone, String imageUrl, String hiid, int age) {
         this.shortName = shortName;
         this.fullName = fullName;
         this.email = email;
@@ -16,12 +20,11 @@ public class UserModel implements Serializable {
         this.username = username;
         this.phone = phone;
         this.imageUrl = imageUrl;
-        this.history = history;
+        this.hhid = hiid;
         this.age = age;
     }
 
-    public UserModel(String uid, String shortName, String fullName, String email, String state, String city, String address, String username, String password, String phone, String imageUrl, String history, int age) {
-        this.uid = uid;
+    public UserModel(String shortName, String fullName, String email, String state, String city, String address, String username, String password, String phone, String imageUrl, String hiid, int age) {
         this.shortName = shortName;
         this.fullName = fullName;
         this.email = email;
@@ -32,16 +35,8 @@ public class UserModel implements Serializable {
         this.password = password;
         this.phone = phone;
         this.imageUrl = imageUrl;
-        this.history = history;
+        this.hhid = hiid;
         this.age = age;
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
     }
 
     public String getShortName() {
@@ -124,12 +119,12 @@ public class UserModel implements Serializable {
         this.imageUrl = imageUrl;
     }
 
-    public String getHistory() {
-        return history;
+    public String getHiid() {
+        return hhid;
     }
 
-    public void setHistory(String history) {
-        this.history = history;
+    public void setHiid(String history) {
+        this.hhid = history;
     }
 
     public int getAge() {

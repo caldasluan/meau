@@ -3,16 +3,11 @@ package com.dap.meau.Model;
 import java.io.Serializable;
 
 public class PetModel implements Serializable {
-    private String name, gender, age, postage, city, imageUrl, disease, temperament, requiriments, about;
+    private String ptid, name, gender, age, postage, city, imageUrl, disease, temperament, requiriments, about, uid;
     private boolean castrated, dewormed, vaccinated;
 
-    public PetModel(String name, String gender, String age, String postage, String city, String imageUrl) {
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-        this.postage = postage;
-        this.city = city;
-        this.imageUrl = imageUrl;
+    public PetModel() {
+        // Construtor padrão necessário para usar objeto no Firebase
     }
 
     public PetModel(String name, String gender, String age, String postage, String city, String imageUrl, String disease, String temperament, String requiriments, String about, boolean castrated, boolean dewormed, boolean vaccinated) {
@@ -29,6 +24,16 @@ public class PetModel implements Serializable {
         this.castrated = castrated;
         this.dewormed = dewormed;
         this.vaccinated = vaccinated;
+    }
+
+    public PetModel(String name, String gender, String age, String postage, String city, String imageUrl, String uid) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.postage = postage;
+        this.city = city;
+        this.imageUrl = imageUrl;
+        this.uid = uid;
     }
 
     public String getName() {
@@ -133,5 +138,13 @@ public class PetModel implements Serializable {
 
     public void setVaccinated(boolean vaccinated) {
         this.vaccinated = vaccinated;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }
