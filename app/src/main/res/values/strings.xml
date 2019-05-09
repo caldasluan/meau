@@ -123,5 +123,6 @@
     <string name="andre_santos_user">andre_santos</string>
     <string name="nenhuma_adocao">Nenhuma adoção</string>
     <string name="login_necessary">Login Necessário</string>
+    <string name="Local"> - </string>
 
 </resources>
