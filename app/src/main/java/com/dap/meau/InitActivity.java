@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.dap.meau.Helper.UserHelper;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -47,6 +48,7 @@ public class InitActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
+        UserHelper.getUserModel();
 
         // Referência de Views
         mBtLogin = findViewById(R.id.bt_main_login);
@@ -95,10 +97,9 @@ public class InitActivity extends AppCompatActivity {
         CircleImageView civHeaderImage = navigationView.getHeaderView(0).findViewById(R.id.nav_header_image);
 
         if (mAuth.getCurrentUser() != null) {
-            // TODO: Stub
-            txtHeaderTitle.setText("Marcos Farias");
+            txtHeaderTitle.setText(UserHelper.getUserModel().getShortName());
             Glide.with(this)
-                    .load("https://scontent.fbsb1-1.fna.fbcdn.net/v/t1.0-9/15727097_1208432639242024_2451923501748658196_n.jpg?_nc_cat=102&_nc_ht=scontent.fbsb1-1.fna&oh=e498f4c812df962f94d3a8417a5a659d&oe=5D6444F4")
+                    .load(UserHelper.getUserModel().getImageUrl())
                     .into(civHeaderImage);
         }
 
