@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.dap.meau.Helper.DatabaseFirebase.UserDatabaseHelper;
+import com.dap.meau.Helper.UserHelper;
+import com.dap.meau.Model.UserModel;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -30,6 +33,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     GoogleApiClient mGoogleApiClient;
@@ -116,8 +122,30 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         // Sign in success, update UI with the signed-in user's information
-                                        FirebaseUser user = mAuth.getCurrentUser();
-                                        // TODO: Conferir se o usuário está no banco para cadastrá-lo ou não
+                                        final FirebaseUser user = mAuth.getCurrentUser();
+                                        UserDatabaseHelper.getUserWithUid(user.getUid(), new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                if (dataSnapshot.getValue() == null) {
+                                                    UserModel userModel = new UserModel(user.getUid(), user.getDisplayName(), user.getEmail(), user.getPhotoUrl().toString());
+
+                                                    Intent intent = new Intent(LoginActivity.this, CadastroPessoalActivity.class);
+                                                    Bundle bundle = new Bundle();
+                                                    bundle.putSerializable(UserModel.class.getName(), userModel);
+                                                    intent.putExtras(bundle);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }
+                                                else {
+                                                    UserHelper.setUserModel(dataSnapshot.getValue(UserModel.class));
+                                                    finish();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                            }
+                                        });
                                         Toast.makeText(getApplicationContext(), "Você fez login como " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                                     } else {
                                         // If sign in fails, display a message to the user.
