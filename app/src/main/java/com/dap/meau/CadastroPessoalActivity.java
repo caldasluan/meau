@@ -50,7 +50,7 @@ public class CadastroPessoalActivity extends AppCompatActivity {
         if (bundle != null && !bundle.isEmpty()) {
             userModel = (UserModel) bundle.getSerializable(UserModel.class.getName());
 
-            txtFullName.setText(userModel.getFullName());
+            txtName.setText(userModel.getFullName());
             txtEmail.setText(userModel.getEmail());
         }
 

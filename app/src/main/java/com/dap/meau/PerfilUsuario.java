@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.HistoryUserModel;
 import com.dap.meau.Model.UserModel;
 
@@ -44,6 +45,7 @@ public class PerfilUsuario extends AppCompatActivity {
             mUserModel = (UserModel) bundle.getSerializable(UserModel.class.getName());
             if (mUserModel == null) finish();
         }
+        else mUserModel = UserHelper.getUserModel();
 
         // Referência das Views
         mImgProfilePicture = findViewById(R.id.perfil_usuario_circle_img_fotousuario);
@@ -64,11 +66,11 @@ public class PerfilUsuario extends AppCompatActivity {
         Glide.with(this).load(mUserModel.getImageUrl()).into(mImgProfilePicture);
         mTxtShortName.setText(mUserModel.getShortName());
         mTxtFullName.setText(mUserModel.getFullName());
-        mTxtAge.setText(mUserModel.getAge());
+        mTxtAge.setText(String.valueOf(mUserModel.getAge()));
         mTxtEmail.setText(mUserModel.getEmail());
         mTxtAdress.setText(mUserModel.getAddress());
-        mtxtLocal.setText(String.format(mUserModel.getCity(), getString(R.string.Local), mUserModel.getState()));
-        mTxtPhone.setText(mUserModel.getPhone());
+        mtxtLocal.setText(String.format("%s - %s", mUserModel.getCity(), mUserModel.getState()));
+        mTxtPhone.setText(String.valueOf(mUserModel.getPhone()));
         mTxtUserName.setText(mUserModel.getUsername());
         //mTxtHistory.setText(mHistoryUserModel.getXXXX());
 
