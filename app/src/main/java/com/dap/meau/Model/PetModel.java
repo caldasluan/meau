@@ -3,7 +3,7 @@ package com.dap.meau.Model;
 import java.io.Serializable;
 
 public class PetModel implements Serializable {
-    private String userUid, name, gender, age, postage, city, imageUrl, disease, temperament, requiriments, about, uid;
+    private String ptid, name, gender, age, postage, city, imageUrl, disease, temperament, requiriments, about, uid;
     private boolean castrated, dewormed, vaccinated;
 
     public PetModel() {
@@ -34,24 +34,6 @@ public class PetModel implements Serializable {
         this.city = city;
         this.imageUrl = imageUrl;
         this.uid = uid;
-    }
-
-    public PetModel(String userUid, String name, String gender, String age, String postage, String city, String imageUrl, String disease, String temperament, String requiriments, String about, String uid, boolean castrated, boolean dewormed, boolean vaccinated) {
-        this.userUid = userUid;
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-        this.postage = postage;
-        this.city = city;
-        this.imageUrl = imageUrl;
-        this.disease = disease;
-        this.temperament = temperament;
-        this.requiriments = requiriments;
-        this.about = about;
-        this.uid = uid;
-        this.castrated = castrated;
-        this.dewormed = dewormed;
-        this.vaccinated = vaccinated;
     }
 
     public String getName() {
@@ -164,13 +146,5 @@ public class PetModel implements Serializable {
 
     public void setUid(String uid) {
         this.uid = uid;
-    }
-
-    public String getUserUid() {
-        return userUid;
-    }
-
-    public void setUserUid(String userUid) {
-        this.userUid = userUid;
     }
 }

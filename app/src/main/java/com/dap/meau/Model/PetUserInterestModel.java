@@ -3,12 +3,22 @@ package com.dap.meau.Model;
 import java.io.Serializable;
 
 public class PetUserInterestModel implements Serializable {
-    private String uid, petUid, userUid;
+    private String ptid, uid;
 
-    public PetUserInterestModel(String uid, String petUid, String userUid) {
+    public PetUserInterestModel() {
+    }
+
+    public PetUserInterestModel(String ptid, String uid) {
+        this.ptid = ptid;
         this.uid = uid;
-        this.petUid = petUid;
-        this.userUid = userUid;
+    }
+
+    public String getPtid() {
+        return ptid;
+    }
+
+    public void setPtid(String ptid) {
+        this.ptid = ptid;
     }
 
     public String getUid() {
@@ -17,21 +27,5 @@ public class PetUserInterestModel implements Serializable {
 
     public void setUid(String uid) {
         this.uid = uid;
-    }
-
-    public String getPetUid() {
-        return petUid;
-    }
-
-    public void setPetUid(String petUid) {
-        this.petUid = petUid;
-    }
-
-    public String getUserUid() {
-        return userUid;
-    }
-
-    public void setUserUid(String userUid) {
-        this.userUid = userUid;
     }
 }
