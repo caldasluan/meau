@@ -1,6 +1,8 @@
 package com.dap.meau.Model;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserModel implements Serializable {
     private String shortName, fullName, email, state, city, address, username, password, phone, imageUrl, uid;
@@ -37,6 +39,25 @@ public class UserModel implements Serializable {
         this.imageUrl = imageUrl;
         this.uid = hiid;
         this.age = age;
+    }
+
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("uid", getUid());
+        map.put("shortName", getShortName());
+        map.put("fullName", getFullName());
+        map.put("email", getEmail());
+        map.put("state", getState());
+        map.put("city", getCity());
+        map.put("address", getAddress());
+        map.put("username", getUsername());
+        map.put("password", getPassword());
+        map.put("phone", getPhone());
+        map.put("imageUrl", getImageUrl());
+        map.put("age", getAge());
+
+        return map;
     }
 
     public String getShortName() {
