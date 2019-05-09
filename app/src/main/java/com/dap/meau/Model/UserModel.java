@@ -3,7 +3,7 @@ package com.dap.meau.Model;
 import java.io.Serializable;
 
 public class UserModel implements Serializable {
-    private String shortName, fullName, email, state, city, address, username, password, phone, imageUrl, uid;
+    private String shortName, fullName, email, state, city, address, username, password, phone, imageUrl, hhid;
     private int age;
 
     public UserModel(){
@@ -20,7 +20,7 @@ public class UserModel implements Serializable {
         this.username = username;
         this.phone = phone;
         this.imageUrl = imageUrl;
-        this.uid = hiid;
+        this.hhid = hiid;
         this.age = age;
     }
 
@@ -35,7 +35,7 @@ public class UserModel implements Serializable {
         this.password = password;
         this.phone = phone;
         this.imageUrl = imageUrl;
-        this.uid = hiid;
+        this.hhid = hiid;
         this.age = age;
     }
 
@@ -119,12 +119,12 @@ public class UserModel implements Serializable {
         this.imageUrl = imageUrl;
     }
 
-    public String getUid() {
-        return uid;
+    public String getHiid() {
+        return hhid;
     }
 
-    public void setUid(String history) {
-        this.uid = history;
+    public void setHiid(String history) {
+        this.hhid = history;
     }
 
     public int getAge() {
