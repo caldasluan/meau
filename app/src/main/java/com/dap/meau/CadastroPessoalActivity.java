@@ -66,7 +66,11 @@ public class CadastroPessoalActivity extends AppCompatActivity {
 
     private void saveUser() {
         userModel.setFullName(txtFullName.getText().toString());
-        userModel.setShortName(txtFullName.getText().toString());
+
+        String shortname = txtFullName.getText().toString();
+        String[] shortname2 = shortname.split("\\s+");
+
+        userModel.setShortName(shortname2[0]);
         userModel.setAge(Integer.valueOf(txtAge.getText().toString()));
         userModel.setEmail(txtEmail.getText().toString());
         userModel.setState(txtEstate.getText().toString());
