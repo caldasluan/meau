@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (mAuth.getCurrentUser() != null) {
             // TODO: Stub
-            txtHeaderTitle.setText(UserHelper.getUserModel().getShortName());
+            txtHeaderTitle.setText(UserHelper.getUserModel().getUsername());
             Glide.with(this)
                     .load(UserHelper.getUserModel().getImageUrl())
                     .into(civHeaderImage);

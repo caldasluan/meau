@@ -9,15 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserModel implements Serializable {
-    private String shortName, fullName, email, state, city, address, username, password, phone, imageUrl, uid;
+    private String fullName, email, state, city, address, username, password, phone, imageUrl, uid;
     private int age;
 
     public UserModel(){
         // Construtor padrão necessário para usar objeto no Firebase
     }
 
-    public UserModel(String shortName, String fullName, String email, String state, String city, String address, String username, String phone, String imageUrl, String hiid, int age) {
-        this.shortName = shortName;
+    public UserModel(String fullName, String email, String state, String city, String address, String username, String phone, String imageUrl, String hiid, int age) {
         this.fullName = fullName;
         this.email = email;
         this.state = state;
@@ -30,8 +29,7 @@ public class UserModel implements Serializable {
         this.age = age;
     }
 
-    public UserModel(String shortName, String fullName, String email, String state, String city, String address, String username, String password, String phone, String imageUrl, String hiid, int age) {
-        this.shortName = shortName;
+    public UserModel(String fullName, String email, String state, String city, String address, String username, String password, String phone, String imageUrl, String hiid, int age) {
         this.fullName = fullName;
         this.email = email;
         this.state = state;
@@ -56,7 +54,6 @@ public class UserModel implements Serializable {
         Map<String, Object> map = new HashMap<>();
 
         map.put("uid", getUid());
-        map.put("shortName", getShortName());
         map.put("fullName", getFullName());
         map.put("email", getEmail());
         map.put("state", getState());
@@ -69,14 +66,6 @@ public class UserModel implements Serializable {
         map.put("age", getAge());
 
         return map;
-    }
-
-    public String getShortName() {
-        return shortName;
-    }
-
-    public void setShortName(String shortName) {
-        this.shortName = shortName;
     }
 
     public String getFullName() {

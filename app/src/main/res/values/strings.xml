@@ -106,7 +106,7 @@
     <string name="cad_pessoa_fotoperfil">Foto de Perfil</string>
     <string name="cad_pessoa_fazercadastro">Fazer Cadastro</string>
 
-    <string name="andre_santos">André Santos</string>
+
     <string name="historias">Histórias</string>
     <string name="nome_completo">NOME COMPLETO</string>
     <string name="email">EMAIL</string>
@@ -120,7 +120,7 @@
     <string name="noroeste_distrito_federal">Noroeste - Distrito Federal</string>
     <string name="srpn_trecho_2">SRPN Trecho 2</string>
     <string name="_61_99957_4219">(61) 99957-4219</string>
-    <string name="andre_santos_user">andre_santos</string>
+    <string name="username">andre_santos</string>
     <string name="nenhuma_adocao">Nenhuma adoção</string>
     <string name="login_necessary">Login Necessário</string>
     <string name="Local"> - </string>

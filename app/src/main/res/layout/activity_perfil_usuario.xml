@@ -37,14 +37,14 @@
                 android:src="@drawable/foto_perfil" />
 
             <TextView
-                android:id="@+id/perfil_usuario_txt_nome"
+                android:id="@+id/perfil_usuario_txt_nomeusuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/roboto_medium"
                 android:gravity="center_horizontal"
-                android:text="@string/andre_santos"
+                android:text="@string/username"
                 android:textColor="@color/colorTitle"
                 android:textSize="16sp" />
 
@@ -173,27 +173,6 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto"
                 android:text="@string/_61_99957_4219"
-                android:textColor="@color/colorTextFont" />
-
-            <TextView
-                android:id="@+id/perfil_usuario_txt_title_nomeusuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="36dp"
-                android:fontFamily="@font/roboto"
-                android:text="@string/nome_de_usu_rio"
-                android:textColor="@color/colorTitleTelaUsuario"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/perfil_usuario_txt_nomeusuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/roboto"
-                android:text="@string/andre_santos_user"
                 android:textColor="@color/colorTextFont" />
 
             <TextView

@@ -71,7 +71,7 @@ public class CadastroPessoalActivity extends AppCompatActivity {
         userModel.setCity(txtCity.getText().toString());
         userModel.setAddress(txtAdress.getText().toString());
         userModel.setPhone(txtNumber.getText().toString());
-        userModel.setShortName(txtName.getText().toString());
+        userModel.setUsername(txtName.getText().toString());
         userModel.setPassword(txtPass.getText().toString());
         UserDatabaseHelper.createUser(userModel, new OnSuccessListener() {
             @Override
