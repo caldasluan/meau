@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.ui.main.MainFragment;
+import com.dap.meau.ui.main.MyPetsFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -82,6 +83,12 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(getApplicationContext(), PerfilUsuario.class);
                         startActivity(intent);
                         return true;
+                    case R.id.menu_drawer_item_my_pets:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.main_frame, MyPetsFragment.newInstance())
+                                .commitNow();
+                        return true;
+
                 }
                 return false;
             }

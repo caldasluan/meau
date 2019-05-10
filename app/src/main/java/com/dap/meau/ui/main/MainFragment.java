@@ -18,7 +18,6 @@ import com.dap.meau.Stub.PetStub;
 
 public class MainFragment extends Fragment {
 
-    private MainViewModel mViewModel;
     private RecyclerView recyclerView;
     private MainFragmentAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -37,8 +36,6 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-
         ((MainActivity)getActivity()).setTitleToolbar(R.string.adopt);
 
         // Cria o RecyclerView

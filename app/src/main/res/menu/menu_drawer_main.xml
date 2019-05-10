@@ -4,7 +4,9 @@
     <item
         android:id="@+id/menu_drawer_item_myprofile"
         android:title="@string/my_profile" />
-    <item android:title="@string/my_pets" />
+    <item
+        android:id="@+id/menu_drawer_item_my_pets"
+        android:title="@string/my_pets" />
     <item android:title="@string/favorites" />
     <item android:title="@string/chat" />
     <item android:title="@string/shortcuts">
@@ -17,8 +19,8 @@
             <item android:title="@string/patronize_pet" />
         </menu>
     </item>
-    <item android:title="@string/info" >
-        <menu >
+    <item android:title="@string/info">
+        <menu>
             <item android:title="@string/tips" />
             <item android:title="@string/events" />
             <item android:title="@string/legislation" />
@@ -26,8 +28,8 @@
             <item android:title="@string/adoption_stories" />
         </menu>
     </item>
-    <item android:title="@string/setup" >
-        <menu >
+    <item android:title="@string/setup">
+        <menu>
             <item android:title="@string/privacity" />
         </menu>
     </item>
