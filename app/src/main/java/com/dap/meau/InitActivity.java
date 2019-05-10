@@ -86,7 +86,7 @@ public class InitActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(mAuth.getCurrentUser() != null) {
                     FirebaseAuth.getInstance().signOut();
-                    UserHelper.setUserModel(new UserModel());
+                    UserHelper.setUserModel(getApplicationContext(), new UserModel());
                     mBtLogin.setText(R.string.login);
                 } else {
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
