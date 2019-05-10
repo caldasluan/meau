@@ -5,13 +5,10 @@
     <string name="hello">Olá!</string>
     <string name="description_main">Bem vindo ao Meau!\nAqui você pode adotar, doar e ajudar\ncães e gatos com facilidade.\nQual o seu interesse?</string>
     <string name="adopt">Adotar</string>
-    <string name="help">Ajudar</string>
     <string name="register_animal">Cadastrar Animal</string>
     <string name="login">Login</string>
     <string name="drw_meau_marca_contdesc">Logomarca do aplicativo Meau</string>
-    <string name="user_name">Nome de usuário</string>
     <string name="password">Senha</string>
-    <string name="afh_username">username</string>
     <string name="afh_password">password</string>
     <string name="my_profile">Meu Perfil</string>
     <string name="my_pets">Meus pets</string>
@@ -78,7 +75,6 @@
     <string name="castrado1">CASTRADO</string>
     <string name="vacinado1">VACINADO</string>
     <string name="Noo">Não</string>
-    <string name="calm">Calmo e dócil</string>
     <string name="exigencias">EXIGÊNCIAS DO DOADOR</string>
     <string name="termos">Termo de adoção, fotos da casa, visita prévia e acompanhamento durante três semanas</string>
     <string name="mais_sobre">MAIS SOBRE %s</string>
@@ -112,7 +108,6 @@
     <string name="email">EMAIL</string>
     <string name="endereco">ENDEREÇO</string>
     <string name="telefone">TELEFONE</string>
-    <string name="nome_de_usu_rio">NOME DE USUÁRIO</string>
     <string name="historico">HISTÓRICO</string>
     <string name="andr_santos_de_oliveira">André Santos de Oliveira</string>
     <string name="_11_anos">11 anos</string>
@@ -120,10 +115,8 @@
     <string name="noroeste_distrito_federal">Noroeste - Distrito Federal</string>
     <string name="srpn_trecho_2">SRPN Trecho 2</string>
     <string name="_61_99957_4219">(61) 99957-4219</string>
-    <string name="andre_santos_user">andre_santos</string>
     <string name="nenhuma_adocao">Nenhuma adoção</string>
     <string name="login_necessary">Login Necessário</string>
-    <string name="Local"> - </string>
 
 
     <string name="err_sessao_txt_oops">Ops!</string>

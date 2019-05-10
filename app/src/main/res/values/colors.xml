@@ -4,14 +4,12 @@
     <color name="colorPrimaryDark">#fa9e00</color>
     <color name="colorPrimaryLght">#FDE399</color>
     <color name="colorAccent">#569C9B</color>
-    <color name="colorAccentLight">#85c9bf</color>
 
     <color name="colorSecondary">#cfe9e5</color>
     <color name="colorSecondaryDark">#88C9BF</color>
 
     <color name="colorTitle">#434343</color>
     <color name="colorTitleTelaUsuario">#589b9b</color>
-    <color name="colorBtnTelaUsuario">#88c9bf</color>
     <color name="colorOrangeSubtitle">#f7a800</color>
     <color name="colorHintText">#bdbdbd</color>
     <color name="colorGrayBtnText">#757575</color>
