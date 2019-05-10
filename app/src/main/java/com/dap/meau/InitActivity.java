@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -16,9 +17,13 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.UserModel;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -50,7 +55,25 @@ public class InitActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
-        UserHelper.getUserModel();
+        UserHelper.getUserModel(this);
+
+        // Confirm token
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+                        // Get new Instance ID token
+                        String token = task.getResult().getToken();
+                        UserModel userModel = UserHelper.getUserModel(InitActivity.this);
+                        if (!userModel.getToken().equals(token)) {
+                            userModel.setToken(token);
+                            UserHelper.setUserModel(InitActivity.this, userModel);
+                        }
+                    }
+                });
 
         // Referência de Views
         mBtLogin = findViewById(R.id.bt_main_login);
@@ -127,9 +150,9 @@ public class InitActivity extends AppCompatActivity {
         CircleImageView civHeaderImage = navigationView.getHeaderView(0).findViewById(R.id.nav_header_image);
 
         if (mAuth.getCurrentUser() != null) {
-            txtHeaderTitle.setText(UserHelper.getUserModel().getShortName());
+            txtHeaderTitle.setText(UserHelper.getUserModel(this).getShortName());
             Glide.with(this)
-                    .load(UserHelper.getUserModel().getImageUrl())
+                    .load(UserHelper.getUserModel(this).getImageUrl())
                     .into(civHeaderImage);
         }
 

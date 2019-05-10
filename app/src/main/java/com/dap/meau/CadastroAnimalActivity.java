@@ -131,7 +131,7 @@ public class CadastroAnimalActivity extends AppCompatActivity {
             }
         });
 
-        mUserModel = UserHelper.getUserModel();
+        mUserModel = UserHelper.getUserModel(this);
 
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override

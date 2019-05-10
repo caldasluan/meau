@@ -13,6 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dap.meau.Helper.DatabaseFirebase.UserDatabaseHelper;
+import com.dap.meau.Model.UserModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
+
 import com.bumptech.glide.Glide;
 import com.dap.meau.Helper.DatabaseFirebase.InterestDatabaseHelper;
 import com.dap.meau.Helper.UserHelper;
@@ -82,7 +90,8 @@ public class PerfilAnimal extends AppCompatActivity {
         mTxtVaccinated.setText(mPetModel.isVaccinated() ? R.string.yess : R.string.Noo);
         mTxtAboutTitle.setText(String.format(getString(R.string.mais_sobre), mPetModel.getName()));
 
-        if (mPetModel.getUserUid().equals(UserHelper.getUserModel().getUid())) mButton.setVisibility(View.GONE);
+        if (mPetModel.getUserUid().equals(UserHelper.getUserModel(this).getUid()))
+            mButton.setVisibility(View.GONE);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,11 +101,36 @@ public class PerfilAnimal extends AppCompatActivity {
                         .setPositiveButton(R.string.yess, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                PetUserInterestModel petUserInterestModel = new PetUserInterestModel(mPetModel.getUid(), UserHelper.getUserModel().getUid());
+                                PetUserInterestModel petUserInterestModel = new PetUserInterestModel(mPetModel.getUid(), UserHelper.getUserModel(PerfilAnimal.this).getUid());
                                 InterestDatabaseHelper.createInterest(petUserInterestModel, new OnSuccessListener() {
                                     @Override
                                     public void onSuccess(Object o) {
                                         Toast.makeText(PerfilAnimal.this, "Interesse realizado com sucesso", Toast.LENGTH_SHORT).show();
+
+                                        // Notificação
+                                        UserDatabaseHelper.getUserWithUid(mPetModel.getUserUid(), new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(DataSnapshot snapshot) {
+                                                if (snapshot.getValue() == null) return;
+
+                                                UserModel userModel = snapshot.getValue(UserModel.class);
+                                                if (userModel.getToken() == null || userModel.getToken().isEmpty())
+                                                    return;
+
+                                                RemoteMessage message = new RemoteMessage.Builder(userModel.getToken())
+                                                        .addData("type", "adopt")
+                                                        .addData("pet", mPetModel.getName())
+                                                        .addData("user", UserHelper.getUserModel(PerfilAnimal.this).getShortName())
+                                                        .build();
+                                                FirebaseMessaging.getInstance().send(message);
+                                            }
+
+                                            @Override
+                                            public void onCancelled(DatabaseError error) {
+
+                                            }
+                                        });
+
                                         finish();
                                     }
                                 });

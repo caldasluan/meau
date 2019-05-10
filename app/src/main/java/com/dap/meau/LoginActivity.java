@@ -177,8 +177,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                                     intent.putExtras(bundle);
                                                     startActivity(intent);
                                                     finish();
-                                                } else {
-                                                    UserHelper.setUserModel(dataSnapshot.getValue(UserModel.class));
+                                                }
+                                                else {
+                                                    UserHelper.setUserModel(LoginActivity.this, dataSnapshot.getValue(UserModel.class));
                                                     finish();
                                                 }
                                             }
