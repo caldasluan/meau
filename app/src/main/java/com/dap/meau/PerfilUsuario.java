@@ -55,7 +55,6 @@ public class PerfilUsuario extends AppCompatActivity {
         mTxtAdress = findViewById(R.id.perfil_usuario_txt_endereco);
         mtxtLocal = findViewById(R.id.perfil_usuario_txt_local);
         mTxtPhone = findViewById(R.id.perfil_usuario_txt_telefone);
-        mTxtUserName = findViewById(R.id.perfil_usuario_txt_nomeusuario);
         mTxtHistory = findViewById(R.id.perfil_usuario_txt_historico);
         mBtnChat = findViewById(R.id.perfil_usuario_btn_chat);
         mBtnHistory = findViewById(R.id.perfil_usuario_btn_historias);
@@ -70,7 +69,6 @@ public class PerfilUsuario extends AppCompatActivity {
         mTxtAdress.setText(mUserModel.getAddress());
         mtxtLocal.setText(String.format("%s - %s", mUserModel.getCity(), mUserModel.getState()));
         mTxtPhone.setText(String.valueOf(mUserModel.getPhone()));
-        mTxtUserName.setText(mUserModel.getUsername());
         //mTxtHistory.setText(mHistoryUserModel.getXXXX());
 
 

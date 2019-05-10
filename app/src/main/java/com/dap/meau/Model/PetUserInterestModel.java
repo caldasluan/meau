@@ -11,6 +11,11 @@ public class PetUserInterestModel implements Serializable {
         this.userUid = userUid;
     }
 
+    public PetUserInterestModel(String petUid, String userUid) {
+        this.petUid = petUid;
+        this.userUid = userUid;
+    }
+
     public String getUid() {
         return uid;
     }
