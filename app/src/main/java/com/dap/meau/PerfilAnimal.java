@@ -1,6 +1,8 @@
 package com.dap.meau;
 
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.dap.meau.Helper.DatabaseFirebase.InterestDatabaseHelper;
+import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.PetModel;
+import com.dap.meau.Model.PetUserInterestModel;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 public class PerfilAnimal extends AppCompatActivity {
 
@@ -77,10 +83,27 @@ public class PerfilAnimal extends AppCompatActivity {
         mTxtAboutTitle.setText(String.format(getString(R.string.mais_sobre), mPetModel.getName()));
 
         // TODO Implementar este botão
+        if (mPetModel.getUserUid().equals(UserHelper.getUserModel().getUid())) mButton.setVisibility(View.GONE);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(PerfilAnimal.this, "Em Construção!", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(PerfilAnimal.this)
+                        .setTitle("Atenção!")
+                        .setMessage("Tem certeza que deseja adotar este animal?")
+                        .setPositiveButton(R.string.yess, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                PetUserInterestModel petUserInterestModel = new PetUserInterestModel(mPetModel.getUid(), UserHelper.getUserModel().getUid());
+                                InterestDatabaseHelper.createInterest(petUserInterestModel, new OnSuccessListener() {
+                                    @Override
+                                    public void onSuccess(Object o) {
+                                        Toast.makeText(PerfilAnimal.this, "Interesse realizado com sucesso", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton(R.string.Noo, null).show();
             }
         });
     }
