@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserModel implements Serializable {
-    private String shortName, fullName, email, state, city, address, username, password, phone, imageUrl, uid;
+    private String shortName, fullName, email, state, city, address, password, phone, imageUrl, uid;
     private int age;
 
     public UserModel(){
@@ -23,7 +23,6 @@ public class UserModel implements Serializable {
         this.state = state;
         this.city = city;
         this.address = address;
-        this.username = username;
         this.phone = phone;
         this.imageUrl = imageUrl;
         this.uid = hiid;
@@ -37,7 +36,6 @@ public class UserModel implements Serializable {
         this.state = state;
         this.city = city;
         this.address = address;
-        this.username = username;
         this.password = password;
         this.phone = phone;
         this.imageUrl = imageUrl;
@@ -62,7 +60,6 @@ public class UserModel implements Serializable {
         map.put("state", getState());
         map.put("city", getCity());
         map.put("address", getAddress());
-        map.put("username", getUsername());
         map.put("password", getPassword());
         map.put("phone", getPhone());
         map.put("imageUrl", getImageUrl());
@@ -117,14 +114,6 @@ public class UserModel implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {
