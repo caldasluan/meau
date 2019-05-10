@@ -41,7 +41,7 @@ public class MessageService extends FirebaseMessagingService {
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
-        notificationManager.notify((int) (System.currentTimeMillis()/1000), mBuilder.build());
+        notificationManager.notify(0, mBuilder.build());
     }
 
     @Override
