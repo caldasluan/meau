@@ -1,8 +1,11 @@
 package com.dap.meau;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,7 +13,13 @@ import android.widget.Toast;
 
 import com.dap.meau.Helper.DatabaseFirebase.UserDatabaseHelper;
 import com.dap.meau.Model.UserModel;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.core.Tag;
 
 public class CadastroPessoalActivity extends AppCompatActivity {
 
@@ -18,12 +27,15 @@ public class CadastroPessoalActivity extends AppCompatActivity {
     TextView txtFullName, txtShortName, txtAge, txtEmail, txtEstate, txtCity, txtAdress, txtNumber, txtPass, txtConfirmPass;
     Button btSave, btImage;
     UserModel userModel;
+    private boolean isBundled = true;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pessoal);
 
+        mAuth = FirebaseAuth.getInstance();
         userModel = new UserModel();
 
         // Suporte para ActionBar
@@ -51,6 +63,8 @@ public class CadastroPessoalActivity extends AppCompatActivity {
             userModel = (UserModel) bundle.getSerializable(UserModel.class.getName());
 
             txtEmail.setText(userModel.getEmail());
+        } else {
+            isBundled = false;
         }
 
         // Eventos de click
@@ -60,6 +74,19 @@ public class CadastroPessoalActivity extends AppCompatActivity {
                 saveUser();
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            Toast.makeText(CadastroPessoalActivity.this, "Usuário já está logado.",
+                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), InitActivity.class);
+            startActivity(intent);
+        }
     }
 
     private void saveUser() {
@@ -76,12 +103,41 @@ public class CadastroPessoalActivity extends AppCompatActivity {
         userModel.setAddress(txtAdress.getText().toString());
         userModel.setPhone(txtNumber.getText().toString());
         userModel.setPassword(txtPass.getText().toString());
-        UserDatabaseHelper.createUser(userModel, new OnSuccessListener() {
-            @Override
-            public void onSuccess(Object o) {
-                Toast.makeText(CadastroPessoalActivity.this,"Usuário criado com sucesso!", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
+
+        if (isBundled) {
+            UserDatabaseHelper.createUser(userModel, new OnSuccessListener() {
+                @Override
+                public void onSuccess(Object o) {
+                    Toast.makeText(CadastroPessoalActivity.this, "Usuário criado com sucesso!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            });
+        } else {
+            mAuth.createUserWithEmailAndPassword(txtEmail.getText().toString(), txtPass.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(null, "createUserWithEmail:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                UserDatabaseHelper.createUser(userModel, new OnSuccessListener() {
+                                    @Override
+                                    public void onSuccess(Object o) {
+                                        Toast.makeText(CadastroPessoalActivity.this, "Usuário criado com sucesso!", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }
+                                });
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(null, "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(CadastroPessoalActivity.this, "Autenticação falhou.",
+                                        Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        }
+                    });
+
+        }
     }
 }
