@@ -1,7 +1,9 @@
 package com.dap.meau.Adapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,16 +11,26 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.dap.meau.Helper.DatabaseFirebase.InterestDatabaseHelper;
+import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
+import com.dap.meau.Helper.DatabaseFirebase.UserDatabaseHelper;
+import com.dap.meau.Helper.DatabaseFirebaseHelper;
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.PetModel;
+import com.dap.meau.Model.PetUserInterestModel;
 import com.dap.meau.Model.UserModel;
 import com.dap.meau.PerfilAnimal;
 import com.dap.meau.R;
 import com.dap.meau.Util.ClickInterface;
 import com.dap.meau.ViewHolder.DefaultPetViewHolder;
 import com.dap.meau.ViewHolder.DefaultUserSimplesViewHolder;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -26,11 +38,13 @@ public class AcceptActivityAdapter extends RecyclerView.Adapter<DefaultUserSimpl
 
     private ArrayList<UserModel> mList;
     private Activity mActivity;
+    private PetModel mPetModel;
 
-    public AcceptActivityAdapter(Activity activity) {
+    public AcceptActivityAdapter(Activity activity, PetModel petModel) {
         super();
         mActivity = activity;
         mList = new ArrayList<>();
+        mPetModel = petModel;
     }
 
     @NonNull
@@ -40,13 +54,42 @@ public class AcceptActivityAdapter extends RecyclerView.Adapter<DefaultUserSimpl
                 .inflate(R.layout.view_holder_user_simple, viewGroup, false);
         return new DefaultUserSimplesViewHolder(view, new ClickInterface() {
             @Override
-            public void onClick(View view, int position) {
-                // TODO Arrumar a classe a ser chamada
-                Intent intent = new Intent(mActivity.getApplicationContext(), PerfilAnimal.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(PetModel.class.getName(), mList.get(position));
-                intent.putExtras(bundle);
-                mActivity.getApplicationContext().startActivity(intent);
+            public void onClick(View view, final int position) {
+                new AlertDialog.Builder(mActivity)
+                        .setTitle("Confirmar adoção?")
+                        .setMessage("Você realmente deseja confirmar esta adoção?")
+                        .setPositiveButton(R.string.yess, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                mPetModel.setUserUid(mList.get(position).getUid());
+                                PetDatabaseHelper.updatePet(mPetModel, new OnSuccessListener() {
+                                    @Override
+                                    public void onSuccess(Object o) {
+                                        InterestDatabaseHelper.getAllUsersInterest(mPetModel.getUid(), new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                if (dataSnapshot.getValue() == null) return;
+
+                                                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                                    PetUserInterestModel petUserInterestModel = snapshot.getValue(PetUserInterestModel.class);
+                                                    InterestDatabaseHelper.deleteInterest(petUserInterestModel.getUid(), null);
+                                                }
+
+                                                Toast.makeText(mActivity, "Adoção realizada com sucesso!", Toast.LENGTH_SHORT).show();
+                                                mActivity.finish();
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton(R.string.Noo, null)
+                        .show();
             }
         });
     }

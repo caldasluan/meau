@@ -65,8 +65,6 @@ public class MyPetsFragment extends Fragment {
         PetDatabaseHelper.getPetWithUserUid(UserHelper.getUserModel().getUid(), new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() == null) return;
-
                 mList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     mList.add(snapshot.getValue(PetModel.class));

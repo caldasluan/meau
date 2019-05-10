@@ -29,6 +29,7 @@ public class AcceptActivity extends AppCompatActivity {
     private AcceptActivityAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<UserModel> mList;
+    private ArrayList<String> mUsers;
     PetModel mPetModel;
 
     @Override
@@ -37,6 +38,7 @@ public class AcceptActivity extends AppCompatActivity {
         setContentView(R.layout.activity_accept);
 
         mList = new ArrayList<>();
+        mUsers = new ArrayList<>();
 
         // Suporte para ActionBar
         Toolbar mToolbar = findViewById(R.id.toolbar);
@@ -56,7 +58,7 @@ public class AcceptActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new AcceptActivityAdapter(this);
+        mAdapter = new AcceptActivityAdapter(this, mPetModel);
         recyclerView.setAdapter(mAdapter);
 
         InterestDatabaseHelper.getAllUsersInterest(mPetModel.getUid(), new ValueEventListener() {
@@ -66,20 +68,24 @@ public class AcceptActivity extends AppCompatActivity {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     PetUserInterestModel petUserInterestModel = snapshot.getValue(PetUserInterestModel.class);
-                    UserDatabaseHelper.getUserWithUid(petUserInterestModel.getUserUid(), new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.getValue() == null) return;
+                    if (!mUsers.contains(petUserInterestModel.getUserUid())) {
+                        mUsers.add(petUserInterestModel.getUserUid());
 
-                            mList.add(dataSnapshot.getValue(UserModel.class));
-                            mAdapter.setList(mList);
-                        }
+                        UserDatabaseHelper.getUserWithUid(petUserInterestModel.getUserUid(), new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if (dataSnapshot.getValue() == null) return;
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                                mList.add(dataSnapshot.getValue(UserModel.class));
+                                mAdapter.setList(mList);
+                            }
 
-                        }
-                    });
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
                 }
             }
 

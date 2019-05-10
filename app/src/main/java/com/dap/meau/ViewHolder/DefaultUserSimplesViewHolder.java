@@ -28,6 +28,7 @@ public class DefaultUserSimplesViewHolder extends RecyclerView.ViewHolder implem
         name = itemView.findViewById(R.id.civ_user_name);
         age = itemView.findViewById(R.id.civ_user_age);
         image = itemView.findViewById(R.id.civ_user_image);
+        itemView.setOnClickListener(this);
         this.clickInterface = clickInterface;
     }
 
