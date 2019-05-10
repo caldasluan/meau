@@ -38,7 +38,7 @@ public class PetModel implements Serializable {
         this.uid = uid;
     }
 
-    public PetModel(String userUid, String name, String gender, String age, String postage, String city, String imageUrl, String disease, String temperament, String requiriments, String about, String uid, boolean castrated, boolean dewormed, boolean vaccinated) {
+    public PetModel(String userUid, String name, String gender, String age, String postage, String city, String imageUrl, String disease, String temperament, String requiriments, String about, boolean castrated, boolean dewormed, boolean vaccinated) {
         this.userUid = userUid;
         this.name = name;
         this.gender = gender;
