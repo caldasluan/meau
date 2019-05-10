@@ -125,8 +125,10 @@
     <string name="login_necessary">Login Necessário</string>
     <string name="Local"> - </string>
 
+
     <string name="err_sessao_txt_oops">Ops!</string>
     <string name="err_sessao_msg_erro">Você não pode realizar esta ação sem\npossuir um cadastro.</string>
     <string name="err_sessao_txt_japossui">Já possui cadastro?</string>
+
 
 </resources>

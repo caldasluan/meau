@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dap.meau.Adapter.MainFragmentAdapter;
+import com.dap.meau.Adapter.MyPetsFragmentAdapter;
 import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.MainActivity;
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 public class MyPetsFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private MainFragmentAdapter mAdapter;
+    private MyPetsFragmentAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<PetModel> mList;
 
@@ -54,7 +55,7 @@ public class MyPetsFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new MainFragmentAdapter(getContext());
+        mAdapter = new MyPetsFragmentAdapter(getContext());
         recyclerView.setAdapter(mAdapter);
     }
 

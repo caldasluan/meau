@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.dap.meau.R;
 import com.dap.meau.Util.ClickInterface;
 
-public class DefaultPetViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class DefaultPetViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView title, gender, age, postage, city;
     public ImageView image;
     public ClickInterface clickInterface;
