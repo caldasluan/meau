@@ -37,7 +37,7 @@ public class AcceptActivityAdapter extends RecyclerView.Adapter<DefaultUserSimpl
     @Override
     public DefaultUserSimplesViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.view_holder_default_pet, viewGroup, false);
+                .inflate(R.layout.view_holder_user_simple, viewGroup, false);
         return new DefaultUserSimplesViewHolder(view, new ClickInterface() {
             @Override
             public void onClick(View view, int position) {
