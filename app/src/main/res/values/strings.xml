@@ -130,5 +130,7 @@
     <string name="err_sessao_msg_erro">Você não pode realizar esta ação sem\npossuir um cadastro.</string>
     <string name="err_sessao_txt_japossui">Já possui cadastro?</string>
 
+    <string name="init_sair">SAIR</string>
+
 
 </resources>

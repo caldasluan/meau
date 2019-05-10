@@ -1,7 +1,6 @@
 package com.dap.meau;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -38,6 +37,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+    Button mBtnLogin;
+    EditText mTxtEmail, mTxtSenha;
     GoogleApiClient mGoogleApiClient;
     SignInButton mBtSignInGoogle;
     private FirebaseAuth mAuth;
@@ -49,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         setContentView(R.layout.activity_login);
 
         // Suporte para ActionBar
-        Toolbar mToolbar = findViewById(R.id.loginToolbar);
+        Toolbar mToolbar = findViewById(R.id.toolbar);
         mToolbar.setTitle(getString(R.string.login));
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -69,12 +70,22 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         // Referência das Views
         mBtSignInGoogle = findViewById(R.id.login_bt_sign_in_google);
+        mBtnLogin = findViewById(R.id.login_btn_login);
+        mTxtEmail = findViewById(R.id.login_edit_email);
+        mTxtSenha = findViewById(R.id.login_edit_senha);
 
         // Eventos de Clique
         mBtSignInGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn();
+            }
+        });
+
+        mBtnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emailSignIn();
             }
         });
     }
@@ -84,11 +95,42 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null) {
+            Toast.makeText(LoginActivity.this, "Usuário já está logado!",
+                    Toast.LENGTH_LONG).show();
+            finish();
+        }
     }
 
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    private void emailSignIn() {
+        mAuth.signInWithEmailAndPassword(mTxtEmail.getText().toString(), mTxtSenha.getText().toString())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("EmailPasswordLogin", "signInWithEmail:success");
+                            Toast.makeText(LoginActivity.this, "Autenticado com sucesso!",
+                                    Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(getApplicationContext(), InitActivity.class);
+                            startActivity(intent);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.d("EmailPasswordLogin", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Autenticação falhou.",
+                                    Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+
+                        // ...
+                    }
+                });
     }
 
     @Override
