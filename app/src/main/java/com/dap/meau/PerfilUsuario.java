@@ -23,7 +23,6 @@ public class PerfilUsuario extends AppCompatActivity {
     TextView mTxtShortName, mTxtFullName, mTxtAge, mTxtEmail, mtxtLocal, mTxtAdress, mTxtPhone, mTxtUserName, mTxtHistory;
     Button mBtnChat, mBtnHistory;
     UserModel mUserModel;
-    HistoryUserModel mHistoryUserModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
