@@ -25,6 +25,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<DefaultPetViewHold
     public MainFragmentAdapter(Context context) {
         super();
         mContext = context;
+        mList = new ArrayList<>();
     }
 
     @NonNull
@@ -63,5 +64,6 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<DefaultPetViewHold
 
     public void setList(ArrayList<PetModel> list) {
         mList = list;
+        notifyDataSetChanged();
     }
 }
