@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
         CircleImageView civHeaderImage = navigationView.getHeaderView(0).findViewById(R.id.nav_header_image);
 
         if (mAuth.getCurrentUser() != null) {
-            txtHeaderTitle.setText(UserHelper.getUserModel().getShortName());
+            txtHeaderTitle.setText(UserHelper.getUserModel(this).getShortName());
             Glide.with(this)
-                    .load(UserHelper.getUserModel().getImageUrl())
+                    .load(UserHelper.getUserModel(this).getImageUrl())
                     .into(civHeaderImage);
         }
 

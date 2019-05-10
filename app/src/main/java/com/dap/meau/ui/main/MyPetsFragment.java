@@ -62,7 +62,7 @@ public class MyPetsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        PetDatabaseHelper.getPetWithUserUid(UserHelper.getUserModel().getUid(), new ValueEventListener() {
+        PetDatabaseHelper.getPetWithUserUid(UserHelper.getUserModel(getContext()).getUid(), new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mList.clear();

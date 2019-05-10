@@ -16,7 +16,7 @@ public class UserDatabaseHelper {
         DatabaseReference reference = DatabaseFirebaseHelper.getDatabaseReference(DatabaseFirebaseHelper.USERS);
 
         Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put(userModel.getUid(), userModel.toMap());
+        childUpdates.put(userModel.getUid(), userModel);
 
         reference.updateChildren(childUpdates).addOnSuccessListener(successListener);
     }

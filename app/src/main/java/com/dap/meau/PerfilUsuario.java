@@ -44,7 +44,7 @@ public class PerfilUsuario extends AppCompatActivity {
             mUserModel = (UserModel) bundle.getSerializable(UserModel.class.getName());
             if (mUserModel == null) finish();
         }
-        else mUserModel = UserHelper.getUserModel();
+        else mUserModel = UserHelper.getUserModel(this);
 
         // Referência das Views
         mImgProfilePicture = findViewById(R.id.perfil_usuario_circle_img_fotousuario);

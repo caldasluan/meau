@@ -2,18 +2,58 @@ package com.dap.meau.Model;
 
 import android.util.Log;
 
+import com.dap.meau.Util.GsonUtil;
 import com.google.firebase.database.DataSnapshot;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 public class UserModel implements Serializable {
-    private String shortName, fullName, email, state, city, address, password, phone, imageUrl, uid;
-    private int age;
+    @SerializedName("shortName")
+    private String shortName = "";
+    @SerializedName("fullName")
+    private String fullName = "";
+    @SerializedName("email")
+    private String email = "";
+    @SerializedName("state")
+    private String state = "";
+    @SerializedName("city")
+    private String city = "";
+    @SerializedName("address")
+    private String address = "";
+    @SerializedName("password")
+    private String password = "";
+    @SerializedName("phone")
+    private String phone = "";
+    @SerializedName("imageUrl")
+    private String imageUrl = "";
+    @SerializedName("uid")
+    private String uid = "";
+    @SerializedName("token")
+    private String token = "";
+    @SerializedName("age")
+    private int age = 0;
 
     public UserModel(){
         // Construtor padrão necessário para usar objeto no Firebase
+    }
+
+    public UserModel(String json) {
+        UserModel userModel = (UserModel) GsonUtil.deserialize(UserModel.class, json);
+        setShortName(userModel.getShortName());
+        setFullName(userModel.getFullName());
+        setEmail(userModel.getEmail());
+        setState(userModel.getState());
+        setCity(userModel.getCity());
+        setAddress(userModel.getAddress());
+        setPassword(userModel.getPassword());
+        setPhone(userModel.getPhone());
+        setImageUrl(userModel.getImageUrl());
+        setUid(userModel.getUid());
+        setToken(userModel.getToken());
+        setAge(userModel.getAge());
     }
 
     public UserModel(String shortName, String fullName, String email, String state, String city, String address, String username, String phone, String imageUrl, String hiid, int age) {
@@ -64,8 +104,14 @@ public class UserModel implements Serializable {
         map.put("phone", getPhone());
         map.put("imageUrl", getImageUrl());
         map.put("age", getAge());
+        map.put("token", getToken());
 
         return map;
+    }
+
+    @Override
+    public String toString() {
+        return GsonUtil.serialize(this);
     }
 
     public String getShortName() {
@@ -154,5 +200,13 @@ public class UserModel implements Serializable {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

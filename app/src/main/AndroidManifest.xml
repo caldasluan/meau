@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AcceptActivity"></activity>
+        <activity android:name=".AcceptActivity" />
         <activity
             android:name=".ErroSessaoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Blue"></activity>
+            android:theme="@style/AppTheme.Blue" />
         <activity
             android:name=".CadastroPessoalActivity"
             android:screenOrientation="portrait"
@@ -45,9 +45,23 @@
             android:name=".ConfirmationActivity"
             android:screenOrientation="portrait" />
 
+        <service android:name=".Service.MessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
+
     </application>
 
 </manifest>
