@@ -5,10 +5,10 @@
     android:id="@+id/loginParentConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#FAFAFA">
+    tools:context=".LoginActivity">
 
     <include
-        android:id="@+id/loginToolbar"
+        android:id="@+id/toolbar"
         layout="@layout/template_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginToolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/login_child_CL"
@@ -41,29 +41,27 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <EditText
-                    android:id="@+id/login_edit_nomeUsuario"
+                    android:id="@+id/login_edit_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:autofillHints="@string/afh_username"
+                    android:autofillHints="@string/cad_pessoa_email" tools:targetApi="o"
                     android:fontFamily="@font/roboto"
-                    android:hint="@string/user_name"
-                    android:inputType="text"
+                    android:hint="@string/cad_pessoa_email"
+                    android:inputType="textEmailAddress"
                     android:textColorHint="@color/colorHintText"
-                    android:textSize="14sp"
-                    tools:targetApi="o" />
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/login_edit_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:autofillHints="@string/afh_password"
+                    android:autofillHints="@string/afh_password" tools:targetApi="o"
                     android:fontFamily="@font/roboto"
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:textColorHint="@color/colorHintText"
-                    android:textSize="14sp"
-                    tools:targetApi="o" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
