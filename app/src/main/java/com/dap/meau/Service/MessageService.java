@@ -39,7 +39,7 @@ public class MessageService extends FirebaseMessagingService {
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
         notificationManager.notify(0, mBuilder.build());
-        
+
         super.onMessageReceived(remoteMessage);
     }
 
