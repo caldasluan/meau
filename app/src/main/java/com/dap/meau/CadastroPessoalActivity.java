@@ -83,8 +83,7 @@ public class CadastroPessoalActivity extends AppCompatActivity {
         if (currentUser != null) {
             Toast.makeText(CadastroPessoalActivity.this, "Usuário já está logado.",
                     Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), InitActivity.class);
-            startActivity(intent);
+            finish();
         }
     }
 
@@ -120,17 +119,19 @@ public class CadastroPessoalActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d("EmailPassword", "createUserWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
+                                userModel.setUid(user.getUid());
                                 UserDatabaseHelper.createUser(userModel, new OnSuccessListener() {
                                     @Override
                                     public void onSuccess(Object o) {
                                         Toast.makeText(CadastroPessoalActivity.this, "Usuário criado com sucesso!", Toast.LENGTH_SHORT).show();
-                                        finish();
+                                        Intent intent = new Intent(getApplicationContext(), InitActivity.class);
+                                        startActivity(intent);
                                     }
                                 });
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Log.w("EmailPassword", "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(CadastroPessoalActivity.this, "Autenticação falhou.",
+                                Log.d("EmailPassword", "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(CadastroPessoalActivity.this, "Criação falhou.\nVerifique sua conexão e tente novamente.",
                                         Toast.LENGTH_SHORT).show();
                                 finish();
                             }

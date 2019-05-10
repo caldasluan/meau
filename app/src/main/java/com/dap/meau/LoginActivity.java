@@ -81,6 +81,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 signIn();
             }
         });
+
+        mBtnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emailSignIn();
+            }
+        });
     }
 
     @Override
@@ -93,6 +100,33 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    private void emailSignIn() {
+        mAuth.signInWithEmailAndPassword(mTxtEmail.getText().toString(), mTxtSenha.getText().toString())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("EmailPasswordLogin", "signInWithEmail:success");
+                            Toast.makeText(LoginActivity.this, "Autenticado com sucesso!",
+                                    Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            // Falta levar de volta os parâmetros do usuário para tela inicial
+                            Intent intent = new Intent(getApplicationContext(), InitActivity.class);
+                            startActivity(intent);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.d("EmailPasswordLogin", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Autenticação falhou.",
+                                    Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+
+                        // ...
+                    }
+                });
     }
 
     @Override
@@ -139,8 +173,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                                     intent.putExtras(bundle);
                                                     startActivity(intent);
                                                     finish();
-                                                }
-                                                else {
+                                                } else {
                                                     UserHelper.setUserModel(dataSnapshot.getValue(UserModel.class));
                                                     finish();
                                                 }
