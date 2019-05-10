@@ -146,17 +146,6 @@
                     android:textColor="@color/colorSecondaryDark" />
 
                 <EditText
-                    android:id="@+id/cad_pessoa_edit_nomeusuario"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:autofillHints="@string/afh_username"
-                    android:hint="@string/user_name"
-                    android:inputType="text"
-                    android:textColorHint="@color/colorHintText"
-                    tools:targetApi="o" />
-
-                <EditText
                     android:id="@+id/cad_pessoa_edit_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -59,6 +59,7 @@ public class InitActivity extends AppCompatActivity {
         mBtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }
@@ -67,7 +68,13 @@ public class InitActivity extends AppCompatActivity {
         mBtAdopt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                Intent intent;
+                if (mAuth.getCurrentUser() == null) {
+                    intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
+                }
+                else intent = new Intent(getApplicationContext(), MainActivity.class);
+
                 startActivity(intent);
             }
         });
@@ -75,7 +82,13 @@ public class InitActivity extends AppCompatActivity {
         mBtRegisterPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+
+                Intent intent;
+                if (mAuth.getCurrentUser() == null) {
+                    intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
+                }
+                else intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+
                 startActivity(intent);
             }
         });
@@ -109,11 +122,21 @@ public class InitActivity extends AppCompatActivity {
                 Intent intent;
                 switch (menuItem.getItemId()) {
                     case R.id.menu_drawer_item_register_pet:
-                        intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+
+                        if (mAuth.getCurrentUser() == null) {
+                            intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
+                        }
+                        else intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+
                         startActivity(intent);
                         return true;
                     case R.id.menu_drawer_item_myprofile:
-                        intent = new Intent(getApplicationContext(), PerfilUsuario.class);
+
+                        if (mAuth.getCurrentUser() == null) {
+                            intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
+                        }
+                        else intent = new Intent(getApplicationContext(), PerfilUsuario.class);
+
                         startActivity(intent);
                         return true;
                 }

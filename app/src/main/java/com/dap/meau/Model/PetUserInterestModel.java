@@ -5,8 +5,15 @@ import java.io.Serializable;
 public class PetUserInterestModel implements Serializable {
     private String uid, petUid, userUid;
 
+    public PetUserInterestModel() {}
+
     public PetUserInterestModel(String uid, String petUid, String userUid) {
         this.uid = uid;
+        this.petUid = petUid;
+        this.userUid = userUid;
+    }
+
+    public PetUserInterestModel(String petUid, String userUid) {
         this.petUid = petUid;
         this.userUid = userUid;
     }
