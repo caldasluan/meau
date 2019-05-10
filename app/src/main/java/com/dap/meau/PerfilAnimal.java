@@ -82,7 +82,6 @@ public class PerfilAnimal extends AppCompatActivity {
         mTxtVaccinated.setText(mPetModel.isVaccinated() ? R.string.yess : R.string.Noo);
         mTxtAboutTitle.setText(String.format(getString(R.string.mais_sobre), mPetModel.getName()));
 
-        // TODO Implementar este botão
         if (mPetModel.getUserUid().equals(UserHelper.getUserModel().getUid())) mButton.setVisibility(View.GONE);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -21,4 +21,9 @@ public class InterestDatabaseHelper {
     public static void getAllUsersInterest(String petUid, ValueEventListener valueEventListener) {
         DatabaseFirebaseHelper.getDatabaseReference(DatabaseFirebaseHelper.PET_USER_INTEREST).orderByChild("petUid").equalTo(petUid).addListenerForSingleValueEvent(valueEventListener);
     }
+
+    // Apaga o interesse com Uid
+    public static void deleteInterest(String uid, DatabaseReference.CompletionListener completionListener) {
+        DatabaseFirebaseHelper.getDatabaseReference(DatabaseFirebaseHelper.PET_USER_INTEREST).child(uid).removeValue(completionListener);
+    }
 }
