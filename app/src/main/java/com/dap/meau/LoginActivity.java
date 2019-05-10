@@ -95,9 +95,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        Toast.makeText(LoginActivity.this, "Usuário já está logado!",
-                Toast.LENGTH_LONG).show();
-        finish();
+        if(currentUser != null) {
+            Toast.makeText(LoginActivity.this, "Usuário já está logado!",
+                    Toast.LENGTH_LONG).show();
+            finish();
+        }
     }
 
     private void signIn() {
