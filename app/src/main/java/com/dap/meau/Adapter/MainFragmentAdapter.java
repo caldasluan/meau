@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<DefaultPetViewHold
             public void onClick(View view, int position) {
                 Intent intent = new Intent(mContext, PerfilAnimal.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable(PetModel.class.getName(), mList.get(i));
+                bundle.putSerializable(PetModel.class.getName(), mList.get(position));
                 intent.putExtras(bundle);
                 mContext.startActivity(intent);
             }
