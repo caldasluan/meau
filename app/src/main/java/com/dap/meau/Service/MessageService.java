@@ -2,6 +2,7 @@ package com.dap.meau.Service;
 
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.util.Log;
 
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.UserModel;
@@ -12,6 +13,7 @@ import com.google.firebase.messaging.RemoteMessage;
 public class MessageService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+        Log.d("NotificatoinTeste", remoteMessage.toString());
         super.onMessageReceived(remoteMessage);
 
         String type = remoteMessage.getData().get("type");
