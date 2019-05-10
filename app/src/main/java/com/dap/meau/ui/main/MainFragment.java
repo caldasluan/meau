@@ -73,8 +73,6 @@ public class MainFragment extends Fragment {
 
             }
         });
-        // TODO: Teste
-        mAdapter.setList(PetStub.getListPet());
     }
 
 }
