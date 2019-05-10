@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ErroSessaoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Blue"></activity>
+        <activity
             android:name=".CadastroPessoalActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Blue" />
@@ -19,7 +23,6 @@
             android:name=".PerfilUsuario"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Blue" />
-
         <activity android:name=".CadastroAnimalActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".PerfilAnimal" />

@@ -125,7 +125,8 @@
     <string name="login_necessary">Login Necessário</string>
     <string name="Local"> - </string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="err_sessao_txt_oops">Ops!</string>
+    <string name="err_sessao_msg_erro">Você não pode realizar esta ação sem\npossuir um cadastro.</string>
+    <string name="err_sessao_txt_japossui">Já possui cadastro?</string>
 
 </resources>
