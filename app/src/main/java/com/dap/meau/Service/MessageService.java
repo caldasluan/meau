@@ -13,9 +13,6 @@ import com.google.firebase.messaging.RemoteMessage;
 public class MessageService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        Log.d("NotificatoinTeste", remoteMessage.toString());
-        super.onMessageReceived(remoteMessage);
-
         String type = remoteMessage.getData().get("type");
         NotificationCompat.Builder mBuilder;
 
@@ -42,6 +39,8 @@ public class MessageService extends FirebaseMessagingService {
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
         notificationManager.notify(0, mBuilder.build());
+        
+        super.onMessageReceived(remoteMessage);
     }
 
     @Override
