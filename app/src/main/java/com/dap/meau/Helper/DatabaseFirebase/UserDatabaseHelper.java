@@ -30,4 +30,9 @@ public class UserDatabaseHelper {
     public static void getUserWithUid(String uid, ValueEventListener eventListener) {
         DatabaseFirebaseHelper.getDatabaseReference(DatabaseFirebaseHelper.USERS).child(uid).addListenerForSingleValueEvent(eventListener);
     }
+
+    // Obtém dados do usuário com email específico
+    public static void getUserWithEmail(String email, ValueEventListener eventListener) {
+        DatabaseFirebaseHelper.getDatabaseReference(DatabaseFirebaseHelper.USERS).orderByChild("email").equalTo(email).addListenerForSingleValueEvent(eventListener);
+    }
 }
