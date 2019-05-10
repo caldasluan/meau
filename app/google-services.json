@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "244847673869-npn5p82vm30u2lt0hu89vm529k5il2qo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dap.meau",
+            "certificate_hash": "c1c40492fd5cb0579430f300bfbfad1227f06c7b"
+          }
+        },
+        {
+          "client_id": "244847673869-7f9r5eo13kbjdc2anusqh9jak7c8m9nq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dap.meau",
+            "certificate_hash": "033719f92904278c55b55dab07de13ddad3b1086"
+          }
+        },
+        {
           "client_id": "244847673869-hbvjms27uifm53vhgg36b669k5gdamnp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
