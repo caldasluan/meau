@@ -117,7 +117,7 @@ public class PerfilAnimal extends AppCompatActivity {
                                                 if (userModel.getToken() == null || userModel.getToken().isEmpty())
                                                     return;
 
-                                                RemoteMessage message = new RemoteMessage.Builder(userModel.getToken())
+                                                RemoteMessage message = new RemoteMessage.Builder(userModel.getToken() + "@gcm.googleapis.com")
                                                         .addData("type", "adopt")
                                                         .addData("pet", mPetModel.getName())
                                                         .addData("user", UserHelper.getUserModel(PerfilAnimal.this).getShortName())
