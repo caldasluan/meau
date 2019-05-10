@@ -68,7 +68,6 @@ public class MyPetsFragment extends Fragment {
 
                 mList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Log.d("TestePet", snapshot.getValue(PetModel.class).getUid());
                     mList.add(snapshot.getValue(PetModel.class));
                 }
                 mAdapter.setList(mList);
