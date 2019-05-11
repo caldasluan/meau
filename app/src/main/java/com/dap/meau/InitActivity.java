@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.UserModel;
+import com.dap.meau.ui.main.MyPetsFragment;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -90,7 +91,7 @@ public class InitActivity extends AppCompatActivity {
         mBtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mAuth.getCurrentUser() != null) {
+                if (mAuth.getCurrentUser() != null) {
                     FirebaseAuth.getInstance().signOut();
                     UserHelper.setUserModel(getApplicationContext(), new UserModel());
                     mBtLogin.setText(R.string.login);
@@ -106,10 +107,15 @@ public class InitActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent;
+                Bundle bundle;
                 if (mAuth.getCurrentUser() == null) {
                     intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
+                } else {
+                    bundle = new Bundle();
+                    bundle.putString("opt", "adopt");
+                    intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.putExtras(bundle);
                 }
-                else intent = new Intent(getApplicationContext(), MainActivity.class);
 
                 startActivity(intent);
             }
@@ -122,8 +128,7 @@ public class InitActivity extends AppCompatActivity {
                 Intent intent;
                 if (mAuth.getCurrentUser() == null) {
                     intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
-                }
-                else intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+                } else intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
 
                 startActivity(intent);
             }
@@ -135,7 +140,7 @@ public class InitActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null) {
+        if (currentUser != null) {
             mBtLogin.setText(R.string.init_sair);
         }
     }
@@ -166,22 +171,47 @@ public class InitActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Intent intent;
+                Bundle bundle;
                 switch (menuItem.getItemId()) {
                     case R.id.menu_drawer_item_register_pet:
-
                         if (mAuth.getCurrentUser() == null) {
                             intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
-                        }
-                        else intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+                        } else
+                            intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
 
                         startActivity(intent);
                         return true;
-                    case R.id.menu_drawer_item_myprofile:
 
+                    case R.id.menu_drawer_item_myprofile:
                         if (mAuth.getCurrentUser() == null) {
                             intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
+                        } else intent = new Intent(getApplicationContext(), PerfilUsuario.class);
+
+                        startActivity(intent);
+                        return true;
+
+                    case R.id.menu_drawer_item_adotar_pet:
+                        if (mAuth.getCurrentUser() == null) {
+                            intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
+                        } else {
+                            bundle = new Bundle();
+                            bundle.putString("opt", "adopt");
+                            intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.putExtras(bundle);
                         }
-                        else intent = new Intent(getApplicationContext(), PerfilUsuario.class);
+
+                        startActivity(intent);
+                        return true;
+
+                    case R.id.menu_drawer_item_my_pets:
+                        if (mAuth.getCurrentUser() == null) {
+                            intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
+                        } else {
+                            bundle = new Bundle();
+                            bundle.putString("opt", "my_pets");
+                            intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.putExtras(bundle);
+                        }
 
                         startActivity(intent);
                         return true;
