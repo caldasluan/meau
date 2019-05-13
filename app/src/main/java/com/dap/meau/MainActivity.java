@@ -29,10 +29,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+/*
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.main_frame, MainFragment.newInstance())
                     .commitNow();
+        }
+*/
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null && !bundle.isEmpty()) {
+            if (bundle.getString("opt").matches("my_pets")) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main_frame, MyPetsFragment.newInstance())
+                        .commitNow();
+            } else if (bundle.getString("opt").matches("adopt")) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main_frame, MainFragment.newInstance())
+                        .commitNow();
+            }
+        } else {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_frame, MainFragment.newInstance())
+                    .commitNow();
+
         }
 
         // Suporte para ActionBar e criação do Drawer
@@ -88,6 +107,11 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.menu_drawer_item_my_pets:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.main_frame, MyPetsFragment.newInstance())
+                                .commitNow();
+                        return true;
+                    case R.id.menu_drawer_item_adotar_pet:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.main_frame, MainFragment.newInstance())
                                 .commitNow();
                         return true;
 

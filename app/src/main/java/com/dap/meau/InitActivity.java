@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.UserModel;
+import com.dap.meau.ui.main.MyPetsFragment;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -121,9 +122,15 @@ public class InitActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent;
+                Bundle bundle;
                 if (mAuth.getCurrentUser() == null) {
                     intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
-                } else intent = new Intent(getApplicationContext(), MainActivity.class);
+                } else {
+                    bundle = new Bundle();
+                    bundle.putString("opt", "adopt");
+                    intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.putExtras(bundle);
+                }
 
                 startActivity(intent);
             }
@@ -179,9 +186,9 @@ public class InitActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Intent intent;
+                Bundle bundle;
                 switch (menuItem.getItemId()) {
                     case R.id.menu_drawer_item_register_pet:
-
                         if (mAuth.getCurrentUser() == null) {
                             intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
                         } else
@@ -189,11 +196,37 @@ public class InitActivity extends AppCompatActivity {
 
                         startActivity(intent);
                         return true;
-                    case R.id.menu_drawer_item_myprofile:
 
+                    case R.id.menu_drawer_item_myprofile:
                         if (mAuth.getCurrentUser() == null) {
                             intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
                         } else intent = new Intent(getApplicationContext(), PerfilUsuario.class);
+
+                        startActivity(intent);
+                        return true;
+
+                    case R.id.menu_drawer_item_adotar_pet:
+                        if (mAuth.getCurrentUser() == null) {
+                            intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
+                        } else {
+                            bundle = new Bundle();
+                            bundle.putString("opt", "adopt");
+                            intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.putExtras(bundle);
+                        }
+
+                        startActivity(intent);
+                        return true;
+
+                    case R.id.menu_drawer_item_my_pets:
+                        if (mAuth.getCurrentUser() == null) {
+                            intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
+                        } else {
+                            bundle = new Bundle();
+                            bundle.putString("opt", "my_pets");
+                            intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.putExtras(bundle);
+                        }
 
                         startActivity(intent);
                         return true;
