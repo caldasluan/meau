@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "244847673869-67j6etfg3ie82lrlm8ldun8upt3nd7cu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dap.meau",
+            "certificate_hash": "e819354c187d1254529f665e65aa69de814fc64e"
+          }
+        },
+        {
           "client_id": "244847673869-npn5p82vm30u2lt0hu89vm529k5il2qo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
