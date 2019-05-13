@@ -3,6 +3,7 @@ package com.dap.meau;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
+import android.net.LinkAddress;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -12,10 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.dap.meau.Helper.UserHelper;
@@ -33,6 +37,8 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
+
+import org.w3c.dom.Text;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -95,9 +101,13 @@ public class InitActivity extends AppCompatActivity {
         mBtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mAuth.getCurrentUser() != null) {
+                if (mAuth.getCurrentUser() != null) {
                     FirebaseAuth.getInstance().signOut();
                     UserHelper.setUserModel(getApplicationContext(), new UserModel());
+
+                    Toast toast = Toast.makeText(InitActivity.this, "Logout realizado com sucesso. Até mais!", Toast.LENGTH_LONG);
+                    toast.show();
+
                     mBtLogin.setText(R.string.login);
                 } else {
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -113,8 +123,7 @@ public class InitActivity extends AppCompatActivity {
                 Intent intent;
                 if (mAuth.getCurrentUser() == null) {
                     intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
-                }
-                else intent = new Intent(getApplicationContext(), MainActivity.class);
+                } else intent = new Intent(getApplicationContext(), MainActivity.class);
 
                 startActivity(intent);
             }
@@ -127,8 +136,7 @@ public class InitActivity extends AppCompatActivity {
                 Intent intent;
                 if (mAuth.getCurrentUser() == null) {
                     intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
-                }
-                else intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+                } else intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
 
                 startActivity(intent);
             }
@@ -140,7 +148,7 @@ public class InitActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null) {
+        if (currentUser != null) {
             mBtLogin.setText(R.string.init_sair);
         }
     }
@@ -176,8 +184,8 @@ public class InitActivity extends AppCompatActivity {
 
                         if (mAuth.getCurrentUser() == null) {
                             intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
-                        }
-                        else intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
+                        } else
+                            intent = new Intent(getApplicationContext(), CadastroAnimalActivity.class);
 
                         startActivity(intent);
                         return true;
@@ -185,8 +193,7 @@ public class InitActivity extends AppCompatActivity {
 
                         if (mAuth.getCurrentUser() == null) {
                             intent = new Intent(getApplicationContext(), ErroSessaoActivity.class);
-                        }
-                        else intent = new Intent(getApplicationContext(), PerfilUsuario.class);
+                        } else intent = new Intent(getApplicationContext(), PerfilUsuario.class);
 
                         startActivity(intent);
                         return true;
