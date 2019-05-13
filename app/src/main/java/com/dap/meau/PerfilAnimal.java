@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import com.dap.meau.Model.UserModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.functions.FirebaseFunctions;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -27,6 +29,9 @@ import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.PetModel;
 import com.dap.meau.Model.PetUserInterestModel;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PerfilAnimal extends AppCompatActivity {
 
@@ -117,12 +122,15 @@ public class PerfilAnimal extends AppCompatActivity {
                                                 if (userModel.getToken() == null || userModel.getToken().isEmpty())
                                                     return;
 
-                                                RemoteMessage message = new RemoteMessage.Builder(userModel.getToken() + "@gcm.googleapis.com")
-                                                        .addData("type", "adopt")
-                                                        .addData("pet", mPetModel.getName())
-                                                        .addData("user", UserHelper.getUserModel(PerfilAnimal.this).getShortName())
-                                                        .build();
-                                                FirebaseMessaging.getInstance().send(message);
+                                                // Envia a notificação
+                                                Map<String, Object> data = new HashMap<>();
+                                                data.put("type", "adopt");
+                                                data.put("pet", mPetModel.getName());
+                                                data.put("user", UserHelper.getUserModel(PerfilAnimal.this).getShortName());
+                                                data.put("token", userModel.getToken());
+                                                FirebaseFunctions.getInstance()
+                                                        .getHttpsCallable("sendNotification")
+                                                        .call(data);
                                             }
 
                                             @Override

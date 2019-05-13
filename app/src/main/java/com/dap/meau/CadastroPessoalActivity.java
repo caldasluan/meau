@@ -20,10 +20,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.LinkedList;
+
 public class CadastroPessoalActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
-    TextView txtFullName, txtShortName, txtAge, txtEmail, txtEstate, txtCity, txtAdress, txtNumber, txtPass, txtConfirmPass;
+    TextView txtFullName, txtAge, txtEmail, txtEstate, txtCity, txtAdress, txtNumber, txtPass, txtConfirmPass;
     Button btSave, btImage;
     UserModel userModel;
     private boolean isBundled = true;
@@ -43,7 +45,6 @@ public class CadastroPessoalActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
         // Referência das Views
-        txtShortName = findViewById(R.id.perfil_usuario_txt_nome);
         txtFullName = findViewById(R.id.cad_pessoa_edit_nomecompleto);
         txtAge = findViewById(R.id.cad_pessoa_edit_idade);
         txtEmail = findViewById(R.id.cad_pessoa_edit_email);
@@ -80,7 +81,7 @@ public class CadastroPessoalActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
+        if (currentUser != null && !isBundled) {
             Toast.makeText(CadastroPessoalActivity.this, "Usuário já está logado.",
                     Toast.LENGTH_SHORT).show();
             finish();
@@ -90,10 +91,10 @@ public class CadastroPessoalActivity extends AppCompatActivity {
     private void saveUser() {
         userModel.setFullName(txtFullName.getText().toString());
 
-        String shortname = txtFullName.getText().toString();
-        String[] shortname2 = shortname.split("\\s+");
+        String[] nameSplit = userModel.getFullName().split(" ");
+        int last = nameSplit.length - 1;
 
-        userModel.setShortName(shortname2[0]);
+        userModel.setShortName(nameSplit[0] + " " + nameSplit[last]);
         userModel.setAge(Integer.valueOf(txtAge.getText().toString()));
         userModel.setEmail(txtEmail.getText().toString());
         userModel.setState(txtEstate.getText().toString());
