@@ -2,10 +2,7 @@ package com.dap.meau.Adapter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,16 +13,12 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.dap.meau.Helper.DatabaseFirebase.InterestDatabaseHelper;
 import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
-import com.dap.meau.Helper.DatabaseFirebase.UserDatabaseHelper;
-import com.dap.meau.Helper.DatabaseFirebaseHelper;
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.PetModel;
 import com.dap.meau.Model.PetUserInterestModel;
 import com.dap.meau.Model.UserModel;
-import com.dap.meau.PerfilAnimal;
 import com.dap.meau.R;
 import com.dap.meau.Util.ClickInterface;
-import com.dap.meau.ViewHolder.DefaultPetViewHolder;
 import com.dap.meau.ViewHolder.DefaultUserSimplesViewHolder;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -111,7 +104,7 @@ public class AcceptActivityAdapter extends RecyclerView.Adapter<DefaultUserSimpl
     public void onBindViewHolder(@NonNull DefaultUserSimplesViewHolder defaultUserSimplesViewHolder, int i) {
         UserModel userModel = mList.get(i);
 
-        defaultUserSimplesViewHolder.name.setText(userModel.getFullName());
+        defaultUserSimplesViewHolder.name.setText(userModel.getShortName());
         defaultUserSimplesViewHolder.age.setText(String.format("%s Anos", String.valueOf(userModel.getAge())));
         Glide.with(mActivity).load(userModel.getImageUrl()).into(defaultUserSimplesViewHolder.image);
     }
