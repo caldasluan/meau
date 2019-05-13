@@ -31,8 +31,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.functions.FirebaseFunctions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AcceptActivityAdapter extends RecyclerView.Adapter<DefaultUserSimplesViewHolder> {
 
@@ -65,6 +68,16 @@ public class AcceptActivityAdapter extends RecyclerView.Adapter<DefaultUserSimpl
                                 PetDatabaseHelper.updatePet(mPetModel, new OnSuccessListener() {
                                     @Override
                                     public void onSuccess(Object o) {
+                                        // Envia a notificação
+                                        Map<String, Object> data = new HashMap<>();
+                                        data.put("type", "confirm");
+                                        data.put("pet", mPetModel.getName());
+                                        data.put("user", UserHelper.getUserModel(mActivity).getShortName());
+                                        data.put("token", mList.get(position).getToken());
+                                        FirebaseFunctions.getInstance()
+                                                .getHttpsCallable("sendNotification")
+                                                .call(data);
+
                                         InterestDatabaseHelper.getAllUsersInterest(mPetModel.getUid(), new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
