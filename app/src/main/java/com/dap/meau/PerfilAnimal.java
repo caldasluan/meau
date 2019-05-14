@@ -38,7 +38,7 @@ public class PerfilAnimal extends AppCompatActivity {
     Toolbar mToolbar;
     ImageView mImgImage;
     TextView mTxtName, mTxtGender, mTxtPostage, mTxtAge, mTxtCity, mTxtCastrated, mTxtDewormed, mTxtVaccinated, mTxtDisease, mTxtTemperament, mTxtRequiriments, mTxtAbout, mTxtAboutTitle;
-    Button mButton;
+    Button mButton, mBtnAvail, mBtnInterest;
     PetModel mPetModel;
 
     @Override
@@ -77,6 +77,8 @@ public class PerfilAnimal extends AppCompatActivity {
         mTxtAbout = findViewById(R.id.perfil_animal_txt_about);
         mButton = findViewById(R.id.perfil_animal_btn_adotar);
         mTxtAboutTitle = findViewById(R.id.perfil_animal_txt_title_about);
+        mBtnAvail = findViewById(R.id.perfil_animal_btn_mudar_disp);
+        mBtnInterest = findViewById(R.id.perfil_animal_btn_ver_inter);
 
         // Preenche os dados
         mToolbar.setTitle(mPetModel.getName());
@@ -95,8 +97,17 @@ public class PerfilAnimal extends AppCompatActivity {
         mTxtVaccinated.setText(mPetModel.isVaccinated() ? R.string.yess : R.string.Noo);
         mTxtAboutTitle.setText(String.format(getString(R.string.mais_sobre), mPetModel.getName()));
 
-        if (mPetModel.getUserUid().equals(UserHelper.getUserModel(this).getUid()))
+        if (mPetModel.getUserUid().equals(UserHelper.getUserModel(this).getUid())) {
             mButton.setVisibility(View.GONE);
+            if(mPetModel.isAvailable()){
+                mBtnAvail.setText(R.string.perfil_animal_tornar_indisponível);
+            } else {
+                mBtnAvail.setText(R.string.perfil_animal_tornar_disponível);
+            }
+        } else {
+            mBtnAvail.setVisibility(View.GONE);
+            mBtnInterest.setVisibility(View.GONE);
+        }
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
