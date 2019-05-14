@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class PetModel implements Serializable {
     private String userUid, name, gender, age, postage, city, imageUrl, disease, temperament, requiriments, about, uid;
-    private boolean castrated, dewormed, vaccinated, avaliable;
+    private boolean castrated, dewormed, vaccinated, available;
 
     public PetModel() {
         // Construtor padrão necessário para usar objeto no Firebase
@@ -56,7 +56,7 @@ public class PetModel implements Serializable {
         this.vaccinated = vaccinated;
     }
 
-    public PetModel(String userUid, String name, String gender, String age, String postage, String city, String imageUrl, String disease, String temperament, String requiriments, String about, String uid, boolean castrated, boolean dewormed, boolean vaccinated, boolean avaliable) {
+    public PetModel(String userUid, String name, String gender, String age, String postage, String city, String imageUrl, String disease, String temperament, String requiriments, String about, String uid, boolean castrated, boolean dewormed, boolean vaccinated, boolean available) {
         this.userUid = userUid;
         this.name = name;
         this.gender = gender;
@@ -72,7 +72,7 @@ public class PetModel implements Serializable {
         this.castrated = castrated;
         this.dewormed = dewormed;
         this.vaccinated = vaccinated;
-        this.avaliable = avaliable;
+        this.available = available;
     }
 
     public Map<String, Object> toMap() {
@@ -218,10 +218,10 @@ public class PetModel implements Serializable {
     }
 
     public boolean isAvaliable() {
-        return avaliable;
+        return available;
     }
 
-    public void setAvaliable(boolean avaliable) {
-        this.avaliable = avaliable;
+    public void setAvaliable(boolean available) {
+        this.available = available;
     }
 }
