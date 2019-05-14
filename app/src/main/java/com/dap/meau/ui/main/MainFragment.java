@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.dap.meau.Adapter.MainFragmentAdapter;
 import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
+import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.MainActivity;
 import com.dap.meau.Model.PetModel;
 import com.dap.meau.R;
@@ -44,7 +45,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ((MainActivity)getActivity()).setTitleToolbar(R.string.adopt);
+        ((MainActivity) getActivity()).setTitleToolbar(R.string.adopt);
 
         mList = new ArrayList<>();
 
@@ -61,9 +62,17 @@ public class MainFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() == null) return;
 
+                String uid, uuid;
+                PetModel petModel;
+
+                uid = UserHelper.getUserModel(getContext()).getUid();
+
                 mList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    mList.add(snapshot.getValue(PetModel.class));
+                    petModel = snapshot.getValue(PetModel.class);
+                    uuid = petModel.getUserUid();
+
+                    if (!uid.matches(uuid)) mList.add(petModel);
                 }
                 mAdapter.setList(mList);
             }
