@@ -172,6 +172,9 @@ public class PerfilAnimal extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(getApplicationContext(), AcceptActivity.class);
+                    Bundle b = new Bundle();
+                    b.putSerializable(PetModel.class.getName(), mPetModel);
+                    intent.putExtras(b);
                     startActivity(intent);
                 }
             }
