@@ -92,6 +92,7 @@ public class PetModel implements Serializable {
         map.put("dewormed", isDewormed());
         map.put("vaccinated", isVaccinated());
         map.put("userUid", getUserUid());
+        map.put("available", isAvailable());
 
         return map;
     }
