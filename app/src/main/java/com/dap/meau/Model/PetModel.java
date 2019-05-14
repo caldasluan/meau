@@ -56,7 +56,7 @@ public class PetModel implements Serializable {
         this.vaccinated = vaccinated;
     }
 
-    public PetModel(String userUid, String name, String gender, String age, String postage, String city, String imageUrl, String disease, String temperament, String requiriments, String about, String uid, boolean castrated, boolean dewormed, boolean vaccinated, boolean available) {
+    public PetModel(String userUid, String name, String gender, String age, String postage, String city, String imageUrl, String disease, String temperament, String requiriments, String about, boolean castrated, boolean dewormed, boolean vaccinated, boolean available) {
         this.userUid = userUid;
         this.name = name;
         this.gender = gender;
@@ -68,7 +68,6 @@ public class PetModel implements Serializable {
         this.temperament = temperament;
         this.requiriments = requiriments;
         this.about = about;
-        this.uid = uid;
         this.castrated = castrated;
         this.dewormed = dewormed;
         this.vaccinated = vaccinated;
