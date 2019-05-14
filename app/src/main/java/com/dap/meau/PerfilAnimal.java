@@ -1,6 +1,7 @@
 package com.dap.meau;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
 import com.dap.meau.Helper.DatabaseFirebase.UserDatabaseHelper;
 import com.dap.meau.Model.UserModel;
 import com.google.firebase.database.DataSnapshot;
@@ -156,6 +158,47 @@ public class PerfilAnimal extends AppCompatActivity {
                                         finish();
                                     }
                                 });
+                            }
+                        })
+                        .setNegativeButton(R.string.Noo, null).show();
+            }
+        });
+
+        mBtnInterest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!mPetModel.isAvailable()) {
+                    Toast.makeText(PerfilAnimal.this, "O animal deve estar disponível para adoção.",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), AcceptActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        mBtnAvail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(PerfilAnimal.this)
+                        .setTitle("Atenção!")
+                        .setMessage("Tem certeza que deseja mudar a disponibilidade desse animal?")
+                        .setPositiveButton(R.string.yess, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                mPetModel.setAvailable(!mPetModel.isAvailable());
+                                PetDatabaseHelper.updatePet(mPetModel, new OnSuccessListener() {
+                                    @Override
+                                    public void onSuccess(Object o) {
+                                        Toast.makeText(PerfilAnimal.this, "A disponibilidade foi alterada.",
+                                                Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                                if(mPetModel.isAvailable()){
+                                    mBtnAvail.setText(R.string.perfil_animal_tornar_indisponível);
+                                } else {
+                                    mBtnAvail.setText(R.string.perfil_animal_tornar_disponível);
+                                }
                             }
                         })
                         .setNegativeButton(R.string.Noo, null).show();
