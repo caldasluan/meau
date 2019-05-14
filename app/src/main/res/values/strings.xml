@@ -125,5 +125,9 @@
 
     <string name="init_sair">SAIR</string>
 
+    <string name="perfil_animal_tornar_disponível">Tornar disponível</string>
+    <string name="perfil_animal_tornar_indisponível">Tornar indisponível</string>
+    <string name="perfil_animal_ver_interessados">Ver interessados</string>
+
 
 </resources>
