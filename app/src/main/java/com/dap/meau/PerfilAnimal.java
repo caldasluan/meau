@@ -104,9 +104,12 @@ public class PerfilAnimal extends AppCompatActivity {
             } else {
                 mBtnAvail.setText(R.string.perfil_animal_tornar_disponível);
             }
+            mBtnAvail.setVisibility(View.VISIBLE);
+            mBtnInterest.setVisibility(View.VISIBLE);
         } else {
             mBtnAvail.setVisibility(View.GONE);
             mBtnInterest.setVisibility(View.GONE);
+            mButton.setVisibility(View.VISIBLE);
         }
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
