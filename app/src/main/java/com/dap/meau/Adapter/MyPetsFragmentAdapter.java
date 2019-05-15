@@ -38,7 +38,7 @@ public class MyPetsFragmentAdapter extends RecyclerView.Adapter<DefaultPetViewHo
         return new DefaultPetViewHolder(view, new ClickInterface() {
             @Override
             public void onClick(View view, int position) {
-                Intent intent = new Intent(mContext, AcceptActivity.class);
+                Intent intent = new Intent(mContext, PerfilAnimal.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(PetModel.class.getName(), mList.get(position));
                 intent.putExtras(bundle);
