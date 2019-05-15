@@ -126,6 +126,7 @@ public class PerfilAnimal extends AppCompatActivity {
                                                 Map<String, Object> data = new HashMap<>();
                                                 data.put("type", "adopt");
                                                 data.put("pet", mPetModel.getName());
+                                                data.put("petUid", mPetModel.getUid());
                                                 data.put("user", UserHelper.getUserModel(PerfilAnimal.this).getShortName());
                                                 data.put("token", userModel.getToken());
                                                 FirebaseFunctions.getInstance()

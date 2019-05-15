@@ -1,15 +1,21 @@
 package com.dap.meau.Service;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.os.Build;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
-import android.util.Log;
 
+import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
 import com.dap.meau.Helper.UserHelper;
+import com.dap.meau.Model.PetModel;
 import com.dap.meau.Model.UserModel;
+import com.dap.meau.PerfilAnimal;
 import com.dap.meau.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -19,29 +25,54 @@ public class MessageService extends FirebaseMessagingService {
         String type = remoteMessage.getData().get("type");
         String namePet = remoteMessage.getData().get("pet");
         String nameUser = remoteMessage.getData().get("user");
-        NotificationCompat.Builder mBuilder;
+        String petUid = remoteMessage.getData().get("petUid");
+
+        final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "meau_notification")
+                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setColor(getColor(R.color.colorPrimary))
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
 
         if (type.equals("adopt")) {
-            mBuilder = new NotificationCompat.Builder(getApplicationContext(), "meau_notification")
-                    .setSmallIcon(R.mipmap.ic_launcher_round)
-                    .setColor(getColor(R.color.colorPrimary))
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setContentTitle("Adoção")
+            mBuilder.setContentTitle("Adoção")
                     .setContentText(String.format("%s quer adotar %s", nameUser, namePet));
-        }
-        else {
-            mBuilder = new NotificationCompat.Builder(getApplicationContext(), "meau_notification")
-                    .setSmallIcon(R.mipmap.ic_launcher_round)
-                    .setColor(getColor(R.color.colorPrimary))
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setContentTitle("Parabéns!")
+        } else {
+            mBuilder.setContentTitle("Parabéns!")
                     .setContentText(String.format("Você adotou %s de %s", namePet, nameUser));
         }
 
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        final NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
-        Log.d("NotificationTeste", mBuilder.toString());
-        notificationManager.notify((int)(System.currentTimeMillis()/1000), mBuilder.build());
+        if (petUid != null & !petUid.isEmpty()) {
+
+            PetDatabaseHelper.getPetWithUserUid(petUid, new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.getValue() == null) return;
+
+                    PetModel petModel = dataSnapshot.getValue(PetModel.class);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(PetModel.class.getName(), petModel);
+
+                    Intent intent = new Intent(getApplicationContext(), PerfilAnimal.class);
+                    intent.putExtras(bundle);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                    PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+
+                    mBuilder.setContentIntent(pendingIntent);
+
+                    notificationManager.notify((int) (System.currentTimeMillis() / 1000), mBuilder.build());
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    notificationManager.notify((int) (System.currentTimeMillis() / 1000), mBuilder.build());
+                }
+            });
+        } else {
+            notificationManager.notify((int) (System.currentTimeMillis() / 1000), mBuilder.build());
+        }
 
         super.onMessageReceived(remoteMessage);
     }
