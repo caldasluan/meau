@@ -26,49 +26,36 @@ import com.google.firebase.messaging.RemoteMessage;
 public class MessageService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+        Log.d("NotificationTeste", remoteMessage.getData().toString());
         final String type = remoteMessage.getData().get("type");
         final String namePet = remoteMessage.getData().get("pet");
         final String nameUser = remoteMessage.getData().get("user");
         final String petUid = remoteMessage.getData().get("petUid");
 
-        PetDatabaseHelper.getPetWithUserUid(petUid, new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() == null) return;
+        Bundle bundle = new Bundle();
+        bundle.putString("UID_PET", petUid);
+        Intent intent = new Intent(getApplicationContext(), PerfilAnimal.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
 
-                PetModel petModel = dataSnapshot.getValue(PetModel.class);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "meau_notification")
+                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setColor(getColor(R.color.colorPrimary))
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(pendingIntent);
 
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(PetModel.class.getName(), petModel);
-                Intent intent = new Intent(getApplicationContext(), PerfilAnimal.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+        if (type.equals("adopt")) {
+            mBuilder.setContentTitle("Adoção")
+                    .setContentText(String.format("%s quer adotar %s", nameUser, namePet));
+        } else {
+            mBuilder.setContentTitle("Parabéns!")
+                    .setContentText(String.format("Você adotou %s de %s", namePet, nameUser));
+        }
 
-                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "meau_notification")
-                        .setSmallIcon(R.mipmap.ic_launcher_round)
-                        .setColor(getColor(R.color.colorPrimary))
-                        .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .setContentIntent(pendingIntent);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MessageService.this);
 
-                if (type.equals("adopt")) {
-                    mBuilder.setContentTitle("Adoção")
-                            .setContentText(String.format("%s quer adotar %s", nameUser, namePet));
-                } else {
-                    mBuilder.setContentTitle("Parabéns!")
-                            .setContentText(String.format("Você adotou %s de %s", namePet, nameUser));
-                }
-
-                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MessageService.this);
-
-                Log.d("NotificationTeste", mBuilder.toString());
-                notificationManager.notify((int) (System.currentTimeMillis() / 1000), mBuilder.build());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        Log.d("NotificationTeste", mBuilder.toString());
+        notificationManager.notify((int) (System.currentTimeMillis() / 1000), mBuilder.build());
 
         super.onMessageReceived(remoteMessage);
     }

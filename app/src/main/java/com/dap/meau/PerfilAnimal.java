@@ -2,6 +2,7 @@ package com.dap.meau;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -56,13 +57,6 @@ public class PerfilAnimal extends AppCompatActivity {
         if (actionBar != null)
             actionBar.setDisplayHomeAsUpEnabled(true);
 
-        // Recebe os argumentos do Bundle
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null && !bundle.isEmpty()) {
-            mPetModel = (PetModel) bundle.getSerializable(PetModel.class.getName());
-            if (mPetModel == null) finish();
-        }
-
         // Referência das Views
         mImgImage = findViewById(R.id.perfil_animal_img_fotoanimal);
         mTxtName = findViewById(R.id.perfil_animal_txt_nome);
@@ -82,6 +76,49 @@ public class PerfilAnimal extends AppCompatActivity {
         mBtnAvail = findViewById(R.id.perfil_animal_btn_mudar_disp);
         mBtnInterest = findViewById(R.id.perfil_animal_btn_ver_inter);
 
+        // Recebe os argumentos do Bundle
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null && !bundle.isEmpty()) {
+            mPetModel = (PetModel) bundle.getSerializable(PetModel.class.getName());
+            if (mPetModel == null) {
+                String petUid = bundle.getString("UID_PET", "");
+                if (petUid.isEmpty()) finish();
+
+                PetDatabaseHelper.getPetWithUserUid(petUid, new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getValue() == null) finish();
+
+                        mPetModel = dataSnapshot.getValue(PetModel.class);
+                        fillPet();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        finish();
+                    }
+                });
+            }
+            else {
+                fillPet();
+            }
+        }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    // Preenche os dados na tela
+    private void fillPet() {
         // Preenche os dados
         mToolbar.setTitle(mPetModel.getName());
         Glide.with(this).load(mPetModel.getImageUrl()).into(mImgImage);
@@ -101,7 +138,7 @@ public class PerfilAnimal extends AppCompatActivity {
 
         if (mPetModel.getUserUid().equals(UserHelper.getUserModel(this).getUid())) {
             mButton.setVisibility(View.GONE);
-            if(mPetModel.isAvailable()){
+            if (mPetModel.isAvailable()) {
                 mBtnAvail.setText(R.string.perfil_animal_tornar_indisponível);
             } else {
                 mBtnAvail.setText(R.string.perfil_animal_tornar_disponível);
@@ -168,7 +205,7 @@ public class PerfilAnimal extends AppCompatActivity {
         mBtnInterest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!mPetModel.isAvailable()) {
+                if (!mPetModel.isAvailable()) {
                     Toast.makeText(PerfilAnimal.this, "O animal deve estar disponível para adoção.",
                             Toast.LENGTH_SHORT).show();
                 } else {
@@ -198,7 +235,7 @@ public class PerfilAnimal extends AppCompatActivity {
                                                 Toast.LENGTH_LONG).show();
                                     }
                                 });
-                                if(mPetModel.isAvailable()){
+                                if (mPetModel.isAvailable()) {
                                     mBtnAvail.setText(R.string.perfil_animal_tornar_indisponível);
                                 } else {
                                     mBtnAvail.setText(R.string.perfil_animal_tornar_disponível);
@@ -208,16 +245,5 @@ public class PerfilAnimal extends AppCompatActivity {
                         .setNegativeButton(R.string.Noo, null).show();
             }
         });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return false;
-        }
     }
 }
