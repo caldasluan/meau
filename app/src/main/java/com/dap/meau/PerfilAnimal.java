@@ -2,7 +2,9 @@ package com.dap.meau;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -44,6 +46,7 @@ public class PerfilAnimal extends AppCompatActivity {
     TextView mTxtName, mTxtGender, mTxtPostage, mTxtAge, mTxtCity, mTxtCastrated, mTxtDewormed, mTxtVaccinated, mTxtDisease, mTxtTemperament, mTxtRequiriments, mTxtAbout, mTxtAboutTitle;
     Button mButton, mBtnAvail, mBtnInterest;
     PetModel mPetModel;
+    final int ACCEPT_ACTIVITY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,7 +224,7 @@ public class PerfilAnimal extends AppCompatActivity {
                     Bundle b = new Bundle();
                     b.putSerializable(PetModel.class.getName(), mPetModel);
                     intent.putExtras(b);
-                    startActivity(intent);
+                    startActivityForResult(intent, ACCEPT_ACTIVITY);
                 }
             }
         });
@@ -253,5 +256,14 @@ public class PerfilAnimal extends AppCompatActivity {
                         .setNegativeButton(R.string.Noo, null).show();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == ACCEPT_ACTIVITY && resultCode == RESULT_OK) {
+            finish();
+        }
     }
 }

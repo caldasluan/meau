@@ -83,6 +83,7 @@ public class AcceptActivityAdapter extends RecyclerView.Adapter<DefaultUserSimpl
                                                 }
 
                                                 Toast.makeText(mActivity, "Adoção realizada com sucesso!", Toast.LENGTH_SHORT).show();
+                                                mActivity.setResult(Activity.RESULT_OK);
                                                 mActivity.finish();
                                             }
 
