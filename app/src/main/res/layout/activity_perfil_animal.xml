@@ -252,13 +252,13 @@
                 tools:text="@string/Bidu_da" />
 
             <Button
+                style="@style/AppTheme.ButtonMain"
                 android:id="@+id/perfil_animal_btn_adotar"
-                android:layout_width="232dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="232dp"
+                android:height="48dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginEnd="8dp"
-                android:background="@color/colorYellowButton"
                 android:text="@string/pretendo_adotar"
                 android:textColor="@color/colorTitle"
                 android:textSize="12sp"
@@ -376,30 +376,36 @@
                 app:layout_constraintTop_toBottomOf="@+id/perfil_animal_img_fotoanimal" />
 
             <Button
+                style="@style/AppTheme.ButtonMain"
                 android:id="@+id/perfil_animal_btn_mudar_disp"
-                android:layout_width="148dp"
-                android:layout_height="40dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:height="48dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="28dp"
-                android:background="@color/colorYellowButton"
+                android:layout_marginEnd="8dp"
                 android:text="@string/perfil_animal_tornar_disponível"
                 android:textColor="@color/colorTitle"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_about" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_about"
+                app:layout_constraintEnd_toStartOf="@id/perfil_animal_btn_ver_inter"/>
 
             <Button
+                style="@style/AppTheme.ButtonMain"
                 android:id="@+id/perfil_animal_btn_ver_inter"
-                android:layout_width="148dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:height="48dp"
                 android:layout_marginTop="28dp"
-                android:background="@color/colorYellowButton"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
                 android:text="@string/perfil_animal_ver_interessados"
                 android:textColor="@color/colorTitle"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_about" />
+                app:layout_constraintTop_toBottomOf="@+id/perfil_animal_txt_about"
+                app:layout_constraintStart_toEndOf="@id/perfil_animal_btn_mudar_disp"/>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
