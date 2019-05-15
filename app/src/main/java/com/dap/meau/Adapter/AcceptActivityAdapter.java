@@ -65,6 +65,7 @@ public class AcceptActivityAdapter extends RecyclerView.Adapter<DefaultUserSimpl
                                         Map<String, Object> data = new HashMap<>();
                                         data.put("type", "confirm");
                                         data.put("pet", mPetModel.getName());
+                                        data.put("petUid", mPetModel.getUid());
                                         data.put("user", UserHelper.getUserModel(mActivity).getShortName());
                                         data.put("token", mList.get(position).getToken());
                                         FirebaseFunctions.getInstance()
