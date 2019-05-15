@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.dap.meau">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,7 +11,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        android:allowBackup="false">
         <activity android:name=".AcceptActivity" />
         <activity
             android:name=".ErroSessaoActivity"
@@ -23,9 +26,11 @@
         <activity
             android:name=".PerfilUsuario"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Blue" />
+            android:theme="@style/AppTheme.Blue"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".CadastroAnimalActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:parentActivityName=".InitActivity"/>
         <activity android:name=".PerfilAnimal" />
         <activity
             android:name=".InitActivity"
