@@ -42,7 +42,7 @@ public class MessageService extends FirebaseMessagingService {
         PendingIntent pendingIntent = stackBuilder.getPendingIntent((int) (System.currentTimeMillis() / 1000), PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "meau_notification")
-                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setSmallIcon(R.drawable.ic_stat_notification_icon)
                 .setColor(getColor(R.color.colorPrimary))
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentIntent(pendingIntent);
