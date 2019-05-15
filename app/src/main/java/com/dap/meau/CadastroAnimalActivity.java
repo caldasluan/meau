@@ -4,25 +4,32 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.PetModel;
 import com.dap.meau.Model.UserModel;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 public class CadastroAnimalActivity extends AppCompatActivity {
@@ -38,7 +45,8 @@ public class CadastroAnimalActivity extends AppCompatActivity {
     PetModel mPetModel;
     UserModel mUserModel;
     String specie, gender, postage, age;
-    private Uri mCropImageUri;
+    ImageView photoPet;
+    private Uri mCropImageUri, uriPet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +84,7 @@ public class CadastroAnimalActivity extends AppCompatActivity {
         txtAbout = findViewById(R.id.cad_animal_edit_sobre);
         btImage = findViewById(R.id.cad_animal_btn_fotosanimal);
         btSave = findViewById(R.id.cad_animal_btn_colocarAdocao);
+        photoPet = findViewById(R.id.cad_animal_img_fotosanimal);
 
         rgEspecie.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -144,32 +153,18 @@ public class CadastroAnimalActivity extends AppCompatActivity {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPetModel = new PetModel(mUserModel.getUid(),
-                        txtName.getText().toString(),
-                        gender,
-                        age,
-                        postage,
-                        mUserModel.getCity(),
-                        mUserModel.getImageUrl(),
-                        txtDiesease.getText().toString(),
-                        getTemperaments(),
-                        getRequisits(),
-                        txtAbout.getText().toString(),
-                        cbCastrated.isChecked(),
-                        cbDewormed.isChecked(),
-                        cbVaccinated.isChecked(),
-                        true); // No momento do cadastro, o animal é disponível para adoção por padrão
-                PetDatabaseHelper.createPet(mPetModel, new OnSuccessListener() {
-                    @Override
-                    public void onSuccess(Object o) {
-                        Toast.makeText(CadastroAnimalActivity.this, "Animal Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                });
+                savePet();
             }
         });
 
         btImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CropImage.startPickImageActivity(CadastroAnimalActivity.this);
+            }
+        });
+
+        photoPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CropImage.startPickImageActivity(CadastroAnimalActivity.this);
@@ -259,8 +254,41 @@ public class CadastroAnimalActivity extends AppCompatActivity {
         CropImage.activity(imageUri)
                 .setActivityTitle(getString(R.string.txt_crop_image))
                 .setAspectRatio(1, 1)
-                .setMinCropWindowSize ( 0 , 0 )
+                .setMinCropWindowSize(0, 0)
                 .start(this);
+    }
+
+    // Salva o animal no baco de daoos
+    private void savePet() {
+        String imageUrl;
+        if (uriPet == null) {
+            imageUrl = mUserModel.getImageUrl();
+        } else {
+            Bitmap bitmap = BitmapFactory.decodeFile(uriPet.getPath());
+//            imageUrl;
+        }
+//        mPetModel = new PetModel(mUserModel.getUid(),
+//                txtName.getText().toString(),
+//                gender,
+//                age,
+//                postage,
+//                mUserModel.getCity(),
+//                imageUrl,
+//                txtDiesease.getText().toString(),
+//                getTemperaments(),
+//                getRequisits(),
+//                txtAbout.getText().toString(),
+//                cbCastrated.isChecked(),
+//                cbDewormed.isChecked(),
+//                cbVaccinated.isChecked(),
+//                true); // No momento do cadastro, o animal é disponível para adoção por padrão
+//        PetDatabaseHelper.createPet(mPetModel, new OnSuccessListener() {
+//            @Override
+//            public void onSuccess(Object o) {
+//                Toast.makeText(CadastroAnimalActivity.this, "Animal Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+//                finish();
+//            }
+//        });
     }
 
     @Override
@@ -285,11 +313,16 @@ public class CadastroAnimalActivity extends AppCompatActivity {
             if (CropImage.isReadExternalStoragePermissionsRequired(this, imageUri)) {
                 // request permissions and handle the result in onRequestPermissionsResult()
                 mCropImageUri = imageUri;
-                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},   CropImage.PICK_IMAGE_PERMISSIONS_REQUEST_CODE);
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, CropImage.PICK_IMAGE_PERMISSIONS_REQUEST_CODE);
             } else {
                 // no permissions required or already granted, can start crop image activity
                 startCropImageActivity(imageUri);
             }
+        } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            uriPet = CropImage.getActivityResult(data).getUri();
+            Glide.with(this).load(uriPet).into(photoPet);
+            photoPet.setVisibility(View.VISIBLE);
+            btImage.setVisibility(View.GONE);
         }
     }
 }
