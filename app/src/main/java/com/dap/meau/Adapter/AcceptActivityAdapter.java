@@ -58,6 +58,7 @@ public class AcceptActivityAdapter extends RecyclerView.Adapter<DefaultUserSimpl
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 mPetModel.setUserUid(mList.get(position).getUid());
+                                mPetModel.setAvailable(false);
                                 PetDatabaseHelper.updatePet(mPetModel, new OnSuccessListener() {
                                     @Override
                                     public void onSuccess(Object o) {
