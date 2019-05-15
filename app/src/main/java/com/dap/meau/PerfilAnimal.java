@@ -3,6 +3,7 @@ package com.dap.meau;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -82,9 +83,10 @@ public class PerfilAnimal extends AppCompatActivity {
             mPetModel = (PetModel) bundle.getSerializable(PetModel.class.getName());
             if (mPetModel == null) {
                 String petUid = bundle.getString("UID_PET", "");
+
                 if (petUid.isEmpty()) finish();
 
-                PetDatabaseHelper.getPetWithUserUid(petUid, new ValueEventListener() {
+                PetDatabaseHelper.getPetWithUid(petUid, new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.getValue() == null) finish();
@@ -98,12 +100,18 @@ public class PerfilAnimal extends AppCompatActivity {
                         finish();
                     }
                 });
-            }
-            else {
+            } else {
                 fillPet();
             }
         }
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager.cancelAll();
     }
 
     @Override

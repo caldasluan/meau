@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 
 import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
@@ -35,8 +36,10 @@ public class MessageService extends FirebaseMessagingService {
         Bundle bundle = new Bundle();
         bundle.putString("UID_PET", petUid);
         Intent intent = new Intent(getApplicationContext(), PerfilAnimal.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+        intent.putExtras(bundle);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addNextIntentWithParentStack(intent);
+        PendingIntent pendingIntent = stackBuilder.getPendingIntent((int) (System.currentTimeMillis() / 1000), PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "meau_notification")
                 .setSmallIcon(R.mipmap.ic_launcher_round)
