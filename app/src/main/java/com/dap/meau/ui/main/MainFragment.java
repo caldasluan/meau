@@ -77,7 +77,7 @@ public class MainFragment extends Fragment {
                     petModel = snapshot.getValue(PetModel.class);
                     uuid = petModel.getUserUid();
 
-                    if (!uid.matches(uuid) && !petModel.isAvailable()) mList.add(petModel);
+                    if (!uid.matches(uuid) && petModel.isAvailable()) mList.add(petModel);
                 }
                 mAdapter.setList(mList);
             }
