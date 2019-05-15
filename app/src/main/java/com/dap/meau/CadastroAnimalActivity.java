@@ -27,9 +27,13 @@ import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.Model.PetModel;
 import com.dap.meau.Model.UserModel;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 public class CadastroAnimalActivity extends AppCompatActivity {
@@ -253,42 +257,67 @@ public class CadastroAnimalActivity extends AppCompatActivity {
     private void startCropImageActivity(Uri imageUri) {
         CropImage.activity(imageUri)
                 .setActivityTitle(getString(R.string.txt_crop_image))
-                .setAspectRatio(1, 1)
+                .setAspectRatio(3, 2)
                 .setMinCropWindowSize(0, 0)
                 .start(this);
     }
 
-    // Salva o animal no baco de daoos
+    // Prepara os dados e salva o animal
     private void savePet() {
-        String imageUrl;
+        Toast.makeText(CadastroAnimalActivity.this, "Criando o animal...", Toast.LENGTH_SHORT).show();
+
         if (uriPet == null) {
-            imageUrl = mUserModel.getImageUrl();
+            savePetInDatabase(mUserModel.getImageUrl());
         } else {
-            Bitmap bitmap = BitmapFactory.decodeFile(uriPet.getPath());
-//            imageUrl;
+            final StorageReference reference = FirebaseStorage.getInstance()
+                    .getReference()
+                    .child("pets")
+                    .child(uriPet.getLastPathSegment());
+
+            reference.putFile(uriPet).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) throw task.getException();
+                    return reference.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        String imageUrl = task.getResult().toString();
+                        savePetInDatabase(imageUrl);
+                    } else {
+                        savePetInDatabase(mUserModel.getImageUrl());
+                    }
+                }
+            });
         }
-//        mPetModel = new PetModel(mUserModel.getUid(),
-//                txtName.getText().toString(),
-//                gender,
-//                age,
-//                postage,
-//                mUserModel.getCity(),
-//                imageUrl,
-//                txtDiesease.getText().toString(),
-//                getTemperaments(),
-//                getRequisits(),
-//                txtAbout.getText().toString(),
-//                cbCastrated.isChecked(),
-//                cbDewormed.isChecked(),
-//                cbVaccinated.isChecked(),
-//                true); // No momento do cadastro, o animal é disponível para adoção por padrão
-//        PetDatabaseHelper.createPet(mPetModel, new OnSuccessListener() {
-//            @Override
-//            public void onSuccess(Object o) {
-//                Toast.makeText(CadastroAnimalActivity.this, "Animal Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-//                finish();
-//            }
-//        });
+    }
+
+    // Salva o pet no banco
+    private void savePetInDatabase(String imageUrl) {
+        mPetModel = new PetModel(mUserModel.getUid(),
+                txtName.getText().toString(),
+                gender,
+                age,
+                postage,
+                mUserModel.getCity(),
+                imageUrl,
+                txtDiesease.getText().toString(),
+                getTemperaments(),
+                getRequisits(),
+                txtAbout.getText().toString(),
+                cbCastrated.isChecked(),
+                cbDewormed.isChecked(),
+                cbVaccinated.isChecked(),
+                true); // No momento do cadastro, o animal é disponível para adoção por padrão
+        PetDatabaseHelper.createPet(mPetModel, new OnSuccessListener() {
+            @Override
+            public void onSuccess(Object o) {
+                Toast.makeText(CadastroAnimalActivity.this, "Animal Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
     }
 
     @Override
