@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.util.Log;
 
 import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
 import com.dap.meau.Helper.UserHelper;
@@ -22,6 +23,7 @@ import com.google.firebase.messaging.RemoteMessage;
 public class MessageService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+        Log.d("NotificationTest", "Aqui");
         String type = remoteMessage.getData().get("type");
         String namePet = remoteMessage.getData().get("pet");
         String nameUser = remoteMessage.getData().get("user");
@@ -43,12 +45,15 @@ public class MessageService extends FirebaseMessagingService {
         final NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
         if (petUid != null & !petUid.isEmpty()) {
+            Log.d("NotificationTest", "Aqui2");
 
             PetDatabaseHelper.getPetWithUserUid(petUid, new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    Log.d("NotificationTest", "Aqui5");
                     if (dataSnapshot.getValue() == null) return;
 
+                    Log.d("NotificationTest", "Aqui6");
                     PetModel petModel = dataSnapshot.getValue(PetModel.class);
 
                     Bundle bundle = new Bundle();
@@ -62,15 +67,19 @@ public class MessageService extends FirebaseMessagingService {
 
                     mBuilder.setContentIntent(pendingIntent);
 
+                    Log.d("NotificationTest", "Aqui7");
                     notificationManager.notify((int) (System.currentTimeMillis() / 1000), mBuilder.build());
+                    Log.d("NotificationTest", "Aqui8");
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Log.d("NotificationTest", "Aqui4");
                     notificationManager.notify((int) (System.currentTimeMillis() / 1000), mBuilder.build());
                 }
             });
         } else {
+            Log.d("NotificationTest", "Aqui3");
             notificationManager.notify((int) (System.currentTimeMillis() / 1000), mBuilder.build());
         }
 
