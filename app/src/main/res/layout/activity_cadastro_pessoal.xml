@@ -188,6 +188,14 @@
                     android:paddingTop="20dp"
                     android:text="@string/adicionar_fotos"
                     android:textColor="@color/colorGrayBtnText" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cad_pessoa_img_fotoperfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="184dp"
+                    android:visibility="gone"
+                    tools:srcCompat="@tools:sample/avatars[8]"
+                    tools:visibility="visible" />
             </LinearLayout>
 
             <Button
