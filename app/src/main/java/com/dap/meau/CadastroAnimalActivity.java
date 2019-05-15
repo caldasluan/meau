@@ -149,7 +149,8 @@ public class CadastroAnimalActivity extends AppCompatActivity {
                         txtAbout.getText().toString(),
                         cbCastrated.isChecked(),
                         cbDewormed.isChecked(),
-                        cbVaccinated.isChecked());
+                        cbVaccinated.isChecked(),
+                        true); // No momento do cadastro, o animal é disponível para adoção por padrão
                 PetDatabaseHelper.createPet(mPetModel, new OnSuccessListener() {
                     @Override
                     public void onSuccess(Object o) {

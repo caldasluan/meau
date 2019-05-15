@@ -56,6 +56,11 @@ public class MainFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         mAdapter = new MainFragmentAdapter(getContext());
         recyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
 
         PetDatabaseHelper.getAllPets(new ValueEventListener() {
             @Override
@@ -83,5 +88,6 @@ public class MainFragment extends Fragment {
             }
         });
     }
+
 
 }
