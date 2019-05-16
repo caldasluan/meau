@@ -106,6 +106,8 @@ public class InitActivity extends AppCompatActivity {
                     FirebaseAuth.getInstance().signOut();
                     UserHelper.setUserModel(getApplicationContext(), new UserModel());
 
+                    initializeNavigationDrawer();
+
                     Toast toast = Toast.makeText(InitActivity.this, "Logout realizado com sucesso. Até mais!", Toast.LENGTH_LONG);
                     toast.show();
 
@@ -180,6 +182,9 @@ public class InitActivity extends AppCompatActivity {
             Glide.with(this)
                     .load(UserHelper.getUserModel(this).getImageUrl())
                     .into(civHeaderImage);
+        } else {
+            txtHeaderTitle.setText(R.string.login_necessary);
+            civHeaderImage.setImageResource(R.drawable.ic_person);
         }
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
