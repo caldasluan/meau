@@ -85,7 +85,22 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                emailSignIn();
+                boolean ok = true;
+
+                String email = mTxtEmail.getText().toString();
+                String password = mTxtSenha.getText().toString();
+
+                if(email.isEmpty()) {
+                    mTxtEmail.setError("E-mail não pode ficar em branco");
+                    ok = false;
+                }
+
+                if (password.isEmpty()) {
+                    mTxtSenha.setError("Senha não pode ficar em branco");
+                    ok = false;
+                }
+
+                if(ok) emailSignIn(email, password);
             }
         });
     }
@@ -107,8 +122,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    private void emailSignIn() {
-        mAuth.signInWithEmailAndPassword(mTxtEmail.getText().toString(), mTxtSenha.getText().toString())
+    private void emailSignIn(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -123,9 +138,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.d("EmailPasswordLogin", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Autenticação falhou.",
+                            Toast.makeText(LoginActivity.this, "Autenticação falhou! E-mail e senha não encontrados.",
                                     Toast.LENGTH_SHORT).show();
-                            finish();
                         }
 
                         // ...
