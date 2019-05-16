@@ -4,15 +4,12 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -301,7 +298,7 @@ public class CadastroAnimalActivity extends AppCompatActivity {
                 gender,
                 age,
                 postage,
-                mUserModel.getCity(),
+                String.format("%s - %s", mUserModel.getCity(), mUserModel.getState()),
                 imageUrl,
                 txtDiesease.getText().toString(),
                 getTemperaments(),
