@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -37,7 +39,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CadastroPessoalActivity extends AppCompatActivity {
 
-    Toolbar mToolbar;
     TextView txtFullName, txtAge, txtEmail, txtEstate, txtCity, txtAdress, txtNumber, txtPass, txtConfirmPass;
     Button btSave, btImage;
     UserModel userModel;
@@ -55,9 +56,12 @@ public class CadastroPessoalActivity extends AppCompatActivity {
         userModel = new UserModel();
 
         // Suporte para ActionBar
-        mToolbar = findViewById(R.id.cad_pessoa_toolbar);
-        mToolbar.setTitle("Cadastro Pessoal");
+        Toolbar mToolbar = findViewById(R.id.cad_pessoa_toolbar);
+        mToolbar.setTitle(getString(R.string.cad_pessoa_fazercadastro));
         setSupportActionBar(mToolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null)
+            actionBar.setDisplayHomeAsUpEnabled(true);
 
         // Referência das Views
         txtFullName = findViewById(R.id.cad_pessoa_edit_nomecompleto);
@@ -118,6 +122,17 @@ public class CadastroPessoalActivity extends AppCompatActivity {
             Toast.makeText(CadastroPessoalActivity.this, "Usuário já está logado.",
                     Toast.LENGTH_SHORT).show();
             finish();
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return false;
         }
     }
 

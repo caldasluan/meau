@@ -5,8 +5,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="false"
@@ -29,13 +29,17 @@
             android:name=".PerfilUsuario"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Blue" />
-        <activity android:name=".CadastroAnimalActivity" />
+        <activity
+            android:name=".CadastroAnimalActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".InitActivity" />
+            android:parentActivityName=".InitActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PerfilAnimal"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".InitActivity"
             android:screenOrientation="portrait"
@@ -53,8 +57,10 @@
         <activity
             android:name=".ConfirmationActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat"/>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat" />
 
         <service android:name=".Service.MessageService">
             <intent-filter>
