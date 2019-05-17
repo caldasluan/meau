@@ -54,7 +54,13 @@ public class InitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         // Sai da Splash Screen e entra na atividade
-        setTheme(R.style.AppTheme);
+        this.setTheme(R.style.AppTheme);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            this.setTheme(R.style.AppTheme_BgStatus);
+            View decor = getWindow().getDecorView();
+            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_init);
