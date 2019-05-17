@@ -100,7 +100,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     ok = false;
                 }
 
-                if(ok) emailSignIn(email, password);
+                if(ok) {
+                    mTxtSenha.setError(null);
+                    mTxtEmail.setError(null);
+                    emailSignIn(email, password);
+                }
             }
         });
     }
