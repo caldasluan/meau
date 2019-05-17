@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -41,16 +42,16 @@ public class MainActivity extends AppCompatActivity {
             if (bundle.getString("opt").matches("my_pets")) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.main_frame, MyPetsFragment.newInstance())
-                        .commitNow();
+                        .commit();
             } else if (bundle.getString("opt").matches("adopt")) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.main_frame, MainFragment.newInstance())
-                        .commitNow();
+                        .commit();
             }
         } else {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.main_frame, MainFragment.newInstance())
-                    .commitNow();
+                    .commit();
 
         }
 
@@ -107,12 +108,14 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.menu_drawer_item_my_pets:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.main_frame, MyPetsFragment.newInstance())
-                                .commitNow();
+                                .addToBackStack(null)
+                                .commit();
                         return true;
                     case R.id.menu_drawer_item_adotar_pet:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.main_frame, MainFragment.newInstance())
-                                .commitNow();
+                                .addToBackStack(null)
+                                .commit();
                         return true;
 
                 }
