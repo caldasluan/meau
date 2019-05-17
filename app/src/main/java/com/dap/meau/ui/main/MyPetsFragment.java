@@ -1,26 +1,22 @@
 package com.dap.meau.ui.main;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.dap.meau.Adapter.MainFragmentAdapter;
 import com.dap.meau.Adapter.MyPetsFragmentAdapter;
 import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
 import com.dap.meau.Helper.UserHelper;
 import com.dap.meau.MainActivity;
 import com.dap.meau.Model.PetModel;
 import com.dap.meau.R;
-import com.dap.meau.Stub.PetStub;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -33,6 +29,7 @@ public class MyPetsFragment extends Fragment {
     private MyPetsFragmentAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<PetModel> mList;
+    private TextView mMessageError;
 
     public static MyPetsFragment newInstance() { return new MyPetsFragment(); }
 
@@ -49,6 +46,7 @@ public class MyPetsFragment extends Fragment {
         ((MainActivity)getActivity()).setTitleToolbar(R.string.my_pets);
 
         mList = new ArrayList<>();
+        mMessageError = getView().findViewById(R.id.main_fragment_error_message);
 
         // Cria o RecyclerView
         recyclerView = getView().findViewById(R.id.my_pets_fragment_recycler_view);
@@ -69,7 +67,15 @@ public class MyPetsFragment extends Fragment {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     mList.add(snapshot.getValue(PetModel.class));
                 }
-                mAdapter.setList(mList);
+                if (mList.size() > 0) {
+                    mMessageError.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.VISIBLE);
+                    mAdapter.setList(mList);
+                }
+                else {
+                    mMessageError.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.GONE);
+                }
             }
 
             @Override

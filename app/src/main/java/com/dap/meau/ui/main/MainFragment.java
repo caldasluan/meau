@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.dap.meau.Adapter.MainFragmentAdapter;
 import com.dap.meau.Helper.DatabaseFirebase.PetDatabaseHelper;
@@ -30,6 +31,7 @@ public class MainFragment extends Fragment {
     private MainFragmentAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<PetModel> mList;
+    private TextView mMessageError;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -48,6 +50,7 @@ public class MainFragment extends Fragment {
         ((MainActivity) getActivity()).setTitleToolbar(R.string.adopt);
 
         mList = new ArrayList<>();
+        mMessageError = getView().findViewById(R.id.main_fragment_error_message);
 
         // Cria o RecyclerView
         recyclerView = getView().findViewById(R.id.main_fragment_recycler_view);
@@ -79,7 +82,15 @@ public class MainFragment extends Fragment {
 
                     if (!uid.matches(uuid) && petModel.isAvailable()) mList.add(petModel);
                 }
-                mAdapter.setList(mList);
+                if (mList.size() > 0) {
+                    mMessageError.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.VISIBLE);
+                    mAdapter.setList(mList);
+                }
+                else {
+                    mMessageError.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.GONE);
+                }
             }
 
             @Override

@@ -129,5 +129,6 @@
     <string name="perfil_animal_tornar_indisponível">Tornar indisponível</string>
     <string name="perfil_animal_ver_interessados">Ver interessados</string>
     <string name="txt_crop_image">Cortar Imagem</string>
+    <string name="message_error_void_list">Erro!\nNão há nada para mostrar.</string>
 
 </resources>
