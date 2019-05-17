@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MyPetsFragment">
 
+    <TextView
+        android:id="@+id/main_fragment_error_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/message_error_void_list"
+        android:textAlignment="center"
+        android:visibility="gone" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_pets_fragment_recycler_view"
         android:layout_width="match_parent"

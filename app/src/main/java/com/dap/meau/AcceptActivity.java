@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.dap.meau.Adapter.AcceptActivityAdapter;
 import com.dap.meau.Adapter.MyPetsFragmentAdapter;
@@ -21,6 +23,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class AcceptActivity extends AppCompatActivity {
@@ -30,6 +34,7 @@ public class AcceptActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<UserModel> mList;
     private ArrayList<String> mUsers;
+    private TextView mErrorMessage;
     PetModel mPetModel;
 
     @Override
@@ -39,6 +44,8 @@ public class AcceptActivity extends AppCompatActivity {
 
         mList = new ArrayList<>();
         mUsers = new ArrayList<>();
+
+        mErrorMessage = findViewById(R.id.accept_activity_message_error);
 
         // Suporte para ActionBar
         Toolbar mToolbar = findViewById(R.id.toolbar);
@@ -60,11 +67,22 @@ public class AcceptActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         mAdapter = new AcceptActivityAdapter(this, mPetModel);
         recyclerView.setAdapter(mAdapter);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         InterestDatabaseHelper.getAllUsersInterest(mPetModel.getUid(), new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() == null) return;
+                if (dataSnapshot.getValue() == null) {
+                    mErrorMessage.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.GONE);
+                    return;
+                }
+
+                mErrorMessage.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.VISIBLE);
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     PetUserInterestModel petUserInterestModel = snapshot.getValue(PetUserInterestModel.class);
@@ -82,7 +100,8 @@ public class AcceptActivity extends AppCompatActivity {
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                                mErrorMessage.setVisibility(View.VISIBLE);
+                                recyclerView.setVisibility(View.GONE);
                             }
                         });
                     }
@@ -91,7 +110,8 @@ public class AcceptActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                mErrorMessage.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
             }
         });
     }
