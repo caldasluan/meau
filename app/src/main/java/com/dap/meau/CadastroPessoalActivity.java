@@ -80,7 +80,7 @@ public class CadastroPessoalActivity extends AppCompatActivity {
             userModel = (UserModel) bundle.getSerializable(UserModel.class.getName());
 
             txtEmail.setText(userModel.getEmail());
-            Glide.with(this).load(uriUser).into(photoUser);
+            Glide.with(this).load(userModel.getImageUrl()).into(photoUser);
             photoUser.setVisibility(View.VISIBLE);
             btImage.setVisibility(View.GONE);
         } else {
